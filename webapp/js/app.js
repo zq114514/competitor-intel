@@ -498,7 +498,7 @@ function renderCars() {
       return true;
     });
 
-  // 板块全部7个，选中板块后展开该板块全部维度（含无覆盖维度）
+  // 特性维度大组7个，选中后展开该组全部维度（含无覆盖维度）
   const allGroups = DOMAIN_GROUPS;
   const allDims = state.dimGroupFilter !== 'all'
     ? DOMAINS.filter(d => d.group === state.dimGroupFilter)
@@ -517,14 +517,14 @@ function renderCars() {
         ${segs.map(s => `<span class="chip${state.segFilter === s ? ' on' : ''}" onclick="setSegFilter('${s}')">${s}</span>`).join('')}
       </div>
       <div class="filter-row">
-        <span class="filter-label">板块</span>
+        <span class="filter-label">特性维度</span>
         <span class="chip${state.dimGroupFilter === 'all' ? ' on' : ''}" onclick="setDimGroupFilter('all')">全部</span>
-        ${allGroups.map(g => `<span class="chip${state.dimGroupFilter === g.key ? ' on' : ''}"${state.dimGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : ''} onclick="setDimGroupFilter('${g.key}')">${g.short} ${g.name}</span>`).join('')}
+        ${allGroups.map(g => `<span class="chip${state.dimGroupFilter === g.key ? ' on' : ''}"${state.dimGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : ''} onclick="setDimGroupFilter('${g.key}')">${g.name}</span>`).join('')}
       </div>
       ${allDims.length ? `
       <div class="filter-row">
         <span class="filter-label">维度</span>
-        <span class="chip${state.dimFilter === '全部' ? ' on' : ''}" onclick="setDimFilter('全部')">该板块全部</span>
+        <span class="chip${state.dimFilter === '全部' ? ' on' : ''}" onclick="setDimFilter('全部')">该组全部</span>
         ${allDims.map(d => {
           const hasAny = OC.some(c => c.dims && c.dims.includes(d.key));
           const g = DOMAIN_GROUPS.find(gr => gr.key === d.group);
@@ -591,24 +591,24 @@ function renderTech() {
     }
     return true;
   }).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-  // 板块chip：7个板块全部显示；选中板块下所有26个维度也全部显示
+  // 特性维度chip：7大组全部显示；选中后下所有26个维度也全部显示
   const allGroups = DOMAIN_GROUPS;
   const allDims = state.techGroupFilter !== 'all'
     ? DOMAINS.filter(d => d.group === state.techGroupFilter)
     : [];
   $app.innerHTML = `
     <h1 class="page-title">零部件新技术动态</h1>
-    <p class="page-sub">${REPORT_MONTH} · 按26个功/性能维度归档（7大板块）· 无标志性发布的维度未列示</p>
+    <p class="page-sub">${REPORT_MONTH} · 按26个功/性能维度归档（7大特性维度组）· 无标志性发布的维度未列示</p>
     <div class="filters">
       <div class="filter-row">
-        <span class="filter-label">板块</span>
+        <span class="filter-label">特性维度</span>
         <span class="chip${state.techGroupFilter === 'all' ? ' on' : ''}" onclick="setTechGroupFilter('all')">全部</span>
-        ${allGroups.map(g => `<span class="chip${state.techGroupFilter === g.key ? ' on' : ''}"${state.techGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : ''} onclick="setTechGroupFilter('${g.key}')">${g.short} ${g.name}</span>`).join('')}
+        ${allGroups.map(g => `<span class="chip${state.techGroupFilter === g.key ? ' on' : ''}"${state.techGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : ''} onclick="setTechGroupFilter('${g.key}')">${g.name}</span>`).join('')}
       </div>
       ${allDims.length ? `
       <div class="filter-row">
         <span class="filter-label">维度</span>
-        <span class="chip${state.techFilter === 'all' ? ' on' : ''}" onclick="setTechFilter('all')">该板块全部</span>
+        <span class="chip${state.techFilter === 'all' ? ' on' : ''}" onclick="setTechFilter('all')">该组全部</span>
         ${allDims.map(d => {
           const hasAny = OT.some(t => t.domain === d.key);
           return `<span class="chip${state.techFilter === d.key ? ' on' : ''}"${hasAny ? '' : ' style="opacity:.55"'}" onclick="setTechFilter('${d.key}')">${d.name}${hasAny ? '' : '（无）'}</span>`;
