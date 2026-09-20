@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞品技术情报站 · 2026年9月</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <span class="logo-mark">🚗</span>
+        <div class="logo-text">
+          <strong>竞品技术情报站</strong>
+          <small>Competitor Intelligence</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#/overview" class="nav-link active" data-route="overview">总览</a>
+        <a href="#/cars" class="nav-link" data-route="cars">新车型</a>
+        <a href="#/tech" class="nav-link" data-route="tech">新技术</a>
+        <a href="#/compare" class="nav-link" data-route="compare">竞品对比</a>
+      </nav>
+      <div class="month-picker" id="monthPicker">
+        <button class="mp-btn" onclick="toggleMonthPanel(event)">
+          <span class="mp-icon">📅</span>
+          <span id="mpLabel">2026-09</span>
+          <span class="mp-caret">▾</span>
+        </button>
+        <div class="mp-panel" id="mpPanel" style="display:none">
+          <div class="mp-panel-title">往期月报池</div>
+          <div class="mp-list" id="mpList"></div>
+          <div class="mp-panel-foot">💡 每月替换 data.js 后自动出现在这里</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="edit-toggle" id="editToggle" onclick="toggleEdit()">✏️ 编辑模式</button>
+        <button class="export-btn" id="exportBtn" onclick="exportDataJS()" style="display:none">📦 导出 data.js</button>
+      </div>
+      <div class="month-badge" id="monthBadge"></div>
+    </div>
+  </header>
+
+  <!-- 页面容器 -->
+  <main id="app"></main>
+
+  <!-- 详情弹窗 -->
+  <div class="modal-mask hidden" id="modalMask">
+    <div class="modal" id="modalBox"></div>
+  </div>
+
+  <!-- 页脚：数据口径声明 -->
+  <footer class="footer">
+    <p>数据口径：<b class="b-cert">认证</b>=工信部公告/免征目录　<b class="b-official">官方</b>=企业官方发布　<b class="b-media">媒体</b>=垂直媒体（已核对）　<b class="b-sample">示例</b>=待校准数据</p>
+    <p>车型图片来源：汽车之家官方实拍图库（2026-09 AI搜集），正式落地请替换为有授权的官方图 ｜ 编制：AI辅助月度技术情报流水线</p>
+  </footer>
+
+  <script src="js/data.js?v=20260918i"></script>
+  <script src="js/app.js?v=20260918i"></script>
+</body>
+</html>
