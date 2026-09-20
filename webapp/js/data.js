@@ -52,15 +52,15 @@ const DOMAINS = [
   { key: 'emissions',    name: '挥发和排放', group: 'se7' },
   { key: 'recycle',      name: '回收再循环', group: 'se7' },
 ];
-// 板块定义
+// 特性维度（7大组，组内若干26维度）
 const DOMAIN_GROUPS = [
-  { key: 'se1', name: '新车吸引力', short: 'SE1', color: '#e8b830' },
-  { key: 'se2', name: '使用舒适',   short: 'SE2', color: '#35d0e0' },
-  { key: 'se3', name: '动态行驶',   short: 'SE3', color: '#ff6b4a' },
-  { key: 'se4', name: '整车安全',   short: 'SE4', color: '#e84545' },
-  { key: 'se5', name: '节能经济',   short: 'SE5', color: '#52c878' },
-  { key: 'se6', name: '智舱智驾',   short: 'SE6', color: '#a878f0' },
-  { key: 'se7', name: '适应环境',   short: 'SE7', color: '#c8a878' },
+  { key: 'se1', name: '新车吸引力', color: '#e8b830' },
+  { key: 'se2', name: '使用舒适',   color: '#35d0e0' },
+  { key: 'se3', name: '动态行驶',   color: '#ff6b4a' },
+  { key: 'se4', name: '整车安全',   color: '#e84545' },
+  { key: 'se5', name: '节能经济',   color: '#52c878' },
+  { key: 'se6', name: '智舱智驾',   color: '#a878f0' },
+  { key: 'se7', name: '适应环境',   color: '#c8a878' },
 ];
 
 // 口径徽章样式映射
@@ -411,7 +411,7 @@ var CARS = [
     src: '理想汽车官网上市新闻（USP）', srcUrl: 'https://www.lixiang.com/news/186.html',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/6939.html',
     featured: true, featuredNote: '热销车系改款：理想旗舰MPV换代',
-    dims: ['power', 'crash', 'charging', 'handling', 'adas', 'interaction', 'seat'],
+    dims: ['power', 'charging', 'handling', 'adas', 'interaction', 'seat', 'styling', 'perceived'],
     specs: {
       size: '5355×1965×1850mm / 轴距3300mm',
       power: '双电机四驱\n（1）前轴 华为感应异步电机 155kW / 232N·m\n（2）后轴 理想永磁同步电机 258kW / 425N·m\n综合 413kW(562Ps) / 657N·m',
@@ -431,7 +431,7 @@ var CARS = [
     src: '腾势官网产品页（USP）', srcUrl: 'https://www.denza.com/cn/product-detail/n8l.html',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8159.html',
     featured: false, featuredNote: '现有N8L车系纯电动力新增版本，非全新车型',
-    dims: ['power', 'crash', 'charging', 'adas', 'interaction', 'seat'],
+    dims: ['seat', 'nvh', 'hmi', 'adas', 'interaction'],
     specs: {
       size: '5200×1999×1820mm / 轴距3075mm',
       power: '双电机四驱\n综合 370kW(503Ps) / 500N·m',
@@ -451,7 +451,7 @@ var CARS = [
     src: '蔚来官网产品页（USP）', srcUrl: 'https://www.nio.cn/ec6',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/5569.html',
     featured: true, featuredNote: '热销车系改款：蔚来经典轿跑SUV年度改款',
-    dims: ['power', 'crash', 'charging', 'thermal', 'adas', 'interaction', 'hmi'],
+    dims: ['power', 'charging', 'styling', 'adas'],
     specs: {
       size: '4849×1995×1697mm / 轴距2915mm',
       power: '双电机四驱\n综合 360kW(490Ps) / 700N·m',
@@ -471,7 +471,7 @@ var CARS = [
     src: '汽车之家车家号上市通稿（USP）', srcUrl: 'http://chejiahao.autohome.com.cn/info/26462035',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8245.html',
     featured: true, featuredNote: '热销车系改款：连续6个月销量破万',
-    dims: ['power', 'charging', 'adas', 'interaction'],
+    dims: ['energy', 'adas'],
     specs: {
       size: '4685×1854×1660mm（激光雷达版高1690mm）/ 轴距2775mm',
       power: '（1）纯电版：前驱单电机 165kW / 240N·m\n（2）增程版：1.5L增程器 + 华为DriveONE电驱系统',
@@ -491,7 +491,7 @@ var CARS = [
     src: '吉利银河官网产品页（USP）', srcUrl: 'https://www.galaxy-geely.com/YHTT',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8658.html',
     featured: true, featuredNote: '全新车型：吉利银河首款C级纯电运动轿车',
-    dims: ['power', 'charging', 'handling', 'thermal', 'adas', 'interaction'],
+    dims: ['charging', 'handling', 'power', 'styling'],
     specs: {
       size: '4999×1919×1479mm / 轴距2920mm',
       power: '（1）后驱版：245kW / 320N·m\n（2）Ultra四驱：425kW(575Ps) / 597N·m',
@@ -511,7 +511,7 @@ var CARS = [
     src: '中国一汽官网2027款上市新闻（USP）', srcUrl: 'https://www.faw.com.cn/fawcn/373694/373706/5963915/index.html',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/7978.html',
     featured: false, featuredNote: '改款但基础车月销仅约41辆，未达热销标准',
-    dims: ['power', 'charging', 'crash', 'adas', 'interaction'],
+    dims: ['energy', 'interaction'],
     specs: {
       size: '4745×1880×1680mm / 轴距2772mm',
       power: '前驱 PHEV\n1.5T 110kW/225N·m + 电机 168kW/340N·m',
@@ -531,7 +531,7 @@ var CARS = [
     src: '小米汽车官网产品页（USP）', srcUrl: 'https://www.xiaomiev.com/skynomad/n70',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8731.html',
     featured: true, featuredNote: '全新车型：小米澎程品牌第二款车型',
-    dims: ['power', 'charging', 'crash', 'handling', 'adas', 'interaction', 'waterproof'],
+    dims: ['offroad', 'waterproof', 'adas'],
     specs: {
       size: '4960×1998×1785mm（Max版高1765）/ 轴距2950mm',
       power: '（1）Pro增程 单电机后驱 210kW / 330N·m\n（2）Max增程 双电机四驱 310kW / 540N·m\n（全系搭载1.5T增程器）',
@@ -551,7 +551,7 @@ var CARS = [
     src: '吉利银河官网预售页（USP）', srcUrl: 'https://www.galaxy-geely.com/ZJ700',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8131.html',
     featured: true, featuredNote: '全新车型：吉利银河首款硬派越野SUV',
-    dims: ['power', 'charging', 'crash', 'handling', 'adas', 'interaction'],
+    dims: ['power', 'charging', 'handling', 'offroad', 'interaction', 'adas'],
     specs: {
       size: '5085×1999×1895/1912/1925mm / 轴距2900mm（接近角30°/离去角31°/离地233mm）',
       power: '雷神EM-T PHEV（三套动力）\n（1）1.5T两驱：CLTC纯电305km\n（2）1.5T三电机四驱：CLTC纯电280km\n（3）2.0T三电机四驱：CLTC纯电270km，综合830kW(1129Ps)',
@@ -571,7 +571,7 @@ var CARS = [
     src: '极狐官网T7产品页（USP）', srcUrl: 'https://www.arcfox.com.cn/T7/index.html',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8702.html',
     featured: true, featuredNote: '全新车型：极狐全新中大型SUV（非阿尔法T改款）',
-    dims: ['power', 'charging', 'handling', 'adas', 'interaction'],
+    dims: ['charging', 'adas', 'interaction', 'perceived', 'energy'],
     specs: {
       size: '5020×1996×1685mm / 轴距3040mm',
       power: '（1）纯电版：后驱单电机 227kW / 334N·m\n（2）增程版：1.5L增程器(77kW) + 后驱电机 200kW / 334N·m',
@@ -591,7 +591,7 @@ var CARS = [
     src: '广汽传祺官网越7产品页（USP + 预售信息）', srcUrl: 'https://www.gacmotor.com/yue7/',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8627.html',
     featured: true, featuredNote: '全新车型：广汽传祺首款硬派方盒子SUV',
-    dims: ['power', 'charging', 'crash', 'handling', 'adas', 'interaction'],
+    dims: ['offroad', 'power', 'handling', 'adas', 'interaction'],
     specs: {
       size: '标准4999×2004×1933mm / 宽体5045×2004×1916mm / 轴距2900mm',
       power: 'PHEV 1.5T插混\n（1）两驱版：综合功率200kW\n（2）四驱版：综合功率400kW / 轮端扭矩10000N·m',
