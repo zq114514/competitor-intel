@@ -24,14 +24,22 @@ $projDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # ---------- collect files ----------
 $excludeDirParts = @('\.venv\', '\deploy_tmp\', '\__pycache__\')
+$webDir = Join-Path $projDir 'webapp'
 $items = @()
 Get-ChildItem $projDir -Recurse -File | ForEach-Object {
   $full = $_.FullName
   if ($_.Extension -eq '.lnk') { return }
+  if ($_.Extension -eq '.log') { return }
   if ($_.Name -like 'bitable-*.json') { return }
   foreach ($d in $excludeDirParts) { if ($full -like ('*' + $d + '*')) { return } }
   $rel = $full.Substring($projDir.Length + 1).Replace('\','/')
   $items += [pscustomobject]@{ Local = $full; Rel = $rel; Bytes = $null }
+  # GitHub/Gitee legacy Pages serve from repo ROOT: mirror every webapp file
+  # to the repo root as well (webapp/index.html -> index.html, etc.)
+  if ($full.StartsWith($webDir, [StringComparison]::OrdinalIgnoreCase)) {
+    $rootRel = $full.Substring($webDir.Length + 1).Replace('\','/')
+    $items += [pscustomobject]@{ Local = $full; Rel = $rootRel; Bytes = $null }
+  }
 }
 # virtual empty .nojekyll (GitHub Pages only; skipped for Gitee inside the loop)
 $items += [pscustomobject]@{ Local = $null; Rel = '.nojekyll'; Bytes = $null }
