@@ -79,14 +79,19 @@ function Sync-One($plat, $token, $owner, $repo, $branch, $items) {
   }
 
   # --- fetch the whole remote tree ONCE: path -> blob sha ---
+  # WebClient with UTF-8: PS5.1 Invoke-RestMethod mis-decodes Gitee's Chinese
+  # paths (response without charset) as Latin1, which would corrupt tree keys.
+  $wc = New-Object System.Net.WebClient
+  $wc.Encoding = [System.Text.Encoding]::UTF8
+  foreach ($k in $headers.Keys) { $wc.Headers.Add($k, $headers[$k]) }
   $tree = @{}
   try {
     if ($plat -eq 'github') {
-      $tr = Invoke-RestMethod -Uri ($apiRepo + '/git/trees/' + $branch + '?recursive=1') -Headers $headers -TimeoutSec 30 -ErrorAction Stop
+      $tr = ($wc.DownloadString($apiRepo + '/git/trees/' + $branch + '?recursive=1') | ConvertFrom-Json)
     } else {
-      $br = Invoke-RestMethod -Uri ($apiRepo + '/branches/' + $branch) -Headers $headers -TimeoutSec 30 -ErrorAction Stop
-      $treeSha = $br.commit.commit.tree.sha
-      $tr = Invoke-RestMethod -Uri ($apiRepo + '/git/trees/' + $treeSha + '?recursive=1') -Headers $headers -TimeoutSec 30 -ErrorAction Stop
+      $jb = $wc.DownloadString($apiRepo + '/branches/' + $branch) | ConvertFrom-Json
+      $treeSha = $jb.commit.commit.tree.sha
+      $tr = ($wc.DownloadString($apiRepo + '/git/trees/' + $treeSha + '?recursive=1') | ConvertFrom-Json)
     }
     foreach ($n in $tr.tree) { if ($n.type -eq 'blob') { $tree[$n.path] = $n.sha } }
     Write-Host ("  remote tree loaded: " + $tree.Count + " files") -ForegroundColor DarkGray
