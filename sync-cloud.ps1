@@ -70,10 +70,30 @@ function Sync-One($plat, $token, $owner, $repo, $branch, $items) {
 
   if ($plat -eq 'github') {
     $apiBase = 'https://api.github.com/repos/' + $owner + '/' + $repo + '/contents/'
+    $apiRepo = 'https://api.github.com/repos/' + $owner + '/' + $repo
     $headers = @{ Authorization = ('Bearer ' + $token); Accept = 'application/vnd.github+json'; 'User-Agent' = 'sync-cloud' }
   } else {
     $apiBase = 'https://gitee.com/api/v5/repos/' + $owner + '/' + $repo + '/contents/'
+    $apiRepo = 'https://gitee.com/api/v5/repos/' + $owner + '/' + $repo
     $headers = @{ Authorization = ('token ' + $token); Accept = 'application/json'; 'User-Agent' = 'sync-cloud' }
+  }
+
+  # --- fetch the whole remote tree ONCE: path -> blob sha ---
+  $tree = @{}
+  try {
+    if ($plat -eq 'github') {
+      $tr = Invoke-RestMethod -Uri ($apiRepo + '/git/trees/' + $branch + '?recursive=1') -Headers $headers -TimeoutSec 30 -ErrorAction Stop
+    } else {
+      $br = Invoke-RestMethod -Uri ($apiRepo + '/branches/' + $branch) -Headers $headers -TimeoutSec 30 -ErrorAction Stop
+      $treeSha = $br.commit.commit.tree.sha
+      $tr = Invoke-RestMethod -Uri ($apiRepo + '/git/trees/' + $treeSha + '?recursive=1') -Headers $headers -TimeoutSec 30 -ErrorAction Stop
+    }
+    foreach ($n in $tr.tree) { if ($n.type -eq 'blob') { $tree[$n.path] = $n.sha } }
+    Write-Host ("  remote tree loaded: " + $tree.Count + " files") -ForegroundColor DarkGray
+  } catch {
+    Write-Host ("  [FATAL] cannot load remote tree: " + $_.Exception.Message) -ForegroundColor Red
+    Write-Host "  (check token / network; nothing was changed)" -ForegroundColor Red
+    return
   }
 
   $nSame=0; $nNew=0; $nUpd=0; $nSkip=0; $nFail=0; $fails=@()
@@ -85,12 +105,7 @@ function Sync-One($plat, $token, $owner, $repo, $branch, $items) {
     $b64 = [Convert]::ToBase64String($bytes)
     $enc = [uri]::EscapeDataString($it.Rel)
     $url = $apiBase + $enc
-
-    $remoteSha = $null
-    try {
-      $exist = Invoke-RestMethod -Uri ($url + '?ref=' + $branch) -Headers $headers -TimeoutSec 20 -ErrorAction Stop
-      $remoteSha = $exist.sha
-    } catch { $remoteSha = $null }
+    $remoteSha = $tree[$it.Rel]
 
     if ($remoteSha -and $remoteSha -eq $localSha) { $nSame++; continue }
 
