@@ -1,0 +1,250 @@
+{
+  "month": "2026-09",
+  "collected_at": "2026-09-16T09:27:15",
+  "summary": {
+    "sources_total": 34,
+    "ok": 24,
+    "empty": 9,
+    "failed": 1,
+    "items_kept": 246
+  },
+  "per_source": [
+    {
+      "source_id": "ciasi",
+      "name": "中保研汽车技术研究院-测试结果",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 1
+    },
+    {
+      "source_id": "nio",
+      "name": "蔚来-官方新闻",
+      "status": "failed",
+      "error": "HTTPError: 567 Server Error: Unknown Status for url: https://www.nio.cn/news"
+    },
+    {
+      "source_id": "xiaomiev",
+      "name": "小米汽车-官网",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "miit_announcement",
+      "name": "工信部-文件发布（含车辆产品公告/免征购置税目录）",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "leapmotor",
+      "name": "零跑汽车-官方新闻",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "lixiang",
+      "name": "理想汽车-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 14
+    },
+    {
+      "source_id": "byd",
+      "name": "比亚迪-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "xiaopeng",
+      "name": "小鹏汽车-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "chery",
+      "name": "奇瑞集团-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "changan",
+      "name": "长安汽车-官方新闻",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "gwm",
+      "name": "长城汽车-官方新闻",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "geely",
+      "name": "吉利控股-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 2
+    },
+    {
+      "source_id": "tesla_cn",
+      "name": "特斯拉中国-官网",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "benz_cn",
+      "name": "梅赛德斯-奔驰中国-官方新闻",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "audi_cn",
+      "name": "奥迪中国-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "toyota_cn",
+      "name": "丰田中国-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "catl",
+      "name": "宁德时代-官方新闻",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "calb",
+      "name": "中创新航-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "svolt",
+      "name": "蜂巢能源-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "huawei",
+      "name": "华为-官方新闻（含智能汽车解决方案）",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "bosch_cn",
+      "name": "博世（中国）-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "catarc",
+      "name": "中国汽车技术研究中心-官方发布",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 1
+    },
+    {
+      "source_id": "cncap",
+      "name": "C-NCAP管理中心-测试评价结果",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 1
+    },
+    {
+      "source_id": "eve",
+      "name": "亿纬锂能-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "gotion",
+      "name": "国轩高科-官方新闻",
+      "status": "empty",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "autohome_news",
+      "name": "汽车之家-新闻频道",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 3
+    },
+    {
+      "source_id": "sae_china",
+      "name": "中国汽车工程学会-官方发布",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 13
+    },
+    {
+      "source_id": "continental_cn",
+      "name": "大陆集团-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "gasgoo",
+      "name": "盖世汽车（零部件/供应链技术）",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 1
+    },
+    {
+      "source_id": "caam",
+      "name": "中国汽车工业协会-官方发布",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 1
+    },
+    {
+      "source_id": "sina_auto",
+      "name": "新浪汽车-综合新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 5
+    },
+    {
+      "source_id": "autohome_newcar",
+      "name": "汽车之家-新车频道",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "d1ev",
+      "name": "第一电动网（新能源/三电技术）",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 0
+    },
+    {
+      "source_id": "bmw_press",
+      "name": "宝马集团-官方新闻",
+      "status": "ok",
+      "error": null,
+      "dropped_out_of_window": 1
+    }
+  ]
+}
