@@ -316,6 +316,45 @@ const isComp = c => (_OCM || COMP_CARS).includes(c);
 const domainName = key => (DOMAINS.find(d => d.key === key) || {}).name || key;
 const domainColor = key => { const d = DOMAINS.find(dm => dm.key === key); if (!d) return '#35d0e0'; const g = DOMAIN_GROUPS.find(g => g.key === d.group); return g ? g.color : '#35d0e0'; };
 const domainBadgeStyle = key => { const c = domainColor(key); return `color:${c};background:${c}1a;border:1px solid ${c}59`; };
+
+// ---------- TECHS 维度关联：唯一入口（准则第七章） ----------
+// 新结构 domains:[{key,rel:'strong'|'weak'}]；往期 data 文件只有 domain 单值 → 归一化为单强关联
+const techDomains = t => {
+  if (Array.isArray(t.domains) && t.domains.length) return t.domains;
+  return t.domain ? [{ key: t.domain, rel: 'strong' }] : [];
+};
+const techMainDim = t => techDomains(t)[0] || null;
+const techHasDim = (t, key) => techDomains(t).some(d => d.key === key);
+// 色点组：强关联实色、弱关联半透明描边
+const techDotsHTML = t => techDomains(t).map(d => {
+  const c = domainColor(d.key);
+  const name = domainName(d.key) + (d.rel === 'weak' ? '（弱关联）' : '（强关联）');
+  return d.rel === 'weak'
+    ? `<span class="td-dot weak" title="${name}" style="border-color:${c};background:${c}22"></span>`
+    : `<span class="td-dot" title="${name}" style="background:${c}"></span>`;
+}).join('');
+// 徽章组：强关联实色底、弱关联虚框
+const techBadgesHTML = t => techDomains(t).map(d => {
+  const c = domainColor(d.key);
+  const weak = d.rel === 'weak';
+  const style = weak
+    ? `color:${c};background:transparent;border:1px dashed ${c}99`
+    : `color:${c};background:${c}1a;border:1px solid ${c}59`;
+  return `<span class="badge${weak ? ' weak-badge' : ''}" style="${style}" title="${weak ? '弱关联' : '强关联'}">${domainName(d.key)}${weak ? '·弱' : ''}</span>`;
+}).join('');
+// 总览速览行：逐维度「色点+名称」，强关联实色、弱关联半透明带"弱"标
+const techBriefCatsHTML = t => techDomains(t).map(d => {
+  const c = domainColor(d.key);
+  const weak = d.rel === 'weak';
+  const dot = weak
+    ? `<span class="td-dot weak" style="border-color:${c};background:${c}22"></span>`
+    : `<span class="td-dot" style="background:${c}"></span>`;
+  return `<span class="tb-cat-item${weak ? ' weak' : ''}" style="color:${c}" title="${domainName(d.key)}（${weak ? '弱关联' : '强关联'}）">${dot}${domainName(d.key)}${weak ? '<i>弱</i>' : ''}</span>`;
+}).join('');
+// 详情页维度文字（强/弱标注）
+const techDimNames = t => techDomains(t).map(d => domainName(d.key) + (d.rel === 'weak' ? '（弱）' : '')).join('、');
+// SIGNALS 类型标签
+const SIG_TYPE_LABEL = { milestone: '里程碑', report: '报告披露', policy: '政策' };
 const caliberBadge = c => { const b = CALIBER[c.caliber] || CALIBER.excel; return `<span class="badge ${b.cls}">${b.label}</span>`; };
 const impactBadge = i => `<span class="badge b-impact-${i}">影响·${i === 'high' ? '高' : i === 'medium' ? '中' : '低'}</span>`;
 const compPrice = c => c.specs['售价 万'] ? c.specs['售价 万'] + ' 万' : '—';
@@ -333,6 +372,16 @@ function escAttr(s) {
   return String(s == null ? '' : s)
     .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+// 渲染来源链接：srcUrl 可以是单个字符串或数组，数组则渲染多个链接
+function renderSrcUrls(urls, label) {
+  if (!urls) return label;
+  if (Array.isArray(urls)) {
+    return urls.map(function(u) {
+      return '<a href="' + escAttr(u) + '" target="_blank" rel="noopener">' + label + ' ↗</a>';
+    }).join(' ｜ ');
+  }
+  return '<a href="' + escAttr(urls) + '" target="_blank" rel="noopener">' + label + ' ↗</a>';
 }
 // 图片渲染：纯字符串拼接（不用模板字符串）+ HTML转义，杜绝引号嵌套解析错误
 // 错误降级：通过 document 级别的 error 事件委托处理，不写内联 onerror
@@ -382,6 +431,7 @@ function render() {
   window._OC = applyOverrides(CARS);
   window._OT = applyOverrides(TECHS);
   window._OCM = applyOverrides(COMP_CARS);
+  window._SG = (typeof SIGNALS !== 'undefined') ? applyOverrides(SIGNALS) : [];
   window._TR = TRENDS.map((t, i) => applyOverrides(Object.assign({ id: 'trend_' + i }, t)));
   if (state.route === 'overview') renderOverview();
   else if (state.route === 'cars') renderCars();
@@ -408,7 +458,7 @@ function renderOverview() {
       <div class="stat"><div class="num">${OT.length}</div><div class="lbl">${editable('零部件新技术动态', 'overview', 'stat2_lbl')}</div></div>
     </div>
 
-    <div class="section-title">当月新车</div>
+    <div class="section-title">当月新竞品</div>
     <div class="newcar-grid">
       ${OC.map(c => `
         <div class="newcar-cell" onclick="onCardClick(event,'car','${c.id}')">
@@ -456,7 +506,7 @@ function renderOverview() {
           <span class="tb-idx">${i + 1}</span>
           <span class="tb-date">${editable(d, t.id, 'date')}</span>
           <span class="tb-title">${editable(t.title, t.id, 'title')}</span>
-          <span class="tb-cat"><span class="tb-dot" style="background:${domainColor(t.domain)}"></span>${domainName(t.domain)}</span>
+          <span class="tb-cat">${techBriefCatsHTML(t)}</span>
         </div>`;
       }).join('')}
     </div>
@@ -465,6 +515,22 @@ function renderOverview() {
     <div class="trends">
       ${(_TR || TRENDS).map((t, i) => `<div class="trend${i === 0 ? ' wide' : ''}"><h4>${editable(t.t, 'trend_' + i, 't')}</h4><p>${editable(t.d, 'trend_' + i, 'd', true)}</p></div>`).join('')}
     </div>
+    ${(_SG || []).length ? `
+    <details class="signals-fold">
+      <summary>📡 本月产业信号（${_SG.length}）—— 里程碑/报告类事件，非新技术，仅供趋势复核</summary>
+      <ul class="signals-list">
+        ${[..._SG].sort((a, b) => (a.date || '').localeCompare(b.date || '')).map(s => `
+          <li>
+            <span class="sig-date">${(s.date || '').replace('-', '.')}</span>
+            <span class="sig-type sig-${s.type}">${SIG_TYPE_LABEL[s.type] || s.type}</span>
+            <div class="sig-body">
+              <div class="sig-main"><b>${editable(s.company, s.id, 'company')}</b> · ${editable(s.event, s.id, 'event')}</div>
+              <div class="sig-detail">${editable(s.detail, s.id, 'detail', true)}</div>
+              <a class="sig-src" href="${s.srcUrl}" target="_blank" rel="noopener">${s.src || '来源 ↗'}</a>
+            </div>
+          </li>`).join('')}
+      </ul>
+    </details>` : ''}
   `;
   startCarousel(featured.length);
 }
@@ -573,7 +639,7 @@ function techItemHTML(t) {
         <h4>${editable(t.title, t.id, 'title')}</h4>
         <div class="point">${editable(t.point, t.id, 'point', true)}</div>
         <div class="foot">
-          <span class="badge" style="${domainBadgeStyle(t.domain)}">${domainName(t.domain)}</span>
+          <span class="tech-badges">${techBadgesHTML(t)}</span>
           ${caliberBadge(t.caliber)}${impactBadge(t.impact)}
           <span class="more-hint">${state.editMode ? '点击文字直接编辑，或点右上角「编辑详情」' : '点击查看详情 ↗'}</span>
         </div>
@@ -584,10 +650,12 @@ function renderTech() {
   const OT = _OT || TECHS;
   // 按日期升序排序（与总览页"最新技术动态"一致）
   const list = OT.filter(t => {
-    if (state.techFilter !== 'all') return t.domain === state.techFilter;
+    if (state.techFilter !== 'all') return techHasDim(t, state.techFilter);
     if (state.techGroupFilter !== 'all') {
-      const d = DOMAINS.find(dm => dm.key === t.domain);
-      return d && d.group === state.techGroupFilter;
+      return techDomains(t).some(d => {
+        const dm = DOMAINS.find(x => x.key === d.key);
+        return dm && dm.group === state.techGroupFilter;
+      });
     }
     return true;
   }).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
@@ -610,7 +678,7 @@ function renderTech() {
         <span class="filter-label">维度</span>
         <span class="chip${state.techFilter === 'all' ? ' on' : ''}" onclick="setTechFilter('all')">该组全部</span>
         ${allDims.map(d => {
-          const hasAny = OT.some(t => t.domain === d.key);
+          const hasAny = OT.some(t => techHasDim(t, d.key));
           return `<span class="chip${state.techFilter === d.key ? ' on' : ''}"${hasAny ? '' : ' style="opacity:.55"'}" onclick="setTechFilter('${d.key}')">${d.name}${hasAny ? '' : '（无）'}</span>`;
         }).join('')}
       </div>` : ''}
@@ -728,6 +796,7 @@ function openCar(id) {
   const allCars = (_OC || CARS).concat(_OCM || COMP_CARS);
   const p = pal(allCars.indexOf(c) % PALETTES.length);
   const box = document.getElementById('modalBox');
+  box.classList.remove('modal-wide');
   let head, body;
 
   if (isComp(c)) {
@@ -768,7 +837,7 @@ function openCar(id) {
         <h2>${editable(c.name, c.id, 'name')}</h2>
         <div class="sub">${editable(c.brand, c.id, 'brand')} ｜ ${editable(c.seg, c.id, 'seg')} ｜ ${editable(c.power, c.id, 'power')} ｜ ${editable(c.launchDate, c.id, 'launchDate')} ｜ ${caliberBadge(c)}</div>
       </div>`;
-    body = `
+    body = c.dimPoints ? renderCarDimBody(c) : `
       <div class="body">
         <div class="spec-grid">
           ${specBlock('指导价', c.price, c.id, 'price')}
@@ -786,14 +855,104 @@ function openCar(id) {
         <p class="desc">${editable(c.desc, c.id, 'desc', true)}</p>
         <div class="usp-title">USP 卖点</div>
         <ul class="usp-list">${c.usp.map((u, i) => `<li>${editable(u, c.id, 'usp_' + i)}</li>`).join('')}</ul>
-        <div class="src-line">USP/描述来源：${c.srcUrl ? `<a href="${c.srcUrl}" target="_blank" rel="noopener">${editable(c.src || '—', c.id, 'src')} ↗</a>` : (editable(c.src || '—', c.id, 'src'))}</div>
+        <div class="src-line">USP/描述来源：${renderSrcUrls(c.srcUrl, editable(c.src || '—', c.id, 'src'))}</div>
         ${c.specsUrl ? `<div class="src-line">性能参数来源：<a href="${c.specsUrl}" target="_blank" rel="noopener">${c.specsSrc || '汽车之家参数配置页'} ↗</a></div>` : ''}
         <div class="src-line src-caliber">口径标注：${CALIBER[c.caliber].label}</div>
       </div>`;
   }
   box.innerHTML = head + body;
+  if (!isComp(c) && c.dimPoints) box.classList.add('modal-wide');
   document.getElementById('modalMask').classList.remove('hidden');
 }
+
+// 新车型详情：维度摘要卡片式布局（有 dimPoints 的车型使用）
+// 从某维度筛选进入时，该维度卡片置顶、高亮、默认展开
+function renderCarDimBody(c) {
+  const focusDim = (state.dimFilter && state.dimFilter !== '全部' && c.dims.includes(state.dimFilter)) ? state.dimFilter : null;
+  // 维度排序：聚焦维度第一，其余按 dims 原顺序
+  const ordered = focusDim ? [focusDim].concat(c.dims.filter(k => k !== focusDim)) : c.dims.slice();
+  const dimMeta = key => DOMAINS.find(d => d.key === key);
+
+  const cards = ordered.map(key => {
+    const meta = dimMeta(key);
+    const dp = c.dimPoints[key];
+    const color = domainColor(key);
+    const isFocus = key === focusDim;
+    // 有 dimPoints 文案走摘要卡片；暂缺文案的维度显示占位（数据未补的车型不会进此函数，这里仅防御）
+    if (!dp) {
+      return `<div class="dim-card dim-card-empty${isFocus ? ' hot' : ''}" style="--dimc:${color}">
+        <div class="dc-head" onclick="toggleDimCard(this)">
+          <span class="dc-name">${meta ? meta.name : key}</span>
+          <span class="dc-s dc-s-empty">该维度卖点摘要待补录</span>
+          <span class="dc-toggle">▸</span>
+        </div>
+      </div>`;
+    }
+    return `<div class="dim-card${isFocus ? ' hot' : ''}" style="--dimc:${color}">
+      <div class="dc-head" onclick="toggleDimCard(this)">
+        <span class="dc-name">${meta ? meta.name : key}${isFocus ? ' <span class="dc-focus-tag">当前筛选维度</span>' : ''}</span>
+        <span class="dc-s">${dp.s}</span>
+        <span class="dc-toggle">${isFocus ? '▾' : '▸'}</span>
+      </div>
+      <ul class="dc-details"${isFocus ? '' : ' style="display:none"'}>${(dp.d || []).map(t => `<li>${t}</li>`).join('')}</ul>
+    </div>`;
+  }).join('');
+
+  const ks = (label, val) => val ? `<div class="ks"><div class="k">${label}</div><div class="v">${val}</div></div>` : '';
+
+  return `
+  <div class="body dim-body">
+    <div class="key-specs">
+      ${ks('指导价', c.price)}
+      ${ks('续航/补能', c.range)}
+      ${ks('快充', c.specs ? c.specs.fastCharge : '')}
+      ${ks('智驾方案', c.adas)}
+    </div>
+
+    ${focusDim ? `<div class="dim-focus-tip" style="--dimc:${domainColor(focusDim)}">
+      🎯 当前按「${dimMeta(focusDim).name}」筛选 —— 首张卡片为该车在此维度的官方卖点
+    </div>` : ''}
+
+    <div class="dim-section-title">官方核心卖点 <span class="dim-count">${c.usp.length} 条 USP</span></div>
+    <ul class="usp-list usp-core">${c.usp.map((u, i) => `<li>${editable(u, c.id, 'usp_' + i)}</li>`).join('')}</ul>
+
+    <div class="dim-section-title">分维度卖点 <span class="dim-count">${c.dims.length} 个维度</span></div>
+    <div class="dim-grid">${cards}</div>
+
+    <details class="dim-fold">
+      <summary>车型概述</summary>
+      <p class="desc">${c.desc || '—'}</p>
+    </details>
+    <details class="dim-fold">
+      <summary>完整参数</summary>
+      <div class="spec-grid">
+        ${specBlock('指导价', c.price, c.id, 'price')}
+        ${specBlock('续航/补能', c.range, c.id, 'range')}
+        ${c.specs ? specBlock('快充时间', c.specs.fastCharge) : ''}
+        ${specBlock('智驾方案', c.adas, c.id, 'adas')}
+        ${specBlock('座舱亮点', c.cockpit, c.id, 'cockpit')}
+        ${c.specs ? specBlock('车身尺寸', c.specs.size) : ''}
+        ${c.specs ? specBlock('动力总成', c.specs.power) : ''}
+        ${c.specs ? specBlock('性能表现', (c.specs.accel || '') + (c.specs.topSpeed && c.specs.topSpeed !== '—' ? ' ｜ 最高' + c.specs.topSpeed : '')) : ''}
+        ${c.specs ? specBlock('整备/满载质量', c.specs.weight) : ''}
+        ${c.specs ? specBlock('悬架形式', c.specs.suspension) : ''}
+        ${c.specs ? specBlock('安全', c.specs.safety) : ''}
+      </div>
+    </details>
+
+    <div class="src-line">USP/描述来源：${renderSrcUrls(c.srcUrl, c.src || '—')}</div>
+    ${c.specsUrl ? `<div class="src-line">性能参数来源：<a href="${c.specsUrl}" target="_blank" rel="noopener">${c.specsSrc || '汽车之家参数配置页'} ↗</a></div>` : ''}
+    <div class="src-line src-caliber">口径标注：${CALIBER[c.caliber].label}</div>
+  </div>`;
+}
+window.toggleDimCard = function(headEl) {
+  const card = headEl.closest('.dim-card');
+  const details = card.querySelector('.dc-details');
+  const toggle = card.querySelector('.dc-toggle');
+  const open = details.style.display !== 'none';
+  if (open) { details.style.display = 'none'; toggle.textContent = '▸'; card.classList.remove('expanded'); }
+  else { details.style.display = ''; toggle.textContent = '▾'; card.classList.add('expanded'); }
+};
 function closeModal() { document.getElementById('modalMask').classList.add('hidden'); }
 document.getElementById('modalMask').addEventListener('click', e => { if (e.target.id === 'modalMask') closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
@@ -814,7 +973,7 @@ function openTech(id) {
     <div class="mhead" style="background:linear-gradient(135deg, ${p[0]}, ${p[1]})">
       <button class="close" onclick="closeModal()">✕</button>
       <h2>${editable(t.title, t.id, 'title')}</h2>
-      <div class="sub">${editable(t.company, t.id, 'company')} ｜ ${domainName(t.domain)} ｜ ${dateStr} ｜ ${caliberBadge(t.caliber)} ${impactBadge(t.impact)}</div>
+      <div class="sub">${editable(t.company, t.id, 'company')} ｜ ${techDimNames(t)} ｜ ${dateStr} ｜ ${caliberBadge(t.caliber)} ${impactBadge(t.impact)}</div>
     </div>
     <div class="body">
       <div class="tech-block">
@@ -893,7 +1052,7 @@ function initMonthPicker() {
 const MONTH_CACHE = {};
 // 启动时缓存 9 月（当前 data.js）数据
 MONTH_CACHE[REPORT_MONTH_FILE()] = {
-  REPORT_MONTH, CARS, TECHS, TRENDS
+  REPORT_MONTH, CARS, TECHS, TRENDS, SIGNALS: (typeof SIGNALS !== 'undefined' ? SIGNALS : [])
 };
 function REPORT_MONTH_FILE() {
   const cur = MONTHLY_POOL.find(m => m.isCurrent);
@@ -909,7 +1068,7 @@ async function loadMonthDataset(month) {
   // 函数作用域内求值：文件里的 var 不会污染/冲突全局
   const ds = new Function(src + '\n;return {REPORT_MONTH: (typeof REPORT_MONTH!=="undefined"?REPORT_MONTH:""), ' +
     'CARS: (typeof CARS!=="undefined"?CARS:[]), TECHS: (typeof TECHS!=="undefined"?TECHS:[]), ' +
-    'TRENDS: (typeof TRENDS!=="undefined"?TRENDS:[])};')();
+    'TRENDS: (typeof TRENDS!=="undefined"?TRENDS:[]), SIGNALS: (typeof SIGNALS!=="undefined"?SIGNALS:[])};')();
   if (!ds.CARS.length && !ds.TECHS.length) throw new Error('文件中没有 CARS/TECHS 数据');
   MONTH_CACHE[month] = ds;
   return ds;
@@ -926,6 +1085,7 @@ window.switchMonth = async function(month) {
     window.CARS = ds.CARS;
     window.TECHS = ds.TECHS;
     window.TRENDS = ds.TRENDS;
+    window.SIGNALS = ds.SIGNALS || [];
     state.reportMonth = month;
     // 重置筛选与编辑态，回到总览
     state.powerFilter = '全部'; state.segFilter = '全部'; state.dimGroupFilter = 'all'; state.dimFilter = '全部'; state.techGroupFilter = 'all'; state.techFilter = 'all';
