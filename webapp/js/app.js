@@ -549,10 +549,11 @@ function renderCars() {
   const OC = _OC || CARS;
   const powers = ['全部', '纯电', '插混', '增程', '增程+纯电'];
   const segs = ['全部', ...new Set(OC.map(c => segType(c.seg)))];
-  // 两级级联筛选（与技术页一致）
-  const list = OC
+  // 拆分为两级中间结果，保证 chip 的「（无）」标记永远基于「动力架构 ∩ 车型」的真实交集
+  const filteredBase = OC
     .filter(c => state.powerFilter === '全部' || c.power === state.powerFilter || (state.powerFilter === '增程' && c.power.includes('增程')))
-    .filter(c => state.segFilter === '全部' || segType(c.seg) === state.segFilter)
+    .filter(c => state.segFilter === '全部' || segType(c.seg) === state.segFilter);
+  const list = filteredBase
     .filter(c => {
       if (state.dimFilter !== '全部') return c.dims && c.dims.includes(state.dimFilter);
       if (state.dimGroupFilter !== 'all') {
@@ -564,7 +565,21 @@ function renderCars() {
       return true;
     });
 
-  // 特性维度大组7个，选中后展开该组全部维度（含无覆盖维度）
+  // 空状态提示：按哪个 filter 先清零给出不同引导
+  let emptyHint = '';
+  if (!list.length) {
+    if (!filteredBase.length) {
+      emptyHint = `当前「${state.powerFilter} ∩ ${state.segFilter}」组合下本月无车型，试试调整动力架构或车型`;
+    } else if (state.dimGroupFilter !== 'all' && state.dimFilter === '全部') {
+      emptyHint = `「${state.powerFilter} ∩ ${state.segFilter}」下无车型覆盖「${DOMAIN_GROUPS.find(g => g.key === state.dimGroupFilter)?.name || ''}」特性维度组`;
+    } else if (state.dimFilter !== '全部') {
+      emptyHint = `「${state.powerFilter} ∩ ${state.segFilter}」下无车型覆盖「${DOMAINS.find(d => d.key === state.dimFilter)?.name || ''}」维度`;
+    } else {
+      emptyHint = '本月新车型列表为空';
+    }
+  }
+
+  // 特性维度大组 hasAny：基于 filteredBase（power∩seg 交集）统计
   const allGroups = DOMAIN_GROUPS;
   const allDims = state.dimGroupFilter !== 'all'
     ? DOMAINS.filter(d => d.group === state.dimGroupFilter)
@@ -585,16 +600,25 @@ function renderCars() {
       <div class="filter-row">
         <span class="filter-label">特性维度</span>
         <span class="chip${state.dimGroupFilter === 'all' ? ' on' : ''}" onclick="setDimGroupFilter('all')">全部</span>
-        ${allGroups.map(g => `<span class="chip${state.dimGroupFilter === g.key ? ' on' : ''}"${state.dimGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : ''} onclick="setDimGroupFilter('${g.key}')">${g.name}</span>`).join('')}
+        ${allGroups.map(g => {
+          const hasAny = filteredBase.some(c => c.dims && c.dims.some(k => DOMAINS.find(dm => dm.key === k)?.group === g.key));
+          const label = `${g.name}${hasAny ? '' : '（无）'}`;
+          const disabled = !hasAny ? ' style="opacity:.55;pointer-events:none;cursor:not-allowed"' : '';
+          const styleOn = state.dimGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600${disabled ? '' : ''}"` : '';
+          const clickable = !hasAny ? '' : ` onclick="setDimGroupFilter('${g.key}')"`;
+          const styleFinal = disabled || styleOn;
+          return `<span class="chip${state.dimGroupFilter === g.key ? ' on' : ''}"${styleFinal}${clickable}>${label}</span>`;
+        }).join('')}
       </div>
       ${allDims.length ? `
       <div class="filter-row">
         <span class="filter-label">维度</span>
         <span class="chip${state.dimFilter === '全部' ? ' on' : ''}" onclick="setDimFilter('全部')">该组全部</span>
         ${allDims.map(d => {
-          const hasAny = OC.some(c => c.dims && c.dims.includes(d.key));
-          const g = DOMAIN_GROUPS.find(gr => gr.key === d.group);
-          return `<span class="chip${state.dimFilter === d.key ? ' on' : ''}"${hasAny ? '' : ' style="opacity:.55"'}" onclick="setDimFilter('${d.key}')">${d.name}${hasAny ? '' : '（无）'}</span>`;
+          const hasAny = filteredBase.some(c => c.dims && c.dims.includes(d.key));
+          const style = hasAny ? '' : ' style="opacity:.55;pointer-events:none;cursor:not-allowed"';
+          const clickable = hasAny ? ` onclick="setDimFilter('${d.key}')"` : '';
+          return `<span class="chip${state.dimFilter === d.key ? ' on' : ''}"${style}${clickable}>${d.name}${hasAny ? '' : '（无）'}</span>`;
         }).join('')}
       </div>` : ''}
     </div>
@@ -610,7 +634,7 @@ function renderCars() {
             <div class="usp1">★ ${editable(c.usp[0], c.id, 'usp_0')}</div>
           </div>
         </div>`).join('')}
-      ${!list.length ? '<p style="color:var(--text-dim);padding:30px;text-align:center">本月该维度无车型</p>' : ''}
+      ${!list.length ? `<p style="color:var(--text-dim);padding:30px;text-align:center">${emptyHint}</p>` : ''}
     </div>
   `;
 }
