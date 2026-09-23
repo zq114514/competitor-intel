@@ -758,9 +758,9 @@ var CARS = [
   },
   {
     id: 'yue7', name: '广汽传祺越 7', brand: '广汽传祺', power: '插混', seg: '方盒子SUV',
-    price: '预售17.18万起', launchDate: '2026-09（预售）', range: 'CLTC纯电161/261km ｜ 综合超1200km', adas: 'ADiGO高阶领航，激光雷达+3nm高通8838芯片', cockpit: '1.1米星际联屏（12.3+15.6英寸），20扬声器', caliber: 'media',
+    price: '上市权益价16.18万起', launchDate: '2026-09-22（已上市）', range: 'CLTC纯电161/261km ｜ 综合超1200km', adas: 'ADiGO高阶领航，激光雷达+3nm高通8838芯片', cockpit: '1.1米星际联屏（12.3+15.6英寸），20扬声器', caliber: 'media',
     usp: ['1.1米全景贯穿式星际屏+高通QCM8838旗舰芯片，行业首创直瀑式阵列音响', '星灵智行ADiGO GSD 3.0高阶智驾，全场景自动泊车辅助', '插混四驱综合400kW、轮端扭矩10000N·m，三把差速锁+双腔空悬+CDC', '方正硬派造型，车长5045mm/轴距2900mm，定位"超舒适的悦野方盒子"'],
-    desc: '广汽传祺越7 9月2日开启预售、9月22日正式上市；官方预售指导价17.98-22.58万元、预售权益价17.18万元起，共两驱Pro/Max、四驱Max/Ultra四款配置，为传祺首款硬派方盒子SUV。',
+    desc: '广汽传祺越7 9月2日开启预售、9月22日正式上市；官方预售指导价17.98-22.58万元、上市权益价16.18万元起，共两驱Pro/Max、四驱Max/Ultra四款配置，为传祺首款硬派方盒子SUV。',
     src: '广汽传祺官网越7产品页（USP + 预售信息）', srcUrl: 'https://www.gacmotor.com/yue7/',
     specsSrc: '汽车之家参数配置页（性能参数）', specsUrl: 'https://www.autohome.com.cn/config/series/8627.html',
     featured: true, featuredNote: '全新车型：广汽传祺首款硬派方盒子SUV',
@@ -787,6 +787,139 @@ var CARS = [
       safety: '一体化嵌入式大梁 / 扭转刚度38000N·m/deg / 三把差速锁'
     },
     img: 'img/yue7.jpg'
+  },
+  {
+    id: 'fangchengs', name: '方程豹 S / S GT', brand: '比亚迪', power: '纯电', seg: '中大型轿跑/猎装',
+    price: '18.99-23.99万（广州区域上市）', launchDate: '2026-09-17（已上市）', range: 'CLTC最长900km', adas: '云辇-M智能磁流变悬架', cockpit: '—', caliber: 'media',
+    usp: ['首搭云辇-M智能磁流变悬架，底盘响应精度毫秒级', '最长CLTC续航900km', '方程豹品牌首款中大型轿跑/猎装车'],
+    desc: '方程豹S与S GT于9月17日在广州区域上市，售价18.99-23.99万元，定位中大型轿跑与猎装车，为首搭比亚迪云辇-M智能磁流变悬架的量产车型。',
+    src: '太平洋汽车', srcUrl: 'http://www.pcauto.com.cn/nation/5183/51831553.html',
+    featured: true, featuredNote: '方程豹品牌首款轿跑/猎装车型，首搭云辇-M',
+    dims: ['perceived', 'handling', 'power', 'energy'],
+    dimPoints: {
+      handling: { s: '云辇-M智能磁流变悬架', d: ['首搭比亚迪云辇-M智能磁流变悬架，毫秒级底盘响应'] },
+      energy: { s: 'CLTC最长续航900km', d: ['CLTC最长续航900km'] }
+    },
+    specs: {
+      size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
+      suspension: '云辇-M智能磁流变悬架', safety: '—'
+    },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'tank300hk', name: '坦克300 虎克之路', brand: '坦克', power: '燃油', seg: '硬派越野',
+    price: '25万元（首发限量300台）', launchDate: '2026-09-20（已上市）', range: '—', adas: '—', cockpit: '—', caliber: 'media',
+    usp: ['悬架结构专项升级，更适合极限越野场景', '首发限量300台，官方建议零售价25万元', '坦克品牌首款命名"虎克之路"纪念车型'],
+    desc: '9月20日坦克300虎克之路正式上市，官方建议零售价25万元，首发限量300台，悬架结构专项升级以适配虎克之路极限越野路况。',
+    src: '太平洋汽车', srcUrl: 'http://www.pcauto.com.cn/nation/5182/51829334.html',
+    featured: true, featuredNote: '坦克品牌硬派越野纪念版，悬架专项升级',
+    dims: ['handling', 'offroad'],
+    dimPoints: {
+      offroad: { s: '悬架结构专项升级，适配虎克之路极限越野', d: ['悬架结构专项升级'] }
+    },
+    specs: {
+      size: '—', power: '2.0T', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
+      suspension: '悬架结构专项升级', safety: '—'
+    },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'idaura-t6', name: '一汽-大众 ID.AURA T6', brand: '一汽-大众', power: '纯电', seg: '中型SUV',
+    price: '12.99-16.69万', launchDate: '2026-09-20（已上市）', range: '纯电540/660km', adas: '192线激光雷达+Momenta辅助驾驶', cockpit: '—', caliber: 'media',
+    usp: ['全新CEA纯电架构，192线激光雷达支持城区+高速NOA', '纯电续航540/660km双版本', '德系底盘调校，限时权益丰厚'],
+    desc: '9月20日一汽-大众ID.AURA T6正式上市，4款车型售价12.99-16.69万元，采用全新CEA纯电架构，192线激光雷达支持城区+高速NOA，纯电续航540/660km。',
+    src: '太平洋汽车', srcUrl: 'http://www.pcauto.com.cn/nation/5182/51829317.html',
+    featured: true, featuredNote: '一汽-大众全新纯电架构CEA首发车型',
+    dims: ['perceived', 'hmi', 'handling', 'energy', 'adas'],
+    dimPoints: {
+      energy: { s: '纯电续航540/660km双版本', d: ['纯电续航540/660km双版本'] },
+      adas: { s: '192线激光雷达+Momenta辅助驾驶，支持城区+高速NOA', d: ['192线激光雷达支持城区+高速NOA'] }
+    },
+    specs: {
+      size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
+      suspension: '德系调校', safety: '—'
+    },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'jia-yue07', name: '荣威家越 07', brand: '上汽荣威', power: '增程', seg: '中型SUV',
+    price: '预售13.78-15.28万', launchDate: '2026-09-21（预售）', range: '纯电最高320km', adas: 'Momenta R7辅助驾驶', cockpit: '标配豆包座舱助手', caliber: 'media',
+    usp: ['标配豆包AI座舱助手', 'Momenta R7辅助驾驶系统', '1.5L增程动力，纯电最高320km', '中型SUV定位，预售13.78万起'],
+    desc: '荣威家越07于9月21日开启预售，预售价13.78-15.28万元，中型SUV定位，1.5L增程动力，纯电最高320km，标配豆包座舱及Momenta R7辅助驾驶。',
+    src: '太平洋汽车', srcUrl: 'http://www.pcauto.com.cn/nation/5182/51829512.html',
+    featured: true, featuredNote: '上汽荣威首款搭载豆包AI座舱车型',
+    dims: ['hmi', 'perceived', 'energy', 'adas', 'infotainment'],
+    dimPoints: {
+      hmi: { s: '标配豆包AI座舱助手', d: ['标配豆包AI座舱助手'] },
+      adas: { s: 'Momenta R7辅助驾驶系统', d: ['Momenta R7辅助驾驶系统'] }
+    },
+    specs: {
+      size: '—', power: '1.5L增程', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
+      suspension: '—', safety: '—'
+    },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'hongqi-tg07', name: '红旗天工 07', brand: '红旗', power: '纯电', seg: '中大型轿车',
+    price: '限时权益价16.99-19.99万', launchDate: '2026-09-21（预售）', range: 'CLTC纯电640/730km', adas: '红旗司南智驾5.0，384线动态可变焦激光雷达', cockpit: '灵犀座舱6.0', caliber: 'media',
+    usp: ['红旗首款搭载动态可变焦384线激光雷达车型（卓驭JIMU 2.0）', '800V高压平台+SiC电驱，单电机340kW/双电机400kW', '玄甲电池85度版本CLTC续航730km，10%-80%快充仅12分钟'],
+    desc: '红旗天工07于9月22日开启预售，限时权益价16.99-19.99万元，定位中大型纯电轿车，为红旗EH7继任车型，全系搭载800V平台+SiC电驱，是红旗首款搭载动态可变焦384线激光雷达的车型。',
+    src: '新京报贝壳财经', srcUrl: 'http://m.toutiao.com/group/7688616252461433382/',
+    featured: true, featuredNote: '红旗旗舰纯电轿车，首款动态可变焦激光雷达装车',
+    dims: ['perceived', 'hmi', 'handling', 'energy', 'charging', 'adas'],
+    dimPoints: {
+      adas: { s: '红旗司南智驾5.0 + 384线动态可变焦激光雷达（卓驭JIMU 2.0）', d: ['384线动态可变焦激光雷达，城区探测300m/高速400m/最远600m', '激光雷达与视觉前融合方案'] },
+      charging: { s: '800V高压SiC平台，10%-80%快充仅12分钟', d: ['800V高压平台+SiC电驱', '10%-80%快充12分钟'] },
+      energy: { s: 'CLTC纯电续航640/730km（75/85度电池）', d: ['玄甲电池组，75度/85度两版本，续航640/730km'] },
+      handling: { s: '单电机340kW/双电机综合400kW，0-100km/h 5.6s/5.8s', d: ['单电机340kW/450N·m，双电机综合400kW', '0-100km/h 5.6s（单电机）/5.8s（双电机）'] }
+    },
+    specs: {
+      size: '—', power: '单电机340kW / 双电机400kW', accel: '5.6s/5.8s', topSpeed: '—', weight: '—', fastCharge: '10%-80% 12分钟',
+      suspension: '—', safety: '—'
+    },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'ec6-aura', name: '蔚来 EC6 灵韵特别版', brand: '蔚来', power: '纯电', seg: '中型轿跑SUV',
+    price: '36.98万起（BaaS 26.18万起）', launchDate: '2026-09-22（已上市）', range: '—', adas: '—', cockpit: 'Cedar S 1.6.0车机系统', caliber: 'media',
+    usp: ['多层涂层灵境紫车漆（随光变色）', 'EP Mode驾驶模式（日常/山路/赛道+弹射准备）', '前后轴减震阻尼11挡独立调节', 'BaaS电池租用方案起售价仅26.18万'],
+    desc: '蔚来EC6灵韵特别版于9月22日正式上市，整车36.98万起/BaaS 26.18万起，基于紫色系外观内饰偏好打造，搭载专属无限画布主题UI、EP Mode驾驶模式（三模式+弹射），减震阻尼11挡独立调节。',
+    src: '太平洋汽车', srcUrl: 'http://www.pcauto.com.cn/nation/5183/51831538.html',
+    featured: true, featuredNote: '蔚来EC6特别版，新增EP Mode和11挡减震调节',
+    dims: ['styling', 'perceived', 'handling', 'hmi', 'infotainment'],
+    dimPoints: {
+      styling: { s: '灵境紫车漆（多层涂层随光变色）+ 灵动紫刹车卡钳 + AURA EDITION专属尾标', d: ['灵境紫车漆（多层涂层随光变色）', '21英寸多辐星锋曜黑轮圈 + Moon主题外观套件'] },
+      handling: { s: 'EP Mode驾驶模式（日常/山路/赛道+弹射准备）+ 前后轴减震阻尼11挡独立调节', d: ['EP Mode三模式+弹射准备功能', '前后轴减震阻尼11挡独立调节'] },
+      hmi: { s: '专属无限画布主题UI，紫色动态效果与氛围灯联动', d: ['无限画布主题UI，紫色动态效果', '界面与车内氛围灯实现联动', '适配即将推送的Cedar S 1.6.0车机系统'] }
+    },
+    specs: {
+      size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
+      suspension: '前后轴减震阻尼11挡独立调节', safety: '—'
+    },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'bick-e7', name: '别克至境 E7 焕新版', brand: '别克', power: '纯电', seg: '中型轿车',
+    price: '15.99-19.99万（置换价14.79万起）', launchDate: '2026-09-23（已上市）', range: '—', adas: '—', cockpit: '—', caliber: 'media',
+    usp: ['三款车型，10月8日前下订享5万元限时权益', '限时置换价14.79-18.79万元'],
+    desc: '9月23日别克宣布至境E7焕新版正式上市，三款车型指导价15.99-19.99万元、限时置换价14.79万起，10月8日前下订送5万元限时权益。',
+    src: '易车', srcUrl: 'https://news.yiche.com/xinchexiaoxi/20260923/15113294627.html',
+    dims: ['styling', 'perceived', 'hmi'],
+    dimPoints: {},
+    specs: { size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—', suspension: '—', safety: '—' },
+    img: 'img/dongfeng-logo.svg'
+  },
+  {
+    id: 'g9l', name: '小鹏 G9L', brand: '小鹏', power: '纯电', seg: '中大型SUV',
+    price: '限时23.18-30.98万', launchDate: '2026-09-23（首批交付）', range: '—', adas: '—', cockpit: '—', caliber: 'media',
+    usp: ['定位全球大五座科技旗舰', '小鹏"旗舰双王"布局成型（G9+G9L）'],
+    desc: '9月23日小鹏G9L开启首批车主交付，限时售23.18-30.98万元，定位全球大五座科技旗舰，小鹏"旗舰双王"布局（G9+G9L）至此成型。',
+    src: '易车', srcUrl: 'https://news.yiche.com/xinchexiaoxi/20260923/15113323577.html',
+    featured: true, featuredNote: '小鹏旗舰双王布局完成',
+    dims: ['perceived', 'hmi', 'adas'],
+    dimPoints: {},
+    specs: { size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—', suspension: '—', safety: '—' },
+    img: 'img/dongfeng-logo.svg'
   }
 ];
 
@@ -931,7 +1064,34 @@ var TECHS = [
     metrics: [
       { label: '防腐年限', value: '15年', compare: '沿海/寒冷地区', direction: 'up' }
     ],
-    src: '宁德时代新闻稿', srcUrl: 'https://m.chinatruck.org/news/16_142316.html' }
+    src: '宁德时代新闻稿', srcUrl: 'https://m.chinatruck.org/news/16_142316.html' },
+  { id: 't16', date: '09-16', company: '零跑', domains: [{key:'adas',rel:'strong'},{key:'energy',rel:'weak'}], title: '零跑发布自研世界模型高阶智驾，算力下探至200TOPS',
+    point: '9月16日，零跑在2026技术日上发布自研世界模型高阶智驾方案（智驾领域）。该方案算力需求最低仅需200TOPS（行业主流400-500TOPS），计划自2027年一季度起覆盖A、B、C、D全系车型，高阶辅助驾驶能力将下探至10万元以内车型。',
+    params: '200TOPS算力（vs行业主流400-500TOPS）',
+    caliber: 'official', impact: 'high',
+    impactNote: '智驾算力下探重塑成本结构，10万级车型高阶智驾渗透',
+    metrics: [
+      { label: '所需算力', value: '200TOPS', compare: '行业主流400-500TOPS', direction: 'down' },
+      { label: '下探目标', value: '10万元以内车型', compare: '当前20万+', direction: 'up' }
+    ],
+    src: '齐鲁网闪电新闻', srcUrl: 'http://m.toutiao.com/group/7686419401033155126/' },
+  { id: 't17', date: '09-21', company: '欣旺达', domains: [{key:'charging',rel:'strong'}], title: '欣旺达展示15C闪充生态与重卡电池技术',
+    point: '9月21日，欣旺达在CIBF 2026展会上展示15C超快充生态及重卡电池方案（充电领域）。15C闪充技术支持电芯15倍率快充，300Ah大容量重卡电池循环寿命超12000次。',
+    params: '15C超快充 / 12000次循环（重卡电池）',
+    caliber: 'official', impact: 'medium',
+    impactNote: '闪充倍率持续提升，商用车电池循环寿命指标跃升',
+    metrics: [
+      { label: '快充倍率', value: '15C', compare: '主流3-5C', direction: 'up' },
+      { label: '重卡电池循环寿命', value: '12000次+', compare: '行业8000次', direction: 'up' }
+    ],
+    src: '中国经济网', srcUrl: 'http://auto.ce.cn/auto/gundong/202609/t20260921_3228333.shtml' },
+  { id: 't18', date: '09-23', company: '深蓝汽车', domains: [{key:'hmi',rel:'strong'},{key:'infotainment',rel:'weak'}], title: '深蓝与火山引擎豆包大模型共创智能座舱',
+    point: '9月23日，深蓝汽车宣布与火山引擎达成深度合作（人机交互领域）。双方围绕豆包大模型与智能座舱展开共创，成果将率先落地于全新深蓝S07 AI激光版（9月28日登场），搭载华为乾崑ADS 4 Pro增强版及超级增程2.0。',
+    params: '豆包大模型智能座舱共创',
+    caliber: 'official', impact: 'medium',
+    impactNote: '主机厂+互联网大模型公司座舱共创模式加速',
+    metrics: [],
+    src: '易车', srcUrl: 'https://news.yiche.com/xinchexiaoxi/20260923/14113320215.html' }
 ];
 
 // ---------- 月度趋势（总览页） ----------
@@ -940,7 +1100,9 @@ var TRENDS = [
   { t: '高端新能源"满编作战"', d: '工信部第411批公告（9月8日公示）显示阿维塔T09、魏牌第二代蓝山、吉利银河M8、宝马新世代i3/iX3/X5扎堆申报，35万—60万元区间竞争烈度显著上升；本批纯电型号233个、插混仅46个，纯电路线收复失地。' },
   { t: '电池技术多点突破、车企绑定加深', d: '宁德时代发布商用车模块化电池平台TECTRANS II；蜂巢能源公开混合固液电池低成本路径；小米官宣中创新航战略合作、理想i6自研电池封包落地申报。' },
   { t: 'AI大模型上车加速', d: '小鹏XOS 6.3.0"物理AI"底层架构+第二代VLA升级，华为乾崑智驾+鸿蒙座舱装车量达200万台，宝马中国版新世代操作系统X落地。' },
-  { t: '安全竞争体系化', d: 'C-IASI 2026版、C-NCAP"启研2030"版规程相继发布；蔚来电池监控平台行业首家通过国标检测；奕境发布"天穹智盾"全时空安全架构。' }
+  { t: '安全竞争体系化', d: 'C-IASI 2026版、C-NCAP"启研2030"版规程相继发布；蔚来电池监控平台行业首家通过国标检测；奕境发布"天穹智盾"全时空安全架构。' },
+  { t: '"金九"新车密集投放', d: '9月17日-23日一周内8+新车上市/预售：方程豹S/S GT（云辇-M首搭）、坦克300虎克之路、一汽大众ID.AURA T6（CEA架构）、荣威家越07（豆包座舱）、红旗天工07（动态可变焦激光雷达）、蔚来EC6灵韵特别版等密集发布，瞄准国庆交付窗口。' },
+  { t: '智驾算力下探加速', d: '零跑2026技术日发布自研世界模型智驾，算力需求从行业主流400-500TOPS下探至200TOPS，2027年起覆盖10万级车型；乾崑智驾+鸿蒙座舱装车突破200万台。' }
 ];
 
 // ---------- 产业信号参考池（总览页趋势卡折叠明细；不进新技术页、不打维度） ----------
@@ -953,7 +1115,15 @@ var SIGNALS = [
   { id: 's2', date: '09-08', company: '中创新航', type: 'report',
     event: '率先发布气候与自然财务影响双报告',
     detail: '同时发布《气候风险量化财务影响报告》与《自然相关财务影响报告》，官方称为行业率先，披露框架对标国际主流ESG准则；影响海外客户ESG评级。',
-    src: '中创新航官网', srcUrl: 'http://www.calb-tech.com/NewsDetails/37.html' }
+    src: '中创新航官网', srcUrl: 'http://www.calb-tech.com/NewsDetails/37.html' },
+  { id: 's3', date: '09-16', company: '零跑', type: 'milestone',
+    event: '零跑发布自研世界模型智驾，算力下探至200TOPS并将覆盖10万级车型',
+    detail: '2026零跑技术日发布自研世界模型高阶智驾方案，算力需求从行业主流400-500TOPS下探至200TOPS；计划自2027Q1起覆盖A/B/C/D全系车型，高阶辅助驾驶下探至10万元以内车型。',
+    src: '齐鲁网闪电新闻', srcUrl: 'http://m.toutiao.com/group/7686419401033155126/' },
+  { id: 's4', date: '09-23', company: '深蓝汽车', type: 'milestone',
+    event: '深蓝与火山引擎豆包大模型达成座舱共创合作',
+    detail: '深蓝汽车与火山引擎官宣深度合作，围绕豆包大模型与智能座舱展开共创，成果率先落地深蓝S07 AI激光版（9月28日登场），该车搭载华为乾崑ADS 4 Pro增强版+超级增程2.0。',
+    src: '易车', srcUrl: 'https://news.yiche.com/xinchexiaoxi/20260923/14113320215.html' }
 ];
 
 // 月份标签
