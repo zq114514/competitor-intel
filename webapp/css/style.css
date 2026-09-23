@@ -687,32 +687,11 @@ table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bott
 .fb-iframe {
   flex: 1 1 auto;
   width: 100%;
-  min-height: 320px;
+  min-height: 360px;
   border: 0;
   background: #f4f6fa;
   touch-action: pan-y;
 }
-.fb-tabs {
-  display: flex;
-  flex: 0 0 auto;
-  background: rgba(20,40,72,.95);
-  border-bottom: 1px solid rgba(86,156,255,.18);
-}
-.fb-tab {
-  flex: 1 1 50%;
-  padding: 9px 8px;
-  border: none;
-  background: transparent;
-  color: #7aa2d8;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all .15s;
-}
-.fb-tab:hover { color: #c7dcff; background: rgba(46,124,246,.08); }
-.fb-tab.active { color: #ffffff; border-bottom-color: #467ff6; background: rgba(46,124,246,.14); }
-
 .fb-footer-link {
   flex: 0 0 auto;
   display: block;
