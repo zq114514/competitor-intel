@@ -1133,17 +1133,36 @@ navigate();
 // ============================================================
 // 悬浮反馈侧栏
 // ============================================================
-// 飞书多维表格公开表单（免登录、匿名提交）
-var FB_FORM_URL = 'https://acndoaymjsa1.feishu.cn/share/base/shrcnhQ9DGD4ZSd0aKD7o2Z2q07?embed=1';
-var fbFrameLoaded = false;
+// 飞书多维表格公开表单 + 公开仪表盘（免登录、匿名访问）
+var FB_FORM_URL    = 'https://acndoaymjsa1.feishu.cn/share/base/shrcnhQ9DGD4ZSd0aKD7o2Z2q07?embed=1';
+var FB_DASH_URL    = 'https://acndoaymjsa1.feishu.cn/share/base/dashboard/shrcnjg954UqVxZuMB45CR3Zmqf?embed=1';
+var fbFrameLoaded  = false;
+var fbCurrentTab   = 'form';
 
-// 展开面板（首次展开时懒加载 iframe）
+// 切换 tab：form（填写反馈）/ dash（查看统计）
+function fbSwitchTab(tab) {
+  fbCurrentTab = tab;
+  var frame = document.getElementById('fbFrame');
+  var tabForm = document.getElementById('fbTabForm');
+  var tabDash = document.getElementById('fbTabDash');
+  if (tab === 'form') {
+    tabForm.classList.add('active');
+    tabDash.classList.remove('active');
+    frame.src = FB_FORM_URL;
+  } else {
+    tabDash.classList.add('active');
+    tabForm.classList.remove('active');
+    frame.src = FB_DASH_URL;
+  }
+  fbFrameLoaded = true;
+}
+
+// 展开面板（默认切换到填写反馈 tab）
 function fbOpen() {
   document.getElementById('fbToggle').style.display = 'none';
   document.getElementById('fbPanel').classList.remove('hidden');
   if (!fbFrameLoaded) {
-    document.getElementById('fbFrame').src = FB_FORM_URL;
-    fbFrameLoaded = true;
+    fbSwitchTab('form');
   }
 }
 // 收起面板
