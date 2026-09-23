@@ -695,7 +695,15 @@ function renderTech() {
       <div class="filter-row">
         <span class="filter-label">特性维度</span>
         <span class="chip${state.techGroupFilter === 'all' ? ' on' : ''}" onclick="setTechGroupFilter('all')">全部</span>
-        ${allGroups.map(g => `<span class="chip${state.techGroupFilter === g.key ? ' on' : ''}"${state.techGroupFilter === g.key ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : ''} onclick="setTechGroupFilter('${g.key}')">${g.name}</span>`).join('')}
+        ${allGroups.map(g => {
+          const hasAny = OT.some(t => techDomains(t).some(d => DOMAINS.find(dm => dm.key === d.key)?.group === g.key));
+          const label = `${g.name}${hasAny ? '' : '（无）'}`;
+          const disabled = !hasAny ? ' style="opacity:.55;pointer-events:none;cursor:not-allowed"' : '';
+          const styleOn = state.techGroupFilter === g.key && hasAny ? ` style="background:${g.color};border-color:transparent;color:#fff;font-weight:600"` : '';
+          const clickable = hasAny ? ` onclick="setTechGroupFilter('${g.key}')"` : '';
+          const styleFinal = disabled || styleOn;
+          return `<span class="chip${state.techGroupFilter === g.key ? ' on' : ''}"${styleFinal}${clickable}>${label}</span>`;
+        }).join('')}
       </div>
       ${allDims.length ? `
       <div class="filter-row">
@@ -703,7 +711,9 @@ function renderTech() {
         <span class="chip${state.techFilter === 'all' ? ' on' : ''}" onclick="setTechFilter('all')">该组全部</span>
         ${allDims.map(d => {
           const hasAny = OT.some(t => techHasDim(t, d.key));
-          return `<span class="chip${state.techFilter === d.key ? ' on' : ''}"${hasAny ? '' : ' style="opacity:.55"'}" onclick="setTechFilter('${d.key}')">${d.name}${hasAny ? '' : '（无）'}</span>`;
+          const style = hasAny ? '' : ' style="opacity:.55;pointer-events:none;cursor:not-allowed"';
+          const clickable = hasAny ? ` onclick="setTechFilter('${d.key}')"` : '';
+          return `<span class="chip${state.techFilter === d.key ? ' on' : ''}"${style}${clickable}>${d.name}${hasAny ? '' : '（无）'}</span>`;
         }).join('')}
       </div>` : ''}
     </div>
