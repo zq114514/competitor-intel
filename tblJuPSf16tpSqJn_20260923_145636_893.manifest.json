@@ -1,0 +1,91 @@
+{
+  "manifest_version": "v1",
+  "format": "ndjson",
+  "base_token": "CHGrbCpjeasNz8sftv2cSZbOnWd",
+  "table_id": "tblJuPSf16tpSqJn",
+  "rev": 29,
+  "timezone": "Asia/Shanghai",
+  "query_context": {
+    "field_scope": "all_fields",
+    "record_scope": "all_records",
+    "search_scope": "fld5a7YTqz(详细描述)"
+  },
+  "requested_limit": 2000,
+  "records_count": 0,
+  "page_count": 1,
+  "has_more": false,
+  "record_file": "C:\\Users\\chunsheng\\Desktop\\S59\\AI场景\\AI1\\tblJuPSf16tpSqJn_20260923_145636_893.ndjson",
+  "record_file_size_bytes": 0,
+  "manifest_file": "C:\\Users\\chunsheng\\Desktop\\S59\\AI场景\\AI1\\tblJuPSf16tpSqJn_20260923_145636_893.manifest.json",
+  "columns": {
+    "record_id": {
+      "physical_type": "string",
+      "stats": {
+        "max_length": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    },
+    "反馈类型": {
+      "field_id": "fldbmasspY",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 0,
+        "avg_length": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    },
+    "处理状态": {
+      "field_id": "fld6r1ngLU",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 0,
+        "avg_length": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    },
+    "姓名/部门": {
+      "field_id": "fldU0N2TlC",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    },
+    "所在页面": {
+      "field_id": "fld6sLiTkr",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 0,
+        "avg_length": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    },
+    "提交时间": {
+      "field_id": "fldYGRCuxR",
+      "field_type": "datetime",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    },
+    "详细描述": {
+      "field_id": "fld5a7YTqz",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 0
+      },
+      "hint": "All values are empty; type inference may be ambiguous. Avoid analyzing this column unless required."
+    }
+  }
+}
