@@ -804,7 +804,7 @@ var CARS = [
       size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
       suspension: '云辇-M智能磁流变悬架', safety: '—'
     },
-    img: 'img/dongfeng-logo.svg'
+    img: 'img/fangchengs.jpg'
   },
   {
     id: 'tank300hk', name: '坦克300 虎克之路', brand: '坦克', power: '燃油', seg: '硬派越野',
@@ -821,7 +821,7 @@ var CARS = [
       size: '—', power: '2.0T', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
       suspension: '悬架结构专项升级', safety: '—'
     },
-    img: 'img/dongfeng-logo.svg'
+    img: 'img/tank300hk.png'
   },
   {
     id: 'idaura-t6', name: '一汽-大众 ID.AURA T6', brand: '一汽-大众', power: '纯电', seg: '中型SUV',
@@ -839,7 +839,7 @@ var CARS = [
       size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
       suspension: '德系调校', safety: '—'
     },
-    img: 'img/dongfeng-logo.svg'
+    img: 'img/idaura-t6.jpg'
   },
   {
     id: 'jia-yue07', name: '荣威家越 07', brand: '上汽荣威', power: '增程', seg: '中型SUV',
@@ -857,7 +857,7 @@ var CARS = [
       size: '—', power: '1.5L增程', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
       suspension: '—', safety: '—'
     },
-    img: 'img/dongfeng-logo.svg'
+    img: 'img/jia-yue07.jpg'
   },
   {
     id: 'hongqi-tg07', name: '红旗天工 07', brand: '红旗', power: '纯电', seg: '中大型轿车',
@@ -877,7 +877,7 @@ var CARS = [
       size: '—', power: '单电机340kW / 双电机400kW', accel: '5.6s/5.8s', topSpeed: '—', weight: '—', fastCharge: '10%-80% 12分钟',
       suspension: '—', safety: '—'
     },
-    img: 'img/dongfeng-logo.svg'
+    img: 'img/hongqi-tg07.jpg'
   },
   {
     id: 'ec6-aura', name: '蔚来 EC6 灵韵特别版', brand: '蔚来', power: '纯电', seg: '中型轿跑SUV',
@@ -896,30 +896,43 @@ var CARS = [
       size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—',
       suspension: '前后轴减震阻尼11挡独立调节', safety: '—'
     },
-    img: 'img/dongfeng-logo.svg'
+    img: 'img/ec6-aura.jpg'
   },
   {
-    id: 'bick-e7', name: '别克至境 E7 焕新版', brand: '别克', power: '纯电', seg: '中型轿车',
-    price: '15.99-19.99万（置换价14.79万起）', launchDate: '2026-09-23（已上市）', range: '—', adas: '—', cockpit: '—', caliber: 'media',
-    usp: ['三款车型，10月8日前下订享5万元限时权益', '限时置换价14.79-18.79万元'],
-    desc: '9月23日别克宣布至境E7焕新版正式上市，三款车型指导价15.99-19.99万元、限时置换价14.79万起，10月8日前下订送5万元限时权益。',
+    id: 'bick-e7', name: '别克至境 E7 焕新版', brand: '别克', power: '插混', seg: '中型SUV',
+    price: '15.99-19.99万（置换价14.79万起）', launchDate: '2026-09-23（已上市）', range: 'CLTC纯电235km ｜ 综合1630km', adas: 'Momenta R6强化学习大模型，27组感知硬件+激光雷达', cockpit: '新一代豆包大模型+S2S端到端语音，高通8775芯片', caliber: 'media',
+    usp: ['行业首发新一代豆包大模型+S2S端到端语音大模型', '五恒健康空间+OEKO-TEX母婴级认证座椅升级为全系标配', '真龙插混Pro，CLTC纯电235km/综合1630km', '预瞄式RTD连续阻尼可变悬架（Turbo版），每秒500次扫频'],
+    desc: '9月23日别克至境E7焕新版上市，三款车型指导价15.99-19.99万元、限时置换价14.79万起；新增至境绿/淡暮粉车色，五恒健康空间与母婴级座椅全系标配，新增1.5T插混Pro版，预售/上市五个月累计交付突破3万台。',
     src: '易车', srcUrl: 'https://news.yiche.com/xinchexiaoxi/20260923/15113294627.html',
-    dims: ['styling', 'perceived', 'hmi'],
-    dimPoints: {},
-    specs: { size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—', suspension: '—', safety: '—' },
-    img: 'img/dongfeng-logo.svg'
+    dims: ['styling', 'perceived', 'hmi', 'seat', 'airquality', 'nvh', 'energy', 'charging', 'adas'],
+    dimPoints: {
+      airquality: { s: '五恒健康空间全系标配 + OEKO-TEX母婴级I类认证面料 + "零甲醛"认证', d: ['五恒系统（恒温/恒湿/恒氧/恒洁/恒静），11个健康防护维度', '座椅OEKO-TEX母婴级I类认证，VOC仅为国标1/3，抑菌率>99%'] },
+      energy: { s: '真龙插混Pro：CLTC纯电235km / 综合1630km', d: ['1.5T十佳混动专用发动机+165kW电机，零百7s', 'CLTC纯电235km、综合1630km'] },
+      charging: { s: '快充30%-80%仅15分钟 + 6kW外放电', d: ['快充30%-80%仅15分钟', '支持6kW外放电'] },
+      adas: { s: 'Momenta R6强化学习大模型，27组感知硬件含激光雷达', d: ['无断点城市NOA，可自动通行ETC/高架环岛/红绿灯', '记忆泊车可存200条路线'] },
+      seat: { s: '四座云感悬浮层座椅 + 副驾伊姆斯零重力躺椅', d: ['四座悬浮层11层递进支撑，乘坐压力峰值降21%', '副驾零重力双120°躺姿'] }
+    },
+    specs: { size: '4850×1910×1676mm / 轴距2850mm', power: '真龙插混Pro：1.5T混动专用发动机+165kW电机', accel: '7.0s（Pro版）', topSpeed: '—', weight: '—', fastCharge: '30%-80% 15分钟', suspension: '前麦弗逊+后多连杆（Turbo版预瞄式RTD连续阻尼可变悬架）', safety: '2100MPa潜艇级超高强度钢 / 二排后向儿童座椅头部防护气帘' },
+    img: 'img/bick-e7.jpg'
   },
   {
     id: 'g9l', name: '小鹏 G9L', brand: '小鹏', power: '纯电', seg: '中大型SUV',
-    price: '限时23.18-30.98万', launchDate: '2026-09-23（首批交付）', range: '—', adas: '—', cockpit: '—', caliber: 'media',
-    usp: ['定位全球大五座科技旗舰', '小鹏"旗舰双王"布局成型（G9+G9L）'],
-    desc: '9月23日小鹏G9L开启首批车主交付，限时售23.18-30.98万元，定位全球大五座科技旗舰，小鹏"旗舰双王"布局（G9+G9L）至此成型。',
+    price: '限时23.18-30.98万', launchDate: '2026-09-23（首批交付）', range: '纯电CLTC最高755km ｜ 增程纯电435km/综合1602km', adas: '第二代VLA蒸馏版智驾大模型+天玑OS 6.3.0', cockpit: '88英寸AR-HUD+大尺寸悬浮中控+21.4英寸后排娱乐屏', caliber: 'media',
+    usp: ['首发第二代VLA蒸馏版智驾大模型，面向L4的智驾能力下放量产车', '5120mm车长/3100mm轴距，人均得房面积超1㎡，后排膝部252mm', '全球首发无需拆卸头枕五座一键大床房，成床超1.8米', '800V超快充9分钟补能450km，纯电最高755km/增程综合1602km'],
+    desc: '9月23日小鹏G9L开启首批车主交付，限时售23.18-30.98万元，定位全球大五座科技旗舰；车长5120mm/轴距3100mm，风阻0.238Cd，由前法拉利首席设计师操刀，小鹏"旗舰双王"（G9+G9L）布局成型。',
     src: '易车', srcUrl: 'https://news.yiche.com/xinchexiaoxi/20260923/15113323577.html',
     featured: true, featuredNote: '小鹏旗舰双王布局完成',
-    dims: ['perceived', 'hmi', 'adas'],
-    dimPoints: {},
-    specs: { size: '—', power: '—', accel: '—', topSpeed: '—', weight: '—', fastCharge: '—', suspension: '—', safety: '—' },
-    img: 'img/dongfeng-logo.svg'
+    dims: ['styling', 'perceived', 'hmi', 'seat', 'adas', 'energy', 'charging', 'infotainment'],
+    dimPoints: {
+      styling: { s: '前法拉利首席设计师操刀，0.605黄金轴长比，风阻0.238Cd', d: ['5120×1999×1782mm/轴距3100mm', '百万像素AI数字投影大灯+协同迎宾系统'] },
+      hmi: { s: '88英寸同级最大画幅AR-HUD + 寰宇星空头等舱', d: ['88英寸AR-HUD+大尺寸悬浮中控', '双50W智能升降无线充电+9英寸流媒体后视镜'] },
+      adas: { s: '首发第二代VLA蒸馏版智驾大模型+天玑OS 6.3.0', d: ['驾驶员失能辅助、复杂多车道博弈、自主应急避险', '城市/高速全场景覆盖'] },
+      energy: { s: '纯电CLTC最高755km / 增程纯电435km/综合1602km', d: ['63.3kWh大电池+60L大油箱增程系统', '纯电最高755km'] },
+      charging: { s: '800V超快充，9分钟补能450km', d: ['800伏超快充平台'] },
+      seat: { s: '五座一键大床房（无需拆头枕），成床超1.8米', d: ['前后排零重力座椅支持同时一键放倒', '后排膝部252mm/头部1101mm'] }
+    },
+    specs: { size: '5120×1999×1782mm / 轴距3100mm', power: '纯电/四驱增程双动力', accel: '—', topSpeed: '—', weight: '—', fastCharge: '800V，9分钟补能450km', suspension: '—', safety: '—' },
+    img: 'img/g9l.webp'
   }
 ];
 
