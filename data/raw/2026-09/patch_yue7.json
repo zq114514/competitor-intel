@@ -1,0 +1,34 @@
+{
+  "cid": "yue7",
+  "add": {
+    "四驱形式": "插混四驱（Max/Ultra）",
+    "前悬架类型": "双叉臂",
+    "后悬架类型": "五连杆",
+    "可变悬架功能": "双腔空气悬架+CDC",
+    "智驾芯片": "高通QCM8838",
+    "激光雷达": "激光雷达",
+    "安全认证": "38000N·m/°扭转刚度，2200MPa防滚架，顶压120kN"
+  },
+  "gaps": [
+    "电池类型",
+    "风阻系数 Cd",
+    "最小转弯半径 m",
+    "备胎",
+    "轮胎",
+    "高速领航",
+    "城市领航",
+    "气囊数"
+  ],
+  "evidence": [
+    {"key": "四驱形式", "value": "插混四驱（Max/Ultra）", "field": "usp[2]", "quote": "插混四驱综合400kW、轮端扭矩10000N·m"},
+    {"key": "四驱形式", "value": "插混四驱（Max/Ultra）", "field": "desc", "quote": "共两驱Pro/Max、四驱Max/Ultra四款配置"},
+    {"key": "前悬架类型", "value": "双叉臂", "field": "dimPoints.handling", "quote": "前双叉臂 + 后五连杆"},
+    {"key": "后悬架类型", "value": "五连杆", "field": "dimPoints.handling", "quote": "前双叉臂 + 后五连杆"},
+    {"key": "可变悬架功能", "value": "双腔空气悬架+CDC", "field": "dimPoints.handling", "quote": "双腔空悬 + CDC"},
+    {"key": "智驾芯片", "value": "高通QCM8838", "field": "adas", "quote": "ADiGO高阶领航，激光雷达+3nm高通8838芯片"},
+    {"key": "激光雷达", "value": "激光雷达", "field": "adas", "quote": "ADiGO高阶领航，激光雷达+3nm高通8838芯片"},
+    {"key": "安全认证", "value": "38000N·m/°扭转刚度，2200MPa防滚架，顶压120kN", "field": "dimPoints.crash", "quote": "38000N·m/° 扭转 + 2200MPa 防滚架 + 顶压 120kN"}
+  ],
+  "conflicts": [],
+  "note": "QCM8838在usp与dimPoints.interaction中同时被表述为座舱旗舰芯片，adas字段却将其计入智驾，角色归档矛盾，暂按adas字段填入；激光雷达仅见名称，颗数/类型/标配与否未说明；“ADiGO高阶领航”“全场景自动泊车辅助”均非规则枚举的领航措辞，高速/城市领航留空。另提示（非本次待补键）：四驱综合功率usp为400kW、dimPoints.power为550kW，口径不一致。"
+}
