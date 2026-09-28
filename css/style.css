@@ -447,6 +447,28 @@ table.cmp .self-col { background: rgba(46,124,246,.07); }
 table.cmp thead .self-col { color: var(--cyan); }
 table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bottom: none; }
 
+/* 车型详情：单列分组参数表 */
+.spec-groups { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.spec-group { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: rgba(255,255,255,.02); }
+.spec-group-head {
+  padding: 10px 14px; cursor: pointer; list-style: none; user-select: none;
+  font-size: 13.5px; font-weight: 700; color: var(--cyan);
+  display: flex; align-items: center; gap: 10px;
+}
+.spec-group-head::-webkit-details-marker { display: none; }
+.spec-group-head:hover { background: rgba(255,255,255,.04); }
+.spec-g-count { font-size: 11.5px; font-weight: 400; color: var(--text-dim); }
+.spec-g-chev { margin-left: auto; color: var(--cyan); transition: transform .2s; }
+.spec-group:not([open]) .spec-g-chev { transform: rotate(-90deg); }
+table.spec-tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.spec-tbl th, table.spec-tbl td {
+  padding: 7px 14px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.55;
+}
+table.spec-tbl th { width: 150px; white-space: nowrap; color: var(--text-dim); font-weight: 500; background: var(--bg-soft); }
+table.spec-tbl td { color: #d2dfee; }
+table.spec-tbl td.spec-empty { color: #4a5a70; }
+table.spec-tbl tr:last-child th, table.spec-tbl tr:last-child td { border-bottom: none; }
+
 /* 口碑展示 */
 .review-line { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
 .review-line span { font-size: 12px; line-height: 1.6; }
@@ -516,7 +538,7 @@ table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bott
 .usp-core li::before { color: var(--orange); font-size: 13px; top: 7px; }
 
 /* 维度卡片网格 */
-.dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dim-grid { display: flex; flex-direction: column; gap: 10px; }
 .dim-card {
   border: 1px solid var(--line);
   border-left: 3px solid var(--dimc);
@@ -580,7 +602,6 @@ table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td { border-bott
 
 @media (max-width: 900px) {
   .key-specs { grid-template-columns: repeat(2, 1fr); }
-  .dim-grid { grid-template-columns: 1fr; }
 }
 .modal h2 { font-size: 24px; margin-bottom: 6px; }
 .modal .sub { color: var(--text-dim); font-size: 13px; margin-bottom: 16px; }
