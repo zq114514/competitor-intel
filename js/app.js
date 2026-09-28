@@ -357,8 +357,24 @@ const techDimNames = t => techDomains(t).map(d => domainName(d.key) + (d.rel ===
 const SIG_TYPE_LABEL = { milestone: '里程碑', report: '报告披露', policy: '政策' };
 const caliberBadge = c => { const b = CALIBER[c.caliber] || CALIBER.excel; return `<span class="badge ${b.cls}">${b.label}</span>`; };
 const impactBadge = i => `<span class="badge b-impact-${i}">影响·${i === 'high' ? '高' : i === 'medium' ? '中' : '低'}</span>`;
-const compPrice = c => c.specs['售价 万'] ? c.specs['售价 万'] + ' 万' : '—';
-const compDate = c => c.specs['上市时间'] || '—';
+const compPrice = c => c.price || (c.specs && c.specs['售价 万'] ? c.specs['售价 万'] + ' 万' : '—');
+const compDate = c => c.launchDate || (c.specs && c.specs['上市时间']) || '—';
+
+// SPEC_GROUPS 统一取值：虚拟键取顶层字段；旧键名做别名兼容；未公布返回 ''（渲染层显示 —）
+const SPEC_ALIAS = { '快充时间': ['充电时间 h', 'fastCharge'] };
+function specVal(c, key) {
+  if (key === '__price__')  return c.price || (c.specs && c.specs['售价 万'] ? c.specs['售价 万'] + ' 万' : '') || '';
+  if (key === '__date__')   return c.launchDate || (c.specs && c.specs['上市时间']) || '';
+  if (key === '__brand__')  return c.brand || (c.specs && c.specs['厂商']) || '';
+  if (key === '__seg__')    return c.seg || (c.specs && c.specs['级别']) || '';
+  if (key === '__energy__') return c.power || (c.specs && c.specs['能源类型']) || '';
+  if (!c.specs) return '';
+  let v = c.specs[key];
+  if ((v === undefined || v === null || v === '' || v === '—') && SPEC_ALIAS[key]) {
+    for (const a of SPEC_ALIAS[key]) { if (c.specs[a] !== undefined && c.specs[a] !== null && c.specs[a] !== '' && c.specs[a] !== '—') { v = c.specs[a]; break; } }
+  }
+  return (v === undefined || v === null) ? '' : String(v);
+}
 
 // 轮播/弹窗渐变色板
 const PALETTES = [
@@ -790,17 +806,19 @@ function renderCompare() {
           ${comps.map(c => `<th>${c.name}<br><small>${compPrice(c)} ｜ ${compDate(c)}</small></th>`).join('')}
         </tr></thead>
         <tbody>
-          ${COMP_GROUPS.map((g, gi) => {
+          ${SPEC_GROUPS.map((g, gi) => {
             state.cmpOpen[gi] = true;
+            // 条件行（第三元素'x'）：对比车型中任一款有值才显示该行
+            const visRows = g.rows.filter(([, key, flag]) => !flag || comps.some(c => specVal(c, key)));
             return `
             <tr class="group-row" onclick="toggleGroup(${gi})">
-              <td colspan="${comps.length + 2}"><span class="chev" id="chev-${gi}">▾</span> ${g.name}<span class="g-count">（${g.rows.length}项）</span></td>
+              <td colspan="${comps.length + 2}"><span class="chev" id="chev-${gi}">▾</span> ${g.name}<span class="g-count">（${visRows.length}项）</span></td>
             </tr>
-            ${g.rows.map(([label, carFn]) => `
+            ${visRows.map(([label, key]) => `
               <tr class="g-row g-${gi}">
                 <th>${label}</th>
                 <td class="self-col">待定</td>
-                ${comps.map(c => `<td>${carFn(c) || '—'}</td>`).join('')}
+                ${comps.map(c => `<td>${specVal(c, key) || '—'}</td>`).join('')}
               </tr>`).join('')}`;
           }).join('')}
         </tbody>
@@ -959,18 +977,21 @@ function renderCarDimBody(c) {
     </details>
     <details class="dim-fold">
       <summary>完整参数</summary>
-      <div class="spec-grid">
-        ${specBlock('指导价', c.price, c.id, 'price')}
-        ${specBlock('续航/补能', c.range, c.id, 'range')}
-        ${c.specs ? specBlock('快充时间', c.specs.fastCharge) : ''}
-        ${specBlock('智驾方案', c.adas, c.id, 'adas')}
-        ${specBlock('座舱亮点', c.cockpit, c.id, 'cockpit')}
-        ${c.specs ? specBlock('车身尺寸', c.specs.size) : ''}
-        ${c.specs ? specBlock('动力总成', c.specs.power) : ''}
-        ${c.specs ? specBlock('性能表现', (c.specs.accel || '') + (c.specs.topSpeed && c.specs.topSpeed !== '—' ? ' ｜ 最高' + c.specs.topSpeed : '')) : ''}
-        ${c.specs ? specBlock('整备/满载质量', c.specs.weight) : ''}
-        ${c.specs ? specBlock('悬架形式', c.specs.suspension) : ''}
-        ${c.specs ? specBlock('安全', c.specs.safety) : ''}
+      <div class="spec-groups">
+        ${SPEC_GROUPS.map(g => {
+          // 第三元素 'x' = 条件行（如越野专属参数）：本车有值才显示，不强制显—
+          const visRows = g.rows.filter(([, key, flag]) => !flag || specVal(c, key));
+          return `
+          <details class="spec-group" open>
+            <summary class="spec-group-head">${g.name}<span class="spec-g-count">${visRows.length}项</span><span class="spec-g-chev">▾</span></summary>
+            <table class="spec-tbl"><tbody>
+              ${visRows.map(([label, key]) => {
+                const v = specVal(c, key);
+                return `<tr><th>${label}</th><td${v ? '' : ' class="spec-empty"'}>${v || '—'}</td></tr>`;
+              }).join('')}
+            </tbody></table>
+          </details>`;
+        }).join('')}
       </div>
     </details>
 
