@@ -528,8 +528,11 @@ function renderOverview() {
     </div>
 
     <div class="section-title">本月技术趋势</div>
+    ${(typeof TREND_LEAD !== 'undefined' && TREND_LEAD && TREND_LEAD.length) ? (Array.isArray(TREND_LEAD)
+      ? `<div class="trend-lead"><div class="trend-lead-head"><span class="trend-lead-tag">本月总体结论</span></div><ol class="trend-lead-list">${TREND_LEAD.map((p, i) => `<li><span class="tll-num">${i + 1}</span><span class="tll-txt">${editable(p, 'trend_lead', 'p' + i, true)}</span></li>`).join('')}</ol></div>`
+      : `<div class="trend-lead"><span class="trend-lead-tag">本月总体结论</span>${editable(TREND_LEAD, 'trend_lead', 'd', true)}</div>`) : ''}
     <div class="trends">
-      ${(_TR || TRENDS).map((t, i) => `<div class="trend${i === 0 ? ' wide' : ''}"><h4>${editable(t.t, 'trend_' + i, 't')}</h4><p>${editable(t.d, 'trend_' + i, 'd', true)}</p></div>`).join('')}
+      ${(_TR || TRENDS).map((t, i) => `<div class="trend${i === 0 ? ' wide' : ''}"><h4>${editable(t.t, 'trend_' + i, 't')}</h4><p>${editable(t.d, 'trend_' + i, 'd', true)}</p>${t.imp ? `<p class="trend-imp"><span class="trend-imp-tag">▸ 结论</span>${editable(t.imp, 'trend_' + i, 'imp', true)}</p>` : ''}</div>`).join('')}
     </div>
     ${(_SG || []).length ? `
     <details class="signals-fold">
@@ -770,64 +773,10 @@ function uspCardHTML(c) {
 }
 
 function renderCompare() {
-  const p = PROJECTS.find(x => x.id === state.projectId) || PROJECTS[0];
-  const comps = p.competitors.map(byId).filter(Boolean);
-  state.cmpOpen = {}; // 切换项目后默认全部展开
-
-  $app.innerHTML = `
-    <h1 class="page-title">竞品对比 · 按项目</h1>
-    <p class="page-sub">操作流程：先选择项目 → 展示该项目竞品的 USP 卖点与配置横向对比。竞品池 = 项目竞品 + 近3-6个月同级新车（新车/换代，6款左右），由 AI 从官网/汽车之家/懂车帝等渠道搜集梳理，月度更新</p>
-
-    <div class="project-bar">
-      <label>选择项目：</label>
-      <select id="projectSelect" onchange="setProject(this.value)">
-        ${PROJECTS.map(x => `<option value="${x.id}"${x.id === p.id ? ' selected' : ''}>${x.code} · ${x.name}（${x.segment}）</option>`).join('')}
-      </select>
-      <span class="project-desc">${p.desc}</span>
-    </div>
-
-    <div class="section-title">竞品 USP 卖点与口碑</div>
-    <div class="comp-cards">
-      ${comps.map((c, i) => uspCardHTML(c)).join('')}
-    </div>
-
-    <div class="section-title" style="justify-content:space-between">
-      <span>配置横向对比</span>
-      <span class="cmp-tools">
-        <span class="chip" onclick="allGroups(true)">全部展开</span>
-        <span class="chip" onclick="allGroups(false)">全部收起</span>
-      </span>
-    </div>
-    <div class="cmp-table-wrap">
-      <table class="cmp">
-        <thead><tr>
-          <th style="width:130px">对比维度</th>
-          <th class="self-col">本司项目（${p.code}）</th>
-          ${comps.map(c => `<th>${c.name}<br><small>${compPrice(c)} ｜ ${compDate(c)}</small></th>`).join('')}
-        </tr></thead>
-        <tbody>
-          ${SPEC_GROUPS.map((g, gi) => {
-            state.cmpOpen[gi] = true;
-            // 条件行（第三元素'x'）：对比车型中任一款有值才显示该行
-            const visRows = g.rows.filter(([, key, flag]) => !flag || comps.some(c => specVal(c, key)));
-            return `
-            <tr class="group-row" onclick="toggleGroup(${gi})">
-              <td colspan="${comps.length + 2}"><span class="chev" id="chev-${gi}">▾</span> ${g.name}<span class="g-count">（${visRows.length}项）</span></td>
-            </tr>
-            ${visRows.map(([label, key]) => `
-              <tr class="g-row g-${gi}">
-                <th>${label}</th>
-                <td class="self-col">待定</td>
-                ${comps.map(c => `<td>${specVal(c, key) || '—'}</td>`).join('')}
-              </tr>`).join('')}`;
-          }).join('')}
-        </tbody>
-      </table>
-    </div>
-    <p class="page-sub" style="margin-top:10px">注：竞品参数由 AI 自官网/汽车之家/懂车帝等渠道搜集梳理并核对（来源：${typeof COMP_SOURCE !== 'undefined' ? COMP_SOURCE : '汽车之家'}）；"待定"为本司项目待填参数；表头含售价与上市时间便于快速定位。</p>
-  `;
+  state.cmpOpen = {};
+  if (window.CmpPage) { window.CmpPage.render(); return; }
+  $app.innerHTML = '<div class="cmp-loading">竞品对比模块加载中…</div>';
 }
-function setProject(v) { state.projectId = v; render(); }
 
 // 分组收起/展开
 function toggleGroup(gi) {
@@ -1107,7 +1056,9 @@ function initMonthPicker() {
 const MONTH_CACHE = {};
 // 启动时缓存 9 月（当前 data.js）数据
 MONTH_CACHE[REPORT_MONTH_FILE()] = {
-  REPORT_MONTH, CARS, TECHS, TRENDS, SIGNALS: (typeof SIGNALS !== 'undefined' ? SIGNALS : [])
+  REPORT_MONTH, CARS, TECHS, TRENDS,
+  TREND_LEAD: (typeof TREND_LEAD !== 'undefined' ? TREND_LEAD : ''),
+  SIGNALS: (typeof SIGNALS !== 'undefined' ? SIGNALS : [])
 };
 function REPORT_MONTH_FILE() {
   const cur = MONTHLY_POOL.find(m => m.isCurrent);
@@ -1123,7 +1074,7 @@ async function loadMonthDataset(month) {
   // 函数作用域内求值：文件里的 var 不会污染/冲突全局
   const ds = new Function(src + '\n;return {REPORT_MONTH: (typeof REPORT_MONTH!=="undefined"?REPORT_MONTH:""), ' +
     'CARS: (typeof CARS!=="undefined"?CARS:[]), TECHS: (typeof TECHS!=="undefined"?TECHS:[]), ' +
-    'TRENDS: (typeof TRENDS!=="undefined"?TRENDS:[]), SIGNALS: (typeof SIGNALS!=="undefined"?SIGNALS:[])};')();
+    'TRENDS: (typeof TRENDS!=="undefined"?TRENDS:[]), TREND_LEAD: (typeof TREND_LEAD!=="undefined"?TREND_LEAD:""), SIGNALS: (typeof SIGNALS!=="undefined"?SIGNALS:[])};')();
   if (!ds.CARS.length && !ds.TECHS.length) throw new Error('文件中没有 CARS/TECHS 数据');
   MONTH_CACHE[month] = ds;
   return ds;
@@ -1140,6 +1091,7 @@ window.switchMonth = async function(month) {
     window.CARS = ds.CARS;
     window.TECHS = ds.TECHS;
     window.TRENDS = ds.TRENDS;
+    window.TREND_LEAD = ds.TREND_LEAD || '';
     window.SIGNALS = ds.SIGNALS || [];
     state.reportMonth = month;
     // 重置筛选与编辑态，回到总览
