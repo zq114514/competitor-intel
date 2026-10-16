@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 页面meta -->
+    <meta charset="UTF-8">
+<meta name="renderer" content="webkit" />
+<meta name="force-rendering" content="webkit" />
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<title>全新第四代博越L</title>
+
+<meta name="keywords" content="全新第四代博越L">
+<meta name="description" content="全新第四代博越L">
+
+
+
+
+    <!-- 页面通用样式 -->
+    <!-- å…¬å…±æ ·å¼åº”ç”¨ -->
+<script src="/assets/plugins/ie11CustomProperties.3.14.1/ie11CustomProperties.min.js"></script>
+<link rel="stylesheet" href="/assets/plugins/bootstrap-3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/plugins/animate/animate.min.css">
+<link rel="stylesheet" href="/assets/plugins/swiper-4.5.3/css/swiper.min.css">
+
+<link rel="stylesheet" href="/assets/css/pages/basePage.css">
+<link rel="stylesheet" href="/assets/css/pages/components.css">
+
+<!-- å…¬å…±è„šæœ¬ jqueryç­‰éœ€è¦ç«‹å³åŠ è½½çš„è„šæœ¬ -->
+<script src="/assets/js/configuration/env.js"></script>
+<script src="/assets/js/utils/rem.js"></script>
+<script src="/assets/plugins/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="/assets/plugins/jquery-cookie-1.4.1/jquery.cookie.js"></script>
+<script src="/assets/plugins/polyfill/polyfill.min.js"></script>
+<script src="/assets/plugins/jquery.mousewheel/jquery.mousewheel.js"></script>
+<!-- <script src="https://api.map.baidu.com/api?v=3.0&ak=4DDiSfn5cPDE8N232mTnTacQ4ZNeAW74" type="text/javascript"></script> -->
+<script type="text/javascript">
+window._AMapSecurityConfig = {
+        securityJsCode: window.location.href.includes("galaxy") ? '45e8c9dd54982689fa2429c0576c0fa7' : '28eaa1b1551932fefa1d49a932158111',
+    }
+</script>
+<script src="https://webapi.amap.com/loader.js"></script>
+<!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=c781225f5f5640d82d26dbb5a3626c40"></script>  -->
+<!-- é€šç”¨è„šæœ¬ï¼ˆä¾‹å¦‚å…¨å±€é…ç½®ï¼‰ -->
+<script src="/assets/config/geely.config.js"></script>
+<script src="/assets/js/common/pageTrackingCode.js"></script>
+<script src="/assets/js/common/components.js"></script>
+<script src="/assets/js/api/request.js"></script>
+
+
+<script src="/assets/plugins/sa-sdk-javascript-1.23.3/sensorsdata.min.js"></script>
+<script src="/assets/js/utils/utils.js"></script>
+<script src="/assets/js/utils/md5.js"></script>
+<script charset="UTF-8">
+    var sensors = window['sensorsDataAnalytic201505'];
+    sensors.init({
+        show_log: window.IS_DEV,
+        server_url: window.IS_DEV ? 'http://ubpdata.test.geely.com/sa?project=geelyapp' : 'https://ubpdata.geely.com/sa?project=geelyapp',
+        is_track_single_page: false,
+        cross_subdomain: false,
+        use_client_time: true,
+        send_type: 'beacon',
+        heatmap: {
+            //æ˜¯å¦å¼€å¯ç‚¹å‡»å›¾ï¼Œdefault è¡¨ç¤ºå¼€å¯ï¼Œè‡ªåŠ¨é‡‡é›† $WebClick äº‹ä»¶ï¼Œå¯ä»¥è®¾ç½® 'not_collect' è¡¨ç¤ºå…³é—­ã€‚
+            clickmap: 'default',
+            //æ˜¯å¦å¼€å¯è§¦è¾¾å›¾ï¼Œnot_collect è¡¨ç¤ºå…³é—­ï¼Œä¸ä¼šè‡ªåŠ¨é‡‡é›† $WebStay äº‹ä»¶ï¼Œå¯ä»¥è®¾ç½® 'default' è¡¨ç¤ºå¼€å¯ã€‚
+            scroll_notice_map: 'default'
+        },
+    });
+
+    sensors.registerPage({
+        current_url: location.href,
+        referrer: document.referrer,
+        platform_type: 'Web',
+        AppName: 'å‰åˆ©å®˜ç½‘'
+    });
+    sensors.quick('autoTrack');
+    /*sensors.track('Viewpage_GLWeb', {
+        source: '1',
+        source_url: '2',
+        car_name: '3',
+    });*/
+</script>
+
+    <!-- 页面样式 -->
+    <link href="/assets/css/pages/index.css" rel="stylesheet"/>
+
+    
+    
+</head>
+<body>
+
+    <!-- 处理跳转 -->
+    <script>
+    var redirectUrl = 'https://boyue.geely.com/quanxindisidaiboyuel' || '';
+
+    function pageRedirect() {
+        if (location.search.indexOf('?debug=1') >= 0) {
+            return;
+        }
+
+        try {
+            if (redirectUrl) {
+                if (redirectUrl.indexOf("http")===0) {
+                    redirectUrl = new URL(redirectUrl);
+                    if (redirectUrl.pathname !== location.pathname) {
+                        location.href = redirectUrl.pathname;
+                    }
+                } else if (redirectUrl.indexOf("/")===0) {
+                    if (redirectUrl !== location.pathname) {
+                        location.href = redirectUrl;
+                    }
+                }
+            }
+        }catch (e) {
+            console.log("redirect error", e);
+        }
+    }
+
+     pageRedirect();
+
+ window.Geely = window.Geely || { };
+                        window.Geely.pageInfo = {
+                                'seriesName':'全新第四代博越L',
+                                'carCategoryName':'博系',
+                                'code':'FX11-A3',
+                                'Mt':'gw-4byl'
+                        }; 
+    </script>
+
+
+
+    <div class="page-wrapper" page-id="{2C4E6089-943C-4A1E-9896-755532426EA6}">
+        <!-- 头部引用 -->
+        <div class="header" id="header">
+    <!-- 首屏 默认样式  [class=''  白底黑字 class='menu-black-default']  [ 黑底白字 class="menu-white-default"]  -->
+    <!-- 首屏 滑动样式  [白底黑字 data-theme-class='menu-black']  [ 黑底白字 data-theme-class="menu-white"]  -->
+    <header data-theme-class="menu-white"
+            class="" style="display: block">
+        <nav class="menu-white">
+            <div class="nav-box" style="">
+                <!-- logo -->
+                <div class="nav-logo">
+                    <a href="https://www.geely.com/">
+                        
+                        <span class="iconfont icon-a-logo-b22x"></span>
+                    </a>
+                </div>
+
+                <!-- 导航 -->
+                <div class="nav-content">
+                    <div class="nav-icon-bar iconfont icon-a-mob-menu-icon-b2x"></div>
+                    <div class="close-nav icon iconfont icon-close"></div>
+                    <ul class="nav-level-one">
+                            <li class="car-model">
+                                <a href="javascript:;" >
+                                    <span>车型</span>
+                                </a>
+
+                                
+    <div class="model-menu">
+        <div class="model-menu-head">
+            <ul>
+                    <li class="">中国星</li>
+                    <li class="">星愿</li>
+                    <li class="">ICON</li>
+                    <li class="">牛仔</li>
+                    <li class="">帝豪</li>
+                    <li class="">缤系</li>
+                    <li class="">博系</li>
+                    <li class="">豪越</li>
+                    <li class="">雷达</li>
+                    <li class="">睿蓝</li>
+            </ul>
+        </div>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">星越L PLUS</div>
+                                <div class="model-prize"><!--官方指导售价：￥137,200 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xylplus/2026/0903/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xingyue.geely.com/xingyuelplus" target=_blank>
+                                        <div class="detail-name">
+                                            星越L PLUS
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥137,200 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xylplus/2026/0903/30du1.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">星瑞L PLUS</div>
+                                <div class="model-prize"><!--官方指导售价：￥135,700 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xingrui/PLUS/2026/0916zhengce.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://preface.geely.com/XINGRUILPLUS" target=_blank>
+                                        <div class="detail-name">
+                                            星瑞L PLUS
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥135,700 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xingrui/PLUS/2026/091630du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">星瑞</div>
+                                <div class="model-prize"><!--官方指导售价：￥113,700 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xingrui/2025/0922/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://preface.geely.com/preface" target=_blank>
+                                        <div class="detail-name">
+                                            星瑞
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥113,700 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xingrui/2025/0922/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">星越L</div>
+                                <div class="model-prize"><!--官方指导售价：￥137,200 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xyL/2025/0923/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xingyue.geely.com/xingyuel" target=_blank>
+                                        <div class="detail-name">
+                                            星越L
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥137,200 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xyL/2025/0923/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">吉利星愿</div>
+                                <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/E22H/2026/0527/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xy.geely.com/jlxy" target=_blank>
+                                        <div class="detail-name">
+                                            吉利星愿
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥103,600 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/E22H/2026/0527/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">26款ICON巧克力</div>
+                                <div class="model-prize"><!--官方指导售价：￥109,900 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/icon/chocolate/2025/0710/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://icon.geely.com/icon" target=_blank>
+                                        <div class="detail-name">
+                                            26款ICON巧克力
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥109,900 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/icon/chocolate/2025/0710/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">吉利牛仔</div>
+                                <div class="model-prize"></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/niuzai/2026/0529/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://icon.geely.com/jlnz" target=_blank>
+                                        <div class="detail-name">
+                                            吉利牛仔
+                                        </div>
+                                        <div class="detail-prize">
+                                            
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/niuzai/2026/0529/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">第5代帝豪</div>
+                                <div class="model-prize"><!--官方指导售价：￥69,900 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/dh5/2025/0926/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://dh.geely.com/SS21" target=_blank>
+                                        <div class="detail-name">
+                                            第5代帝豪
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥69,900 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/dh5/2025/0926/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">帝豪 向上</div>
+                                <div class="model-prize"><!--官方指导售价：￥69,900 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/dh4/up/2026/0520/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://dh.geely.com/SS11A3XS" target=_blank>
+                                        <div class="detail-name">
+                                            帝豪 向上
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥69,900 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/dh4/up/2026/0520/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">第4代帝豪醇电混动</div>
+                                <div class="model-prize"><!--官方指导售价：￥129,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/chetu/dhchundian/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://dh.geely.com/ss11m1" target=_blank>
+                                        <div class="detail-name">
+                                            第4代帝豪醇电混动
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥129,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/chetu/dhchundian/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">缤越L</div>
+                                <div class="model-prize"><!--官方指导售价：￥75,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/BinYueL/2025/1114/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://binyue.geely.com/byl" target=_blank>
+                                        <div class="detail-name">
+                                            缤越L
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥75,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/BinYueL/2025/1114/30du1.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">缤越超能版</div>
+                                <div class="model-prize"><!--官方指导售价：￥75,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/BYCN/MAX/2025/0715/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://binyue.geely.com/bycn" target=_blank>
+                                        <div class="detail-name">
+                                            缤越超能版
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥75,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/BYCN/MAX/2025/0715/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">缤瑞COOL</div>
+                                <div class="model-prize"><!--官方指导售价：￥94,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://hs-geely-portal-prod-ntt-obs-02-new.tos-cn-shanghai.volces.com/GeelyPromotion/ANEW2/binruiCOOL/2024/0306/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://binrui.geely.com/binrui" target=_blank>
+                                        <div class="detail-name">
+                                            缤瑞COOL
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥94,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://hs-geely-portal-prod-ntt-obs-02-new.tos-cn-shanghai.volces.com/GeelyPromotion/ANEW2/binruiCOOL/2024/0306/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">全新第四代博越L</div>
+                                <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/car.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://boyue.geely.com/quanxindisidaiboyuel" target=_blank>
+                                        <div class="detail-name">
+                                            全新第四代博越L
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥131,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">全新第四代博越L i-HEV系列</div>
+                                <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4ihev/2026/0821/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://boyue.geely.com/quanxindisidaiboyuelihev" target=_blank>
+                                        <div class="detail-name">
+                                            全新第四代博越L i-HEV系列
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥131,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4ihev/2026/0821/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">博越REV</div>
+                                <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueREV/2026/0316/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://boyue.geely.com/REV" target=_blank>
+                                        <div class="detail-name">
+                                            博越REV
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥131,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueREV/2026/0316/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">全新博越</div>
+                                <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xinboyue/newboyue/2025/0731/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://boyue.geely.com/quanxinboyue" target=_blank>
+                                        <div class="detail-name">
+                                            全新博越
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥131,800 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xinboyue/newboyue/2025/0731/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">第三代豪越L</div>
+                                <div class="model-prize"></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/haoyueL3/2025/1120/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://haoyue.geely.com/hyl3" target=_blank>
+                                        <div class="detail-name">
+                                            第三代豪越L
+                                        </div>
+                                        <div class="detail-prize">
+                                            
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/haoyueL3/2025/1120/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">豪越L尊享款</div>
+                                <div class="model-prize"></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/haoyueL/zunxiang/zhengxiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://haoyue.geely.com/hyzx" target=_blank>
+                                        <div class="detail-name">
+                                            豪越L尊享款
+                                        </div>
+                                        <div class="detail-prize">
+                                            
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/haoyueL/zunxiang/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">2026款吉利雷达金刚EV</div>
+                                <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/ev/2026/0424/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xy.geely.com/radarev" target=_blank>
+                                        <div class="detail-name">
+                                            2026款吉利雷达金刚EV
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥103,600 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/ev/2026/0424/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">2025款吉利雷达金刚EV</div>
+                                <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/2025/0605/xiao.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xy.geely.com/radar" target=_blank>
+                                        <div class="detail-name">
+                                            2025款吉利雷达金刚EV
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥103,600 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/2025/0605/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">吉利雷达金刚PHEV</div>
+                                <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/emp/2025/0606/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xy.geely.com/radaremp" target=_blank>
+                                        <div class="detail-name">
+                                            吉利雷达金刚PHEV
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥103,600 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/emp/2025/0606/30du1.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">吉利雷达地平线PHEV</div>
+                                <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/emp/2025/0606/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xy.geely.com/radardpxphev" target=_blank>
+                                        <div class="detail-name">
+                                            吉利雷达地平线PHEV
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥103,600 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/dpxphev/2025/0929/30du1.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+            <section class="model-menu-section swiper-container">
+                <div class="car-list  swiper-wrapper">
+                            <div class="car-item swiper-slide">
+                                <div class="model-name">睿蓝蓝气球</div>
+                                <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                <div class="model-img">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/livan/2025/0929/xiao1.png" alt="">
+                                </div>
+
+                                <div class="car-model-detail">
+                                    <a href="https://xy.geely.com/livan" target=_blank>
+                                        <div class="detail-name">
+                                            睿蓝蓝气球
+                                        </div>
+                                        <div class="detail-prize">
+                                            <!--官方指导售价：￥103,600 起-->
+                                        </div>
+                                        <div class="detail-img">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/livan/2025/0929/30du.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </section>
+    </div>
+
+                            </li>
+                            <li class="">
+                                <a href="https://www.geely.com/brandworld" target=_blank>
+                                    <span>品牌</span>
+                                </a>
+
+                                
+
+                            </li>
+                            <li class="">
+                                <a href="https://www.geely.com/news" target=_blank>
+                                    <span>资讯</span>
+                                </a>
+
+                                
+
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" >
+                                    <span>售后</span>
+                                </a>
+
+                                
+                                        <ul class="nav-level-second">
+                                                <li>
+                                                    <a href="https://www.geely.com/service" target=_blank>售后服务</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.geely.com/servicejoin" target=_blank>县域售后招商</a>
+                                                </li>
+                                        </ul>
+
+                            </li>
+                            <li class="">
+                                <a href="https://www.geely.com/technology/cma" target=_blank>
+                                    <span>CMA</span>
+                                </a>
+
+                                
+
+                            </li>
+                                                    <li class="">
+                                    <a class="button-drive geely--global--button line-white" href="https://www.geely.com/#newTestDrive" target=_blank>
+                                        <span>预约试驾</span>
+                                    </a>
+                                <a href="" target="_blank">
+                                    <span></span>
+                                </a>
+                            </li>
+                    </ul>
+
+                    <div class="nav-level-two">
+                        <ul class="nav-main">
+                                <li class="nav-item">
+车型                                        <i class="icon iconfont icon-arrow-bottom"></i>
+    <div class="car-type-section">
+            <div class="section-item ">
+                中国星
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://xingyue.geely.com/xingyuelplus" target=_blank>
+                                    <div class="model-name">星越L PLUS</div>
+                                    <div class="model-prize"><!--官方指导售价：￥137,200 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xylplus/2026/0903/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://preface.geely.com/XINGRUILPLUS" target=_blank>
+                                    <div class="model-name">星瑞L PLUS</div>
+                                    <div class="model-prize"><!--官方指导售价：￥135,700 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xingrui/PLUS/2026/0916zhengce.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://preface.geely.com/preface" target=_blank>
+                                    <div class="model-name">星瑞</div>
+                                    <div class="model-prize"><!--官方指导售价：￥113,700 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xingrui/2025/0922/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://xingyue.geely.com/xingyuel" target=_blank>
+                                    <div class="model-name">星越L</div>
+                                    <div class="model-prize"><!--官方指导售价：￥137,200 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xyL/2025/0923/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                星愿
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://xy.geely.com/jlxy" target=_blank>
+                                    <div class="model-name">吉利星愿</div>
+                                    <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/E22H/2026/0527/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                ICON
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://icon.geely.com/icon" target=_blank>
+                                    <div class="model-name">26款ICON巧克力</div>
+                                    <div class="model-prize"><!--官方指导售价：￥109,900 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/icon/chocolate/2025/0710/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                牛仔
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://icon.geely.com/jlnz" target=_blank>
+                                    <div class="model-name">吉利牛仔</div>
+                                    <div class="model-prize"></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/niuzai/2026/0529/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                帝豪
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://dh.geely.com/SS21" target=_blank>
+                                    <div class="model-name">第5代帝豪</div>
+                                    <div class="model-prize"><!--官方指导售价：￥69,900 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/dh5/2025/0926/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://dh.geely.com/SS11A3XS" target=_blank>
+                                    <div class="model-name">帝豪 向上</div>
+                                    <div class="model-prize"><!--官方指导售价：￥69,900 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/dh4/up/2026/0520/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://dh.geely.com/ss11m1" target=_blank>
+                                    <div class="model-name">第4代帝豪醇电混动</div>
+                                    <div class="model-prize"><!--官方指导售价：￥129,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/chetu/dhchundian/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                缤系
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://binyue.geely.com/byl" target=_blank>
+                                    <div class="model-name">缤越L</div>
+                                    <div class="model-prize"><!--官方指导售价：￥75,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/BinYueL/2025/1114/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://binyue.geely.com/bycn" target=_blank>
+                                    <div class="model-name">缤越超能版</div>
+                                    <div class="model-prize"><!--官方指导售价：￥75,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/BYCN/MAX/2025/0715/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://binrui.geely.com/binrui" target=_blank>
+                                    <div class="model-name">缤瑞COOL</div>
+                                    <div class="model-prize"><!--官方指导售价：￥94,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://hs-geely-portal-prod-ntt-obs-02-new.tos-cn-shanghai.volces.com/GeelyPromotion/ANEW2/binruiCOOL/2024/0306/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                博系
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://boyue.geely.com/quanxindisidaiboyuel" target=_blank>
+                                    <div class="model-name">全新第四代博越L</div>
+                                    <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/car.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://boyue.geely.com/quanxindisidaiboyuelihev" target=_blank>
+                                    <div class="model-name">全新第四代博越L i-HEV系列</div>
+                                    <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4ihev/2026/0821/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://boyue.geely.com/REV" target=_blank>
+                                    <div class="model-name">博越REV</div>
+                                    <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueREV/2026/0316/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://boyue.geely.com/quanxinboyue" target=_blank>
+                                    <div class="model-name">全新博越</div>
+                                    <div class="model-prize"><!--官方指导售价：￥131,800 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/xinboyue/newboyue/2025/0731/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                豪越
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://haoyue.geely.com/hyl3" target=_blank>
+                                    <div class="model-name">第三代豪越L</div>
+                                    <div class="model-prize"></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/haoyueL3/2025/1120/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://haoyue.geely.com/hyzx" target=_blank>
+                                    <div class="model-name">豪越L尊享款</div>
+                                    <div class="model-prize"></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/haoyueL/zunxiang/zhengxiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                雷达
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://xy.geely.com/radarev" target=_blank>
+                                    <div class="model-name">2026款吉利雷达金刚EV</div>
+                                    <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/ev/2026/0424/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://xy.geely.com/radar" target=_blank>
+                                    <div class="model-name">2025款吉利雷达金刚EV</div>
+                                    <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/2025/0605/xiao.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://xy.geely.com/radaremp" target=_blank>
+                                    <div class="model-name">吉利雷达金刚PHEV</div>
+                                    <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/emp/2025/0606/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="car-item ">
+                                <a href="https://xy.geely.com/radardpxphev" target=_blank>
+                                    <div class="model-name">吉利雷达地平线PHEV</div>
+                                    <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/radar/emp/2025/0606/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <div class="section-item ">
+                睿蓝
+                <div class="car-list">
+                            <div class="car-item ">
+                                <a href="https://xy.geely.com/livan" target=_blank>
+                                    <div class="model-name">睿蓝蓝气球</div>
+                                    <div class="model-prize"><!--官方指导售价：￥103,600 起--></div>
+                                    <div class="model-img">
+                                        <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/livan/2025/0929/xiao1.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                </div>
+            </div>
+    </div>
+                                </li>
+                                <li class="nav-item">
+                                        <a href="https://www.geely.com/brandworld" target=_blank>品牌</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a href="https://www.geely.com/news" target=_blank>资讯</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a href="javascript:;" >售后</a>
+                                            <i class="icon iconfont icon-arrow-bottom"></i>
+                                                <a class="third-item block" href="https://www.geely.com/service" target=_blank>售后服务</a>
+                                                <a class="third-item block" href="https://www.geely.com/servicejoin" target=_blank>县域售后招商</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a href="https://www.geely.com/technology/cma" target=_blank>CMA</a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 快速链接 -->
+                <div class="nav-right">
+                        <a class="geely--global--button line-white set-up-table block" href="https://www.geely.com/#newTestDrive" target=_blank>
+                            <span>预约试驾</span>
+                        </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- 内容 -->
+        <div class="page-container">
+            <div class="page-content">
+                
+
+<div class="car-header" id="car-header">
+        <!-- 车型头部2  -->
+        <div class="car-menu carmenu2 header-noshow">
+            <nav>
+                <div class="nav-logo">
+                    
+                    <p class="car-text">全新第四代博越L</p>
+                </div>
+                <div class="nav-content">
+                    <div class="nav-icon-bar iconfont icon-a-mob-menu-icon-b2x"></div>
+                    <p class="price">
+                        上市指导价：<span class="num">9.99万元起</span>
+                        <a class="show-config-table">配置对比及价格</a>
+                    </p>
+                </div>
+                <div class="nav-right">
+                                                                <a class="set-up-table geely--global--button line-white" href="#newTestDrive"><span>预约试驾</span></a>
+                                            <div class="link-language"><a href="" target="_blank"></a></div>
+                </div>
+            </nav>
+        </div>
+
+</div>
+
+<div id="KV" class="module com-kvSwiper">
+    <div class="kv-swiper model-overview" id="kv-swiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                                    <div class="swiper-slide" data-index="1">                                           
+                                            <div class="slide-text text-opacity kv-up" id="swiper-text-slide-up" style="margin-top: -3%;">
+                                                    <img class="car-tit" src="" alt="">
+                                                <p class="swiper-slide-text" style="color: #fff;">全新三好SUV | 好节能&middot;好性能&middot;好智能</p>
+<h2 class="swiper-slide-title" style="color: #fff;">全新第四代博越L</h2>
+                                                
+                                            </div>
+                                            
+                                        <div class="img-box">
+                                            <a href="javascript:;" >
+                                                <picture>
+                                                    <source media="(max-width: 750px)"
+                                                            srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/kv.m3.jpg">
+                                                    <img class="swiper-it-img" alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/kv.pc3.jpg" />
+                                                </picture>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+            </div>
+            <div class="swiper-prev-button">
+                <img alt="" src="/assets/images/icon/left_01.png">
+            </div>
+            <div class="swiper-next-button">
+                <img alt="" src="/assets/images/icon/right_01.png">
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+<!--长图组件-->
+
+<div id="quanyi" class="long-image-components">
+    <div style="height: auto;font-size: 0;">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/qy/0924RYQYM.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/qy/0924RYQYPC.jpg" style="width: 100%">
+        </picture>
+    </div>
+    <div class="pc-btn-box" style="bottom: 100px; top: 92%;">
+<a class="geely--global--button line-black" href="#newTestDrive" style="margin: 0 auto;">预约试驾
+</a></div>
+<div class="mobile-btn-box" style="bottom: 10px; top: 95%;">
+<a class="geely--global--button line-black" href="#newTestDrive" style="margin: 0 auto;">预约试驾
+</a></div>
+</div>
+<div id="ModelDescribe1" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/2m1.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/2pc.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 40%; top:24%;">
+<p class="tit">万象更新 当然博越</p>
+<p class="desc"> </p>
+</div>
+<div class="detail mobile-text" style=";">
+<p class="tit">万象更新 当然博越</p>
+<p class="desc"> </p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Highlights7" class="module com-modelHighlightsF02">
+    <!-- 车型页 — 亮点F02-->
+    <div class="model-highlights model-highlights-f02">
+        <div class="cover-wrapper">
+            <div class="cover-container">
+                            <div class="cover-box">
+                                <div class="detail">
+                                         <picture>
+                                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.1m.jpg">
+                                        <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.1pc1.jpg">
+                                         </picture>
+<div class="content pc-text" style="bottom: .8rem;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>
+<div class="content mobile-text" style="bottom:2.5rem; left:51%; top:23%;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>                                </div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="detail">
+                                         <picture>
+                                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.2m.jpg">
+                                        <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.2pc1.jpg">
+                                         </picture>
+<div class="content pc-text" style="bottom: .8rem;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>
+<div class="content mobile-text" style="bottom:2.5rem; left:51%; top:23%;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>                                </div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="detail">
+                                         <picture>
+                                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.3m.jpg">
+                                        <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.3pc1.jpg">
+                                         </picture>
+<div class="content pc-text" style="bottom: .8rem;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>
+<div class="content mobile-text" style="bottom:2.5rem; left:51%; top:23%;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>                                </div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="detail">
+                                         <picture>
+                                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.4m.jpg">
+                                        <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.4pc1.jpg">
+                                         </picture>
+<div class="content pc-text" style="bottom: .8rem;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>
+<div class="content mobile-text" style="bottom:2.5rem; left:51%; top:23%;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>                                </div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="detail">
+                                         <picture>
+                                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.5m.jpg">
+                                        <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.5pc1.jpg">
+                                         </picture>
+<div class="content pc-text" style="bottom: .8rem;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>
+<div class="content mobile-text" style="bottom:2.5rem; left:51%; top:23%;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>                                </div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="detail">
+                                         <picture>
+                                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.6m.jpg">
+                                        <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/3.6pc1.jpg">
+                                         </picture>
+<div class="content pc-text" style="bottom: .8rem;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>
+<div class="content mobile-text" style="bottom:2.5rem; left:51%; top:23%;">
+<h2 style="color:#fff;"> </h2>
+<p style="color:#fff;"> </p>
+</div>                                </div>
+                            </div>
+
+            </div>
+        </div>
+    </div>
+</div><div id="Highlights6" class="module com-modelHighlightsF01">
+    <!-- 车型页 — 亮点F01-->
+    <div class="model-highlights model-highlights-f01">
+        <div class="cover-wrapper">
+            <div class="cover-container">
+                            <div class="cover-box">
+                                <div class="detail">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/4.1m1.jpg">
+                                            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/4.1pc1.jpg">
+                                        </picture>
+<div class="content pc-text" style="bottom: .8rem;left: 36%; top:82%;">
+<h2 style="color: #ffffff; text-align: center;">琥珀金</h2>
+<p style="color: #ffffff; text-align: center;">源自暖阳沉淀的奇妙邂逅，自带琥珀的温润光泽，<br />
+让惬意常伴每段旅程</p>
+</div>
+<div class="content mobile-text" style="bottom: .8rem;left: 51%;">
+<h2 style="color: #ffffff; text-align: center;">琥珀金</h2>
+<p style="color: #ffffff; text-align: center;">源自暖阳沉淀的奇妙邂逅，自带琥珀的温润光泽，让惬意常伴每段旅程</p>
+</div>                                </div>
+                            </div>
+                            <div class="cover-box">
+                                <div class="detail">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/4.2m.jpg">
+                                            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/4.2pc1.jpg">
+                                        </picture>
+<div class="content pc-text" style="bottom: .8rem;left: 36%; top:82%;">
+<h2 style="color: #ffffff; text-align: center;">松露灰</h2>
+<p style="color: #ffffff; text-align: center;">源自山河的神秘脉络，自带松露般的内敛质感，<br />
+营造悠然自得的驾乘体验</p>
+</div>
+<div class="content mobile-text" style="bottom: .8rem;left: 51%;">
+<h2 style="color: #ffffff; text-align: center;">松露灰</h2>
+<p style="color: #ffffff; text-align: center;">源自山河的神秘脉络，自带松露般的内敛质感，营造悠然自得的驾乘体验</p>
+</div>                                </div>
+                            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Highlights4-1" class="module com-modelHighlightsD">
+    <!-- 车型页 — 亮点D-->
+    <div class="modelHighlightsD card-swiper">
+                <div class="title"></div>
+                <div class="text"></div>
+                <div class="card-swiper-content swiper-container ">
+                    <div class="card-swiper-wrapper swiper-wrapper">
+                            <div class="swiper-slide" data-index="0">
+                                <div class="slide-body">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/geshanMM.jpg">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/geshanPC.jpg" alt="">
+                                        </picture>
+                                </div>
+                                <div class="silde-words">
+                                    <div class="slide-words-title ">全新「百川归海」前格栅</div>
+                                    <div class="slide-words-text ">承袭山河气韵与百川归海设计，立体格栅强化层叠细节，结合精致镀铬与锋锐风道式前保险杠，彰显庄重轩昂的视觉气场</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-index="1">
+                                <div class="slide-body">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/weidnegM.jpg">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/weidengPC.jpeg" alt="">
+                                        </picture>
+                                </div>
+                                <div class="silde-words">
+                                    <div class="slide-words-title ">「璀璨西子」贯穿尾灯</div>
+                                    <div class="slide-words-text ">190颗LED灯珠组成2.9m贯穿灯带，化作西子潋滟光影，搭配扩散器式下包围与宽幅镀铬，塑造动感有力的尾部姿态</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-index="2">
+                                <div class="slide-body">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/5.3m.jpg">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/5.3pc.jpg" alt="">
+                                        </picture>
+                                </div>
+                                <div class="silde-words">
+                                    <div class="slide-words-title ">20英寸星钻轮毂</div>
+                                    <div class="slide-words-text ">群峰之势化作多辐条错落铺陈，于光影交织间尽显山河大气</div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-prev-button"></div>
+                    <div class="swiper-next-button"></div>
+                </div>
+
+    </div>
+</div><div id="Highlights4-2" class="module com-modelHighlightsD">
+    <!-- 车型页 — 亮点D-->
+    <div class="modelHighlightsD card-swiper">
+                <div class="title"></div>
+                <div class="text"></div>
+                <div class="card-swiper-content swiper-container ">
+                    <div class="card-swiper-wrapper swiper-wrapper">
+                            <div class="swiper-slide" data-index="0">
+                                <div class="slide-body">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/6.1m.jpg">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/6.1pc.jpg" alt="">
+                                        </picture>
+                                </div>
+                                <div class="silde-words">
+                                    <div class="slide-words-title ">「水岸涟漪」副仪表台</div>
+                                    <div class="slide-words-text ">从水岸泛起的涟漪中汲取设计灵感，“灵动的水波”搭配水晶挡把，在时光的棱镜中，雕琢出光影的韵律</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-index="1">
+                                <div class="slide-body">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/6.2m.jpg">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/6.2pc.jpg" alt="">
+                                        </picture>
+                                </div>
+                                <div class="silde-words">
+                                    <div class="slide-words-title ">3D镭雕水晶挡把</div>
+                                    <div class="slide-words-text ">琥珀凝光，流转温润华彩，立体晶面映照璀璨光影，尽显精致华贵</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-index="2">
+                                <div class="slide-body">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/6.3m.jpg">
+                                            <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/6.3pc.jpg" alt="">
+                                        </picture>
+                                </div>
+                                <div class="silde-words">
+                                    <div class="slide-words-title ">光影墨镜遮阳板</div>
+                                    <div class="slide-words-text ">自带时尚“墨镜”，遮阳不遮视线，白天阻挡紫外线，夜晚可有效防闪光</div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-prev-button"></div>
+                    <div class="swiper-next-button"></div>
+                </div>
+
+    </div>
+</div>
+<div id="ModelDescribe2" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/7m.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/7pc.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 21%; top:17%;">
+<p class="tit" style="text-align: center; color:#333;">全新一代1.5TD Pro高功发动机</p>
+<p class="desc" style="text-align: center; color:#333;">全新一代1.5TD Pro高功发动机最大功率148kW、最大扭矩315N&middot;m，动力更强劲；WLTC综合油耗低至6.69L/100km，省油更省心</p>
+</div>
+<div class="detail mobile-text" style=";">
+<p class="tit">全新一代1.5TD Pro高功发动机</p>
+<p class="desc">全新一代1.5TD Pro高功发动机最大功率148kW、最大扭矩315N&middot;m，动力更强劲；WLTC综合油耗低至6.69L/100km，省油更省心</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="Highlights1" class="module com-modelHighlightsA">
+    <!-- 车型页 — 亮点A-->
+    <div class="model-highlights model-highlights-a">
+        <div class="highlights-wrapper">
+                    <div class="content-box style1">
+                            <div class="item">
+                                    <div class="pic">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="">
+                                            <img alt="" class="bg" src="">
+                                        </picture>
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/8.1m.jpg">
+                                            <img alt="" class="highlights" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/8.1pc.jpg">
+                                        </picture>
+                                        <div class="text pc-text" style="top: 3.6rem; right: 1.5rem;color: #000;">
+<h3 class="tit">新一代CMA全球豪华架构</h3>
+<p class="desc">
+豪华机械素质和出色的驾乘质感，兼顾舒适性和运动性，缔造人车合一的驾驭境界，获全球300万+用户的认可
+</p>
+</div>
+<div class="text mobile-text" style="top: 2.6rem; right: 1.2rem;color: #000;">
+<h3 class="tit">新一代CMA全球豪华架构</h3>
+<p class="desc">
+豪华机械素质和出色的驾乘质感，兼顾舒适性和运动性，缔造人车合一的驾驭境界，获全球300万+用户的认可
+</p>
+</div>
+                                    </div>
+                            </div>
+                            <div class="item">
+                                    <div class="pic">
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="">
+                                            <img alt="" class="bg" src="">
+                                        </picture>
+                                        <picture>
+                                            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/8.2m.jpg">
+                                            <img alt="" class="highlights" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/8.2pc.jpg">
+                                        </picture>
+                                        <div class="text pc-text" style="top: 3.6rem; right: 1.5rem;color: #fff;">
+<h3 class="tit">新一代GEEA3.0电子电气架构</h3>
+<p class="desc">
+由分布式域控向&ldquo;中央超级大脑&rdquo;进化，信息传输速度达到千兆级，可实现5分钟FOTA
+</p>
+</div>
+<div class="text mobile-text" style="top: 2.6rem; right: 1.2rem;color: #fff;">
+<h3 class="tit">新一代GEEA3.0电子电气架构</h3>
+<p class="desc">
+由分布式域控向&ldquo;中央超级大脑&rdquo;进化，信息传输速度达到千兆级，可实现5分钟FOTA</p>
+</div>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="pagination-box">
+                            <div class="bor"></div>
+                            <div class="bor"></div>
+                    </div>
+
+
+        </div>
+    </div>
+</div>
+<div id="ModelDescribe3" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <video loop
+               autoplay
+               muted
+               data-m-poster=""
+               data-pc-poster=""
+               playsinline=""
+               webkit-playsinline="true"
+               x5-video-player-fullscreen="false"
+               x5-video-player-type="h5" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/9pc.mp4" data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/9pc.mp4" data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/9m.mp4"></video>
+<div class="detail pc-text" style="left: 13%; top:80%;">
+<p class="tit">CCD可变阻尼悬架</p>
+<p class="desc">CCD电磁悬架滤振性能提升，有效化解路面颠簸，过弯车身侧倾减少，车身支撑更稳，驾控更从容</p>
+</div>
+<div class="detail mobile-text" style="top:72%;">
+<p class="tit">CCD可变阻尼悬架</p>
+<p class="desc">CCD电磁悬架滤振性能提升，有效化解路面颠簸，<br />
+过弯车身侧倾减少，车身支撑更稳，驾控更从容</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ModelDescribe4" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <video loop
+               autoplay
+               muted
+               data-m-poster=""
+               data-pc-poster=""
+               playsinline=""
+               webkit-playsinline="true"
+               x5-video-player-fullscreen="false"
+               x5-video-player-type="h5" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/10pc.mp4" data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/10pc.mp4" data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/10m.mp4"></video>
+<div class="detail pc-text" style="left: 36%; top:20%;">
+<p class="tit">千里浩瀚H5辅助驾驶方案</p>
+<p class="desc">&nbsp;</p>
+</div>
+<div class="detail mobile-text" style=";">
+<p class="tit">千里浩瀚H5辅助驾驶方案</p>
+<p class="desc">&nbsp;</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ModelDescribe5" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/11m1.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/11pc1.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 36%; top:20%;">
+<p class="tit">200m超视距探测激光雷达</p>
+<p class="desc">&nbsp;</p>
+</div>
+<div class="detail mobile-text" style=";">
+<p class="tit">200m超视距探测激光雷达</p>
+<p class="desc">&nbsp;</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Highlights2-1" class="module com-modelHighlightsB">
+    <!-- 车型页 — 亮点B-->
+    <div class="modelHighlightsB img-text">
+                <div class="title"></div>
+                <div class="text"></div>
+                <div class="img-text-list">
+                    <div class="item fadeInUp">
+                        <div class="item-img">
+                                <picture>
+                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/CSNOAM.jpg">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/CSNOA.jpeg" alt="" class="scale-img">
+                                </picture>
+                        </div>
+                        <div class="item-text">
+                            <h2>城市NOA领航驾驶辅助</h2>
+                            <p>复杂路口灵活通行，遇施工平稳绕行，主辅道路辅助切换，导航到点辅助靠边，让城市通行更从容</p>
+                        </div>
+                    </div>
+                    <div class="item fadeInUp">
+                        <div class="item-img">
+                                <picture>
+                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/12.1m.jpg">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/12.1pc.jpg" alt="" class="scale-img">
+                                </picture>
+                        </div>
+                        <div class="item-text">
+                            <h2>高速NOA领航驾驶辅助</h2>
+                            <p>辅助上下匝道，辅助应对高速变道，雨天路况安心行驶，城市高速顺畅衔接，让长途出行更省心</p>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</div>
+<div id="ModelDescribe6" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <video loop
+               autoplay
+               muted
+               data-m-poster=""
+               data-pc-poster=""
+               playsinline=""
+               webkit-playsinline="true"
+               x5-video-player-fullscreen="false"
+               x5-video-player-type="h5" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/13pc.mp4" data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/13pc.mp4" data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/13m.mp4"></video>
+<div class="detail pc-text" style="left: 10%; top:80%;">
+<p class="tit">HPA跨层记忆泊车辅助</p>
+<p class="desc">最长3km跨层记忆巡航，支持辅助会车避险与停车场跨层通行，复杂园区也能从容泊入，让停车更轻松</p>
+</div>
+<div class="detail mobile-text" style=";">
+<p class="tit">HPA跨层记忆泊车辅助</p>
+<p class="desc">最长3km跨层记忆巡航，支持辅助会车避险与停车场跨层通行，复杂园区也能从容泊入，让停车更轻松</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Highlights2-2" class="module com-modelHighlightsB">
+    <!-- 车型页 — 亮点B-->
+    <div class="modelHighlightsB img-text">
+                <div class="title"></div>
+                <div class="text"></div>
+                <div class="img-text-list">
+                    <div class="item fadeInUp">
+                        <div class="item-img">
+                                <picture>
+                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/14.1m.jpg">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/14.1pc.jpg" alt="" class="scale-img">
+                                </picture>
+                        </div>
+                        <div class="item-text">
+                            <h2>FTP指尖泊车辅助</h2>
+                            <p>滑动屏幕圈定车位，无划线车位和不规则车位也能泊入，解锁多场景泊车自由</p>
+                        </div>
+                    </div>
+                    <div class="item fadeInUp">
+                        <div class="item-img">
+                                <picture>
+                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/14.2m.jpg">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/14.2pc.jpg" alt="" class="scale-img">
+                                </picture>
+                        </div>
+                        <div class="item-text">
+                            <h2>APA智能泊车辅助（尽头路）</h2>
+                            <p>尽头路车位场景专项算法优化，可实现调头后泊车入位，高难度车位新手也能从容应对</p>
+                        </div>
+                    </div>
+                    <div class="item fadeInUp">
+                        <div class="item-img">
+                                <picture>
+                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/APAM.jpg">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/APAPC.jpg" alt="" class="scale-img">
+                                </picture>
+                        </div>
+                        <div class="item-text">
+                            <h2>APA智能泊车辅助（窄车位）</h2>
+                            <p>选定车位，离开车辆，车辆可辅助完成泊车操作，解决窄车位下车难题</p>
+                        </div>
+                    </div>
+                    <div class="item fadeInUp">
+                        <div class="item-img">
+                                <picture>
+                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/RPAM.jpg">
+                                    <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/RPAPC.jpeg" alt="" class="scale-img">
+                                </picture>
+                        </div>
+                        <div class="item-text">
+                            <h2>RPA遥控泊车辅助</h2>
+                            <p>车外遥控，特殊泊车场景也能轻松进出</p>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</div>
+<div id="ModelDescribe7" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/15m.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/15pc.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 13%; top:80%;">
+<p class="tit" style="text-align: left;">Flyme Auto 2 智能座舱系统</p>
+<p class="desc" style="text-align: left;">系统全面升级，带来全新的智能出行体验</p>
+</div>
+<div class="detail mobile-text" style="top:15%;">
+<p class="tit">Flyme Auto 2 智能座舱系统</p>
+<p class="desc">系统全面升级，带来全新的智能出行体验</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="TechnologyNew1" class="module com-homeTechnology-04">
+    <div class="home-technology">
+        <div class="home-technology-wrapper-04 home-technology-04">
+            <div class="swiper home-technology-swiper">
+                <div class="swiper-wrapper technology-list">
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                 <video autoplay
+                                                                        loop
+                                                                        muted
+                                                                        data-m-poster=""
+                                                                        data-pc-poster=""
+                                                                        playsinline=""
+                                                                        webkit-playsinline="true"
+                                                                        x5-video-player-fullscreen="false"
+                                                                        x5-video-player-type="h5" data-m-source='https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/16.1m.mp4' data-pc-source='https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/16.1pc.mp4' src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/16.1pc.mp4"></video>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">7nm龍鹰一号座舱芯片</p>
+<p class="desc">车规级7nm智能座舱芯片，算力强劲，16G+128G超大存储空间，面对高强度、多任务场景也能游刃有余
+</p>
+</div>
+                            </div>
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                <picture>
+                                                                    <source media="(max-width: 750px)"
+                                                                            srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/16.2m.jpg">
+                                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/16.2pc.jpg" />
+                                                                </picture>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">15.4英寸2.5K高清全面屏</p>
+<p class="desc">2.5K超高清分辨率，16:10黄金比例，87.04%超高屏占比，呈现近乎全面屏的沉浸视野。搭配AR-HUD与全液晶仪表，关键行车信息清晰可见，让驾驶更便捷</p>
+</div>
+                            </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="tab-box animate__animated">
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="Highlights5-1" class="module com-modelHighlightsE">
+    <!-- 车型页 — 亮点E-->
+    <div class="model-highlights model-highlights-e">
+        <div class="highlights-wrapper">
+            <div class="content-box">
+                                <div class="item">
+                                    <div class="media">
+                                        <video data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.1m.mp4"
+                                               data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.1pc.mp4"
+                                               loop
+                                               muted
+                                               data-m-poster=""
+                                               data-pc-poster=""
+                                               playsinline=""
+                                               webkit-playsinline="true"
+                                               x5-video-player-fullscreen="false"
+                                               x5-video-player-type="h5"></video>
+                                    </div>
+
+                                    <div class="info">
+<p class="tit">星睿AI大模型</p>
+<p class="txt">
+够聪明、会陪伴、逻辑推理能力一流的智能语音助手，四音区多场景可见即可说</p>
+</div>
+                                </div>
+                                <div class="item">
+                                    <div class="media">
+                                        <video data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.2m.mp4"
+                                               data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.2pc.mp4"
+                                               loop
+                                               muted
+                                               data-m-poster=""
+                                               data-pc-poster=""
+                                               playsinline=""
+                                               webkit-playsinline="true"
+                                               x5-video-player-fullscreen="false"
+                                               x5-video-player-type="h5"></video>
+                                    </div>
+
+                                    <div class="info">
+<p class="tit">高德850地图导航</p>
+<p class="txt">
+支持多场景会车预警，可视化车道引导，提升驾驶效率与安全性，带来更智能的导航体验</p>
+</div>
+                                </div>
+                                <div class="item">
+                                    <div class="media">
+                                        <video data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.3m.mp4"
+                                               data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.3pc.mp4"
+                                               loop
+                                               muted
+                                               data-m-poster=""
+                                               data-pc-poster=""
+                                               playsinline=""
+                                               webkit-playsinline="true"
+                                               x5-video-player-fullscreen="false"
+                                               x5-video-player-type="h5"></video>
+                                    </div>
+
+                                    <div class="info">
+<p class="tit">手车互联全家桶</p>
+<p class="txt">
+支持CarPlay/Flyme Link /Carlink/HUAWEI HiCar，上车即连</p>
+</div>
+                                </div>
+
+            </div>
+        </div>
+    </div>
+</div><div id="Highlights5-2" class="module com-modelHighlightsE">
+    <!-- 车型页 — 亮点E-->
+    <div class="model-highlights model-highlights-e">
+        <div class="highlights-wrapper">
+            <div class="content-box">
+                                <div class="item">
+                                    <div class="media">
+                                        <video data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.4m.mp4"
+                                               data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.4pc.mp4"
+                                               loop
+                                               muted
+                                               data-m-poster=""
+                                               data-pc-poster=""
+                                               playsinline=""
+                                               webkit-playsinline="true"
+                                               x5-video-player-fullscreen="false"
+                                               x5-video-player-type="h5"></video>
+                                    </div>
+
+                                    <div class="info">
+<p class="tit">无界空间</p>
+<p class="txt">
+200+云端应用即点即用，云端实时更新，精彩体验随心畅享
+</p>
+</div>
+                                </div>
+                                <div class="item">
+                                    <div class="media">
+                                        <video data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.5m.mp4"
+                                               data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/17.5pc.mp4"
+                                               loop
+                                               muted
+                                               data-m-poster=""
+                                               data-pc-poster=""
+                                               playsinline=""
+                                               webkit-playsinline="true"
+                                               x5-video-player-fullscreen="false"
+                                               x5-video-player-type="h5"></video>
+                                    </div>
+
+                                    <div class="info">
+<p class="tit">双小窗模式</p>
+<p class="txt">
+双小窗灵活切换，关键信息清晰不遮挡，多任务操作更从容</p>
+</div>
+                                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ModelDescribe8" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <video loop
+               autoplay
+               muted
+               data-m-poster=""
+               data-pc-poster=""
+               playsinline=""
+               webkit-playsinline="true"
+               x5-video-player-fullscreen="false"
+               x5-video-player-type="h5" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/18pc.mp4" data-pc-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/18pc.mp4" data-m-source="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/18m.mp4"></video>
+<div class="detail pc-text" style="left: 10%; top:80%;">
+<p class="tit">奢享舒适座舱</p>
+<p class="desc">采用背软座弹的十层棉花糖座椅，支持电动调节、加热、通风、按摩等9大舒适功能，后排座椅支持加热，让全家尽享舒适礼遇，惬意相伴每段旅程</p>
+</div>
+<div class="detail mobile-text" style="top:15%;">
+<p class="tit">奢享舒适座舱</p>
+<p class="desc">采用背软座弹的十层棉花糖座椅，支持电动调节、加热、通风、按摩等9大舒适功能，后排座椅支持加热，让全家尽享舒适礼遇，惬意相伴每段旅程</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Highlights3" class="module com-modelHighlightsC">
+    <!-- 车型页 — 亮点C-->
+    <div class="model-highlights model-highlights-c">
+        <div class="highlights-wrapper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                                <div class="swiper-slide item">
+                                    <div class="pic">
+                                            <picture>
+                                                <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.1m.jpeg">
+                                                <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.1pc.jpg">
+                                            </picture>
+                                    </div>
+                                    <div class="info">
+                                        <p class="tit">女王副驾</p>
+                                        <p class="txt">4向电动调节搭配2向电动腿托，一键调至舒展坐姿</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide item">
+                                    <div class="pic">
+                                            <picture>
+                                                <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.2m.jpg">
+                                                <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.2pc.jpg">
+                                            </picture>
+                                    </div>
+                                    <div class="info">
+                                        <p class="tit">方向盘加热</p>
+                                        <p class="txt">5分钟从0℃快速升温至36℃，暖意直达掌心，冬日握持更舒适</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide item">
+                                    <div class="pic">
+                                            <picture>
+                                                <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.3m.jpg">
+                                                <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.3pc.jpg">
+                                            </picture>
+                                    </div>
+                                    <div class="info">
+                                        <p class="tit">后排座椅加热</p>
+                                        <p class="txt">5分钟即可从0℃达到36℃，温暖覆盖后排，让出行更暖心</p>
+                                    </div>
+                                </div>
+                                    <div class="swiper-slide item">
+                                        <div class="pic">
+                                                <picture>
+                                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.1m.jpeg">
+                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.1pc.jpg">
+                                                </picture>
+                                        </div>
+                                        <div class="info">
+                                            <p class="tit">女王副驾</p>
+                                            <p class="txt">4向电动调节搭配2向电动腿托，一键调至舒展坐姿</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide item">
+                                        <div class="pic">
+                                                <picture>
+                                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.2m.jpg">
+                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.2pc.jpg">
+                                                </picture>
+                                        </div>
+                                        <div class="info">
+                                            <p class="tit">方向盘加热</p>
+                                            <p class="txt">5分钟从0℃快速升温至36℃，暖意直达掌心，冬日握持更舒适</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide item">
+                                        <div class="pic">
+                                                <picture>
+                                                    <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.3m.jpg">
+                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/19.3pc.jpg">
+                                                </picture>
+                                        </div>
+                                        <div class="info">
+                                            <p class="tit">后排座椅加热</p>
+                                            <p class="txt">5分钟即可从0℃达到36℃，温暖覆盖后排，让出行更暖心</p>
+                                        </div>
+                                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="TechnologyNew3" class="module com-homeTechnology-04">
+    <div class="home-technology">
+        <div class="home-technology-wrapper-04 home-technology-04">
+            <div class="swiper home-technology-swiper">
+                <div class="swiper-wrapper technology-list">
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                <picture>
+                                                                    <source media="(max-width: 750px)"
+                                                                            srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/20.1m1.jpg">
+                                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/20.1pc.jpg" />
+                                                                </picture>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">前排静谧双层隔音玻璃</p>
+<p class="desc">静止状态下，车内噪音降低35%，关门即享静谧座舱</p>
+</div>
+                            </div>
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                <picture>
+                                                                    <source media="(max-width: 750px)"
+                                                                            srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/20.2m1.jpg">
+                                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/20.2pc.jpg" />
+                                                                </picture>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">后排隐私玻璃</p>
+<p class="desc">隔光隔热，守护后排私密空间，营造清凉舒适的静谧旅程</p>
+</div>
+                            </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="tab-box animate__animated">
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="ModelDescribe9" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/21m1.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/21pc1.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 35%; top:20%;">
+<p class="tit">16扬Flyme Sound无界之声</p>
+<p class="desc"> </p>
+</div>
+<div class="detail mobile-text" style="top:18%;">
+<p class="tit">16扬Flyme Sound无界之声</p>
+<p class="desc"> </p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="TechnologyNew4" class="module com-homeTechnology-04">
+    <div class="home-technology">
+        <div class="home-technology-wrapper-04 home-technology-04">
+            <div class="swiper home-technology-swiper">
+                <div class="swiper-wrapper technology-list">
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                <picture>
+                                                                    <source media="(max-width: 750px)"
+                                                                            srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/22.1m1.jpg">
+                                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/22.1pc.jpg" />
+                                                                </picture>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">「宽适舒展」后排空间</p>
+<p class="desc">纯平地台搭配宽适后排空间，舒展不受拘束</p>
+</div>
+                            </div>
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                <picture>
+                                                                    <source media="(max-width: 750px)"
+                                                                            srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/22.2m1.jpg">
+                                                                    <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/22.2pc.jpg" />
+                                                                </picture>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">「随心休憩」1.9m大床</p>
+<p class="desc">后排座椅轻拉放倒，拓展1.9米超长大床，露营小憩、户外休息，随时舒适躺平</p>
+</div>
+                            </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="tab-box animate__animated">
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="ModelDescribe10" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/23m.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/23pc.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 32%; top:80%;">
+<p class="tit" style="text-align: center; color:#333;">8大被动安全设计</p>
+<p class="desc" style="text-align: center; color:#333;">笼式车身、六个气囊，配合一体式热成型硼钢门环、<br />
+32000Nm/deg车身扭转刚度等CMA架构八大车身工艺，仿佛移动的安全堡垒
+</p>
+</div>
+<div class="detail mobile-text" style="color:#333; top:70%;">
+<p class="tit" style="color:#333;">8大被动安全设计</p>
+<p class="desc" style="color:#333;">笼式车身、六个气囊，配合一体式热成型硼钢门环、<br />
+32000Nm/deg车身扭转刚度等CMA架构八大车身工艺，<br />
+仿佛移动的安全堡垒</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="ModelDescribe11" class="module com-modelDescribeB">
+    <div class="model-describe-b" id="model-describe-b">
+        <!-- 车型分述02 -->
+        <div class="model-describe-02">
+            <div class="model-describe-content">
+                <div class="media-box">
+        <picture>
+            <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/24m.jpg">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/24pc.jpg" />
+        </picture>
+<div class="detail pc-text" style="left: 30%; top:80%;">
+<p class="tit" style="text-align: center;">32大主动安全设计</p>
+<p class="desc" style="text-align: center;">覆盖前向、侧向、后向多方位风险场景，全天候感知并主动干预，守护每一程出行</p>
+</div>
+<div class="detail mobile-text" style="top:75%;">
+<p class="tit">32大主动安全设计</p>
+<p class="desc">覆盖前向、侧向、后向多方位风险场景，<br />
+全天候感知并主动干预，守护每一程出行</p>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="TechnologyNew2" class="module com-homeTechnology-04">
+    <div class="home-technology">
+        <div class="home-technology-wrapper-04 home-technology-04">
+            <div class="swiper home-technology-swiper">
+                <div class="swiper-wrapper technology-list">
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                 <video autoplay
+                                                                        loop
+                                                                        muted
+                                                                        data-m-poster=""
+                                                                        data-pc-poster=""
+                                                                        playsinline=""
+                                                                        webkit-playsinline="true"
+                                                                        x5-video-player-fullscreen="false"
+                                                                        x5-video-player-type="h5" data-m-source='https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/25.1m.mp4' data-pc-source='https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/25.1pc.mp4' src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/25.1pc.mp4"></video>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">夜间逆光AEB</p>
+<p class="desc">针对夜间逆光、弱光等复杂环境，最高60km/h时速下依然精准感知前方风险并及时制动，让夜间出行更安心</p>
+</div>
+                            </div>
+                            <div class="swiper-slide technology-item">
+                                                    <div class="media  animate__animated">
+                                                                 <video autoplay
+                                                                        loop
+                                                                        muted
+                                                                        data-m-poster=""
+                                                                        data-pc-poster=""
+                                                                        playsinline=""
+                                                                        webkit-playsinline="true"
+                                                                        x5-video-player-fullscreen="false"
+                                                                        x5-video-player-type="h5" data-m-source='https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/25.2m.mp4' data-pc-source='https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/25.2pc.mp4' src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/25.2pc.mp4"></video>
+
+                                                    </div>
+
+                                <div class="info">
+<p class="tit">RMF驾驶员失能辅助</p>
+<p class="desc">驾驶员无力控车时，车辆自动降速并开启双闪，平稳靠边停车并拨通E-call呼救，为突发状况提供主动安全保障</p>
+</div>
+                            </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="tab-box animate__animated">
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="VehicleConfig">
+        <!-- 车型配置A -->
+        <div class="module com-vehicleConfigA">
+            <div id="vehicle-Config-A" class="vehicle-Config-A">
+                <div class="vehicle-Config-A-bg">
+                    <picture>
+                        <source media="(max-width: 750px)" srcset="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/pzb.m.jpg">
+                        <img class="swiper-it-img" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/pzb.pc.jpg" alt="" srcset="">
+                    </picture>
+                </div>
+                <div class="title"><span style="font-weight: 600; color: #ffffff;">参数配置</span></div>
+
+                <div class="config-wrapper swiper-container">
+                    <div class="config-list swiper-wrapper">
+
+                        <div class="list-item  swiper-slide ">
+                            <div class="model">1.5TD Pro高功+7DCT扬帆</div>
+<div class="guidance">上市指导价(元) </div>
+<div class="prize">99,900 </div>
+<div class="hr">&nbsp;</div>
+<div class="detail">
+<p>14.6英寸高清全面屏</p>
+<p>高级皮质方向盘</p>
+<p>光影墨镜遮阳板</p>
+<p>3D镭雕水晶挡把</p>
+<p>Flyme Auto 2.5智能座舱系统</p>
+<p>可开启巨幕全景天窗</p>
+</div>
+                        </div>
+                        <div class="list-item  swiper-slide ">
+                            <div class="model">1.5TD Pro高功+7DCT启程</div>
+<div class="guidance">上市指导价(元) </div>
+<div class="prize">106,900 </div>
+<div class="hr">&nbsp;</div>
+<div class="detail">
+<p>L2级辅助驾驶系统(限时赠送）</p>
+<p>电动后尾门</p>
+<p>50W手机无线充电</p>
+<p>19英寸高级精车轮毂</p>
+<p>上帝之眼540&deg;透明底盘</p>
+<p>副驾座椅4向电动调节</p>
+</div>
+                        </div>
+                        <div class="list-item  swiper-slide ">
+                            <div class="model">1.5TD Pro高功+7DCT山河</div>
+<div class="guidance">上市指导价(元) </div>
+<div class="prize">116,900 </div>
+<div class="hr">&nbsp;</div>
+<div class="detail">
+<p>主驾座椅按摩/记忆</p>
+<p>前排座椅加热/通风</p>
+<p>前排静谧双层隔音玻璃</p>
+<p>后排隐私玻璃</p>
+<p>15.4英寸2.5K高清全面屏</p>
+<p>16扬Flyme Sound无界之声</p>
+</div>
+                        </div>
+                        <div class="list-item  swiper-slide ">
+                            <div class="model">1.5TD Pro高功+7DCT千里锦绣</div>
+<div class="guidance">上市指导价(元) </div>
+<div class="prize">129,900 </div>
+<div class="hr">&nbsp;</div>
+<div class="detail">
+<p>25.6英寸AR-HUD抬头显示</p>
+<p>方向盘加热</p>
+<p>第二排座椅加热</p>
+<p>192线激光雷达</p>
+<p>千里浩瀚H5辅助驾驶方案</p>
+<p>20英寸高级精车轮毂</p>
+</div>
+                        </div>
+                        <div class="list-item  swiper-slide ">
+                            <div class="model">2.0TD+7DCT热爱</div>
+<div class="guidance">上市指导价(元) </div>
+<div class="prize">129,900 </div>
+<div class="hr">&nbsp;</div>
+<div class="detail">
+<p>2.0TD Drive-E发动机</p>
+<p>CCD可变阻尼悬架</p>
+<p>15.4英寸2.5K高清全面屏</p>
+<p>20英寸高级精车轮毂</p>
+<p>前排静谧双层隔音玻璃</p>
+<p>高性能固特异品牌轮胎</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btns">
+                        <button class="geely--global--button line-black">
+                            <a href="#newTestDrive">立即预约</a>
+                        </button>
+                                            <button class="show-config-table geely--global--button plane-black">
+                            <a href="javascript:;">查看配置表</a>
+                        </button>
+                </div>
+                <div class="tips">
+                   <p>*以上仅为该车型部分亮点配置，具体配置以完整配置表为准</p>
+                </div>
+            </div>
+        </div>
+</div><script>
+    window.configJson ={
+	"fixedHeader": [{"name":"车型","data":["燃油系列","","","",""]},
+{"name":"动力总成","data":["1.5TD Pro 高功+7DCT","","","","2.0TD+7DCT"]},
+{"key": "model","name":"配置名称","data":["扬帆","启程","山河","千里锦绣","热爱"]}],
+	"configuration": [{"name":"基本参数","data":[{"name":"长*宽*高（mm）","data":["4713*1910*1700","","","",""]},
+{"name":"轴距（mm）","data":["2785","","","",""]},
+{"name":"轮距","data":["1618","","","",""]},
+{"name":"轮胎规格","data":["235/55 R18","235/50 R19","","245/45 R20",""]},
+{"name":"品牌轮胎","data":["-","","","固特异EAGLE F1",""]},
+{"name":"油箱容积","data":["54","","","",""]},
+{"name":"整备质量(kg)","data":["1571","","1600","","1645"]},
+{"name":"动力形式","data":["燃油动力","","","",""]},
+{"name":"发动机型式","data":["全新一代1.5TD Pro高功发动机","","","","2.0TD缸内直喷涡轮增压发动机"]},
+{"name":"发动机排量（cc）","data":["1499","","","","1969"]},
+{"name":"发动机峰值功率（kW）","data":["148","","","","160"]},
+{"name":"发动机峰值扭矩（N•m）","data":["315","","","","325"]},
+{"name":"变速箱型式","data":["7DCT（七速湿式双离合变速箱）","","","",""]},
+{"name":"WLTC综合油耗(L/100km)","data":["6.69","","","","7.69"]},
+{"name":"悬架系统","data":["前：麦弗逊式带横向稳定杆独立悬架 后：多连杆式带横向稳定杆独立悬架","","","",""]},
+{"name":"悬架调节","data":["-","","","","CCD可变阻尼悬架"]},
+{"name":"制动器类型","data":["前：通风盘式  后：实心盘式","","","",""]},
+{"name":"驱动方式","data":["前置前驱","","","",""]},
+{"name":"驾驶模式","data":["经济模式、舒适模式、运动模式、智能模式","","","",""]},
+{"name":"燃油标号","data":["92号及以上","","","",""]},
+{"name":"排放标准","data":["国Ⅵb","","","",""]}]},
+
+{"name":"冠军造型","data":[{"name":"外观颜色","data":["丹霞红、雪山金、流光白、湖光银、墨雨黑、出云青","","","",""]},
+{"name":"内饰颜色","data":["松露灰、琥珀金","","","",""]},
+{"name":"LED前大灯（含迎宾欢送灯语）","data":["●","●","●","●","●"]},
+{"name":"鎏光星河前贯穿灯","data":["-","●","●","●","●"]},
+{"name":"璀璨西子后贯穿灯","data":["●","●","●","●","●"]},
+{"name":"车顶行李架","data":["●","●","●","●","●"]},
+{"name":"外后视镜电动调节","data":["●","●","●","●","●"]},
+{"name":"外后视镜电加热","data":["●","●","●","●","●"]},
+{"name":"外后视镜电动折叠","data":["-","●","●","●","●"]},
+{"name":"内后视镜自动防眩目","data":["-","-","-","●","-"]},
+{"name":"后挡风玻璃电加热除雾","data":["●","●","●","●","●"]},
+{"name":"雨量感应式前雨刮","data":["●","●","●","●","●"]},
+{"name":"隐藏式后雨刮","data":["●","●","●","●","●"]},
+{"name":"黑耀双色车身套件","data":["-","-","-","●","●"]},
+{"name":"隐藏式天线","data":["●","●","●","●","●"]},
+{"name":"AI百变灯光秀","data":["-","-","-","●","-"]}]},
+
+{"name":"冠军品质","data":[{"name":"高级皮质方向盘","data":["●","●","●","●","●"]},
+{"name":"方向盘加热","data":["-","-","-","●","●"]},
+{"name":"湖光山色氛围灯","data":["-","-","●","●","●"]},
+{"name":"光影墨镜遮阳板","data":["●","●","●","●","●"]},
+{"name":"主/副驾遮阳板带化妆镜灯","data":["●","●","●","●","●"]},
+{"name":"前/后排LED顶部照明灯","data":["●","●","●","●","●"]},
+{"name":"高级皮质座椅","data":["●","●","●","●","●"]},
+{"name":"主驾座椅6向电动调节","data":["6向手动","●","●","●","●"]},
+{"name":"主驾腰托4向电动调节","data":["-","-","●","●","●"]},
+{"name":"主驾座椅伸缩式腿托","data":["-","-","-","●","-"]},
+{"name":"主驾座椅8点按摩","data":["-","-","●","●","●"]},
+{"name":"主驾座椅3档位置记忆","data":["-","-","●","●","●"]},
+{"name":"副驾座椅4向电动调节","data":["4向手动","●","●","●","●"]},
+{"name":"副驾座椅电动腿托","data":["-","-","●","●","●"]},
+{"name":"副驾座椅按摩","data":["-","-","-","●","-"]},
+{"name":"副驾座椅位置记忆","data":["-","-","●","●","●"]},
+{"name":"前排座椅加热","data":["-","●","●","●","●"]},
+{"name":"前排座椅通风","data":["-","-","●","●","●"]},
+{"name":"第二排座椅加热","data":["-","-","-","●","-"]},
+{"name":"二排座椅中央扶手（带杯架）","data":["-","-","●","●","●"]},
+{"name":"3D镭雕水晶挡把","data":["○（限时赠送）","○（限时赠送）","○（限时赠送）","○（限时赠送）","○（限时赠送）"]},
+{"name":"四门车窗一键升降","data":["●","●","●","●","●"]},
+{"name":"前排静谧双层隔音玻璃","data":["-","-","●","●","●"]},
+{"name":"后排隐私玻璃","data":["-","-","●","●","●"]},
+{"name":"可开启巨幕全景天窗（含电动遮阳帘）","data":["●","●","●","●","●"]},
+{"name":"智能恒温自动空调","data":["●","●","双温区","双温区","双温区"]},
+{"name":"后排空调出风口","data":["●","●","●","●","●"]},
+{"name":"CN95高效复合空调滤芯","data":["●","●","●","●","●"]},
+{"name":"智能车载香氛系统","data":["-","-","-","●","-"]},
+{"name":"负离子净化系统","data":["-","-","-","●","-"]},
+{"name":"电动后尾门","data":["-","●","●","●","●"]},
+{"name":"后尾门照明灯","data":["●","●","●","●","●"]},
+{"name":"后备箱照明灯","data":["●","●","●","●","●"]},
+{"name":"50W手机无线充电（带风冷）","data":["-","●","●","●","●"]},
+{"name":"Type-C接口×2+USB接口×1","data":["●","●","●","-","●"]},
+{"name":"Type-C接口×2+USB接口×2","data":["-","-","-","●","-"]},
+{"name":"前排12V电源","data":["●","●","●","●","●"]},
+{"name":"遥控钥匙","data":["●","●","●","●","●"]},
+{"name":"无钥匙进入+一键启动","data":["●","●","●","●","●"]}]},
+
+{"name":"冠军安全","data":[{"name":"高清行车记录仪","data":["-","●","●","●","●"]},
+{"name":"前排双安全气囊","data":["●","●","●","●","●"]},
+{"name":"前排侧面双安全气囊","data":["●","●","●","●","●"]},
+{"name":"前/后排一体式双侧安全气帘","data":["-","●","●","●","●"]},
+{"name":"前排限力安全带+安全带未系提醒","data":["●","●","●","●","●"]},
+{"name":"E-CALL紧急救援服务","data":["-","-","●","●","●"]},
+{"name":"ESC车身电子稳定控制系统","data":["●","●","●","●","●"]},
+{"name":"ABS防抱死制动系统","data":["●","●","●","●","●"]},
+{"name":"EBD电子制动力分配系统","data":["●","●","●","●","●"]},
+{"name":"BA制动辅助系统","data":["●","●","●","●","●"]},
+{"name":"TCS牵引力控制系统","data":["●","●","●","●","●"]},
+{"name":"HAC上坡辅助","data":["●","●","●","●","●"]},
+{"name":"HDC陡坡缓降","data":["●","●","●","●","●"]},
+{"name":"RMI主动防侧翻","data":["●","●","●","●","●"]},
+{"name":"EPB电子驻车系统","data":["●","●","●","●","●"]},
+{"name":"AUTO HOLD自动驻车","data":["●","●","●","●","●"]},
+{"name":"TPMS智能胎压监测系统","data":["●","●","●","●","●"]},
+{"name":"前泊车雷达","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"后泊车雷达","data":["●","●","●","●","●"]}]},
+
+{"name":"旗舰智能座舱系统","data":[{"name":"7nm龍鹰一号座舱芯片","data":["-","-","●","●","●"]},
+{"name":"Flyme Auto智能座舱系统 #","data":["●","●","●","●","●"]},
+{"name":"无界空间#","data":["●","●","●","●","●"]},
+{"name":"小窗模式","data":["●","●","●","●","●"]},
+{"name":"SmartBar","data":["●","●","●","●","●"]},
+{"name":"10.2英寸全液晶高清仪表","data":["●","●","●","●","●"]},
+{"name":"14.6英寸高清全面屏","data":["●","●","-","-","-"]},
+{"name":"15.4英寸2.5K高清全面屏","data":["-","-","●","●","●"]},
+{"name":"25.6英寸AR-HUD抬头显示","data":["-","-","-","●","-"]},
+{"name":"高品质6扬声器","data":["●","●","-","-","-"]},
+{"name":"16扬Flyme Sound无界之声（含主驾头枕音响）","data":["-","-","○（限时赠送）","○（限时赠送）","○（限时赠送）"]},
+{"name":"4G网络+车载Wi-Fi #","data":["●","●","●","●","●"]},
+{"name":"智能语音交互系统 #","data":["2音区","2音区","4音区","4音区","4音区"]},
+{"name":"Flyme Link手车互联 #","data":["●","●","●","●","●"]},
+{"name":"HUAWEI HiCar手车互联 #","data":["●","●","●","●","●"]},
+{"name":"Carlink手车互联 #","data":["●","●","●","●","●"]},
+{"name":"CarPlay手车互联 #","data":["-","-","●","●","●"]},
+{"name":"手机APP远程控制系统 #","data":["●","●","●","●","●"]},
+{"name":"手机智能蓝牙钥匙（可分享）","data":["●","●","●","●","●"]},
+{"name":"上帝之眼540°透明底盘","data":["倒车影像","●","●","●","●"]},
+{"name":"新一代GEEA3.0电子电气架构","data":["●","●","●","●","●"]},
+{"name":"全域FOTA云端升级 #","data":["●","●","●","●","●"]}]},
+
+{"name":"旗舰智能驾驶辅助","data":[{"name":"定速巡航","data":["●","●","-","-","-"]},
+{"name":"千里浩瀚H5辅助驾驶方案","data":["-","-","-","●","-"]},
+{"name":"高速NOA领航驾驶辅助 #","data":["-","-","-","●","-"]},
+{"name":"城市NOA领航驾驶辅助 #","data":["-","-","-","●","-"]},
+{"name":"ALCA拨杆变道辅助","data":["-","-","-","●","-"]},
+{"name":"IHBC智能远光灯控制","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"ACC自适应巡航辅助","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"ICC智能巡航辅助","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"AEB城市预碰撞系统","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"AEB-P行人识别保护系统","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"BSD盲区监测","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"DOW开门预警系统","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"LDW车道偏离预警系统","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"LKA车道保持辅助","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"ELKA紧急车道保持辅助","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"TSI交通标志识别","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"RMF驾驶员失能辅助","data":["-","-","-","●","-"]},
+{"name":"RCTA后方交叉紧急报警","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"CMSR后碰撞减缓辅助","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"TLA红绿灯识别","data":["-","-","-","●","-"]},
+{"name":"RCTB后方横向碰撞制动","data":["-","-","-","●","-"]},
+{"name":"FCTA前方交叉紧急报警","data":["-","-","-","●","-"]},
+{"name":"FCW前碰撞预警","data":["-","○（限时赠送）","●","●","●"]},
+{"name":"TAA大型车辆智慧避让","data":["-","-","-","●","-"]},
+{"name":"DMS驾驶员状态监测系统","data":["-","-","-","●","-"]},
+{"name":"APA智能泊车辅助","data":["-","-","-","●","-"]},
+{"name":"HPA跨层记忆泊车辅助","data":["-","-","-","●","-"]},
+{"name":"RPA遥控泊车辅助 #","data":["-","-","-","●","-"]},
+{"name":"FTP指尖泊车","data":["-","-","-","●","-"]},
+{"name":"离车泊入","data":["-","-","-","●","-"]}]}],
+	"remark": "注：<br/>1、标识“●”表示有此项配备，标识“-”表示无此项配备，标识“○”表示可选装。<br/>2、黑耀双色车身套件包含：车顶、行李架、外后视镜、窗框、后扰流板、侧裙装饰亮条、尾部字标等均为钢琴黑。<br/>3、标识“#”的配置/功能需有流量才可使用，流量权益到期后需自行续费使用。<br/>4、本配置表内容根据发布时车辆配置状态信息编制。为更好地满足客户需求，吉利汽车不断对汽车进行研发和改进，市场销售车型的部分配置及规格可能与本配置表有所不同，具体细节请咨询吉利汽车授权经销商。如有变化，恕不另行通知。"
+};
+</script>
+
+}
+<div id="Configuration" class="module com-configuration">
+    <div class="configuration-box">
+        <div class="pc-config">
+            <div class="fixed-vehicle">
+                <span id="topLeft">参数配置</span>
+                <ul>
+                </ul>
+            </div>
+            <div class="table-wrapper">
+                <div class="content-left" id="contentLeft">
+                    <div>
+                        <ul class="contentLeftUl">
+                            <!-- 由js生成 -->
+                        </ul>
+                    </div>
+                    <div class="contentLeftBottom">
+                        <a class="block geely--global--button line-black" id="yuyuejiashi" onclick="Utils.anchorClick('.newTestDrive')">预约试驾</a>
+                    </div>
+                </div>
+                <div class="content-right" id="contentRight">
+                    <div class="content-right-table">
+                        <table border="0" cellpadding="0" cellspacing="0" class="config-table" width="100%">
+                        </table>
+                    </div>
+
+                    <div class="fixed-table-box">
+                        <table></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-config">
+            <div class="top">
+                <div class="title">配置表</div>
+                <a class="geely--global--button line-black" href="javascript:;"
+                   id='ConfigureFiltering'>配置筛选</a>
+            </div>
+            <div class="table-wrapper">
+                <div class="fixed-table">
+                </div>
+                <div class="info-table">
+                </div>
+            </div>
+            <div class="fixed-vehicle">
+                <div class="mask"></div>
+                <div class="vehicle-list">
+                    <div class="icon-close" id="vehicleClose">
+                        <img alt="" src="/assets/images/icon/mob-gou.png">
+                    </div>
+                    <div class="item all-check-item">
+                        <i class="icon iconfont icon-checkbox"></i>
+                        <span>全选</span>
+                    </div>
+                    <ul>
+                        <li class="item">
+                            <i class="icon iconfont icon-checkbox"></i>
+                            <span>舒适型</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="newTestDrive " id="newTestDrive" data-brand="GEELY" data-series="{&quot;CarPageId&quot;:&quot;2c4e6089-943c-4a1e-9896-755532426ea6&quot;,&quot;name&quot;:&quot;全新第四代博越L&quot;,&quot;carCode&quot;:&quot;FX11-A3&quot;,&quot;Mt&quot;:&quot;gw-4byl&quot;,&quot;MtSub&quot;:&quot;官网-第四代博越L&quot;,&quot;TestDriveImgPC &quot;:&quot;https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/sj.pc.jpg&quot;,&quot;TestDriveImgM &quot;:&quot;https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/sj.m.jpg&quot;}" data-smscode="true">
+    <div class="kv">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/sj.pc.jpg" id="testImg" data-src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/sj.pc.jpg" data-src-m="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/boyueL4/2026/0920/sj.m.jpg" />
+    </div>
+    <div class="form animate__animated animate__fadeInLeft" id="form">
+        <div class="form-title">预约试驾</div>
+        <div class="form-field">
+            <label for="seriesCode">试驾车型</label>
+            <div class="form-flex">
+                <div class="selectpicker" disabled id="seriesCode" name="seriesCode" title="车型">车型</div>
+                <!-- <select class="selectpicker" disabled id="seriesCode" name="seriesCode" title="车型" ></select> -->
+                <div class="select-option"></div>
+                <div class="select-btn"></div>
+            </div>
+            <i class="select-arrow iconfont icon-jiantou"></i>
+        </div>
+        <div class="form-field">
+            <label for="provinceId">所在省份</label>
+            <div class="form-flex">
+                <!-- <div class="selectpicker grey" disabled id="provinceId" name="provinceId" title="省份">省份</div> -->
+                <select class="selectpicker" disabled id="provinceId" name="provinceId" title="省份"></select>
+                <div class="select-option"></div>
+                <div class="select-btn"></div>
+            </div>
+            <i class="select-arrow iconfont icon-jiantou"></i>
+        </div>
+        <div class="form-field">
+            <label for="provinceId">所在城市</label>
+            <div class="form-flex">
+                <!-- <div class="selectpicker grey testDriveBg-selectpicker" disabled id="cityId" name="cityId" title="城市">城市</div> -->
+                <select class="selectpicker testDriveBg-selectpicker" disabled id="cityId" name="cityId" title="城市"></select>
+                <div class="select-option"></div>
+                <div class="select-btn"></div>
+            </div>
+            <i class="select-arrow iconfont icon-jiantou"></i>
+        </div>
+        <div class="form-field">
+            <label for="dealerCode">经销商</label>
+            <div class="form-flex dealer">
+                <!-- <div class="selectpicker grey" disabled id="dealerCode" name="dealerCode" title="经销商">经销商</div> -->
+                <select class="selectpicker" disabled id="dealerCode" name="dealerCode" title="经销商"></select>
+                <div class="select-option dealer-option"></div>
+                <div class="select-btn"></div>
+            </div>
+            <i class="select-arrow iconfont icon-jiantou"></i>
+        </div>
+        <div class="form-field">
+            <label for="name">姓名</label>
+            <input autocomplete="off" class="inputClass" id="name" maxlength="30" name="name" placeholder="姓名" type="text" />
+        </div>
+        <div class="form-field">
+            <label for="phone">手机号</label>
+            <input autocomplete="off" class="inputClass" id="phone" maxlength="11" name="phone" placeholder="手机号" type="tel" />
+        </div>
+        <div class="form-field smsCode">
+            <label for="phone">手机验证码</label>
+            <input type="text" autocomplete="off" class="inputClass" name="code" id="code" placeholder="验证码" maxlength="6" />
+            <span class="CodeBtn" data-num="60">获取验证码</span>
+        </div>
+        <div class="checkbox">
+            <label for="rule">
+                <input id="rule" name="rule" type="checkbox">我已阅读并了解本网站的 [<a href="https://www.geely.com/policy">隐私政策</a>]。我们承诺将严格保障您的个人信息。
+            </label>
+        </div>
+        <div class="form-submit2 geely--global--button plane-black">立即预约</div>
+    </div>
+    <!-- 移动端弹窗 -->
+    <div class="mob-dealer-pop">
+        <div class="select-option mob-dealer-option"></div>
+    </div>
+</div>
+
+            </div>
+        </div>
+
+        <!-- 侧边栏 -->
+        
+
+<style>
+    #sidebar .sidebar-list .sidebar-item{align-items: center;}
+</style>
+<div class="sidebar" id="sidebar">
+<ul class="sidebar-list">
+    <!--<li>
+      <a class="sidebar-item" data-animate-img="/assets/images/sidebar/icon-testdrive-img.png" href="https://www.geely.com/activityall" target="_blank">
+        <span class="sidebar-item-icon">
+          <img alt="" class="default" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/yuyueshijia.png" />
+          <img alt="" class="animate" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/zhongguonian.png" />
+          <img alt="" class="active" src="/assets/images/sidebar/icon-testdrive-active.png" />
+        </span>
+        <span class="sidebar-item-text">福利领取</span>
+        
+        <div class="active-box">
+          <div class="wrap-box">
+            <img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/huodongka.jpg" />
+            <p class="tit">新年就要“兔个”吉利</p>
+            <p class="desc">享至高50%购置税补贴</p>
+          </div>
+        </div>
+      
+    </a></li>-->
+    <li>
+    <a class="sidebar-item  test-drive" href="https://www.geely.com/#newTestDrive" target="_blank">
+    <span class="sidebar-item-icon">
+    <img alt="" class="default" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/yuyueshijia.png" />
+    <img alt="" class="active" src="/assets/images/sidebar/icon-testdrive-active.png" />
+    </span>
+    <span class="sidebar-item-text">预约试驾</span>
+    </a>
+    </li>
+    <li>
+    <a class="sidebar-item" href="https://geely-h5.geely.com/csbot/?appId=20301001" target="_blank">
+    <span class="sidebar-item-icon">
+    <img alt="" class="default" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/kefu.png" />
+    <img alt="" class="active" src="/assets/images/sidebar/icon-kefu-active.png" />
+    </span>
+    <span class="sidebar-item-text">我的客服</span>
+    </a>
+    </li>
+    <li>
+    <a class="sidebar-item" href="https://www.geely.com/dealer" target="_blank">
+    <span class="sidebar-item-icon">
+    <img alt="" class="default" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/jingxiaoshang.png" />
+    <img alt="" class="active" src="/assets/images/sidebar/icon-dealer-search-active.png" />
+    </span>
+    <span class="sidebar-item-text">经销商查询</span>
+    </a>
+    </li>
+    <li class="set-top">
+    <a class="sidebar-item">
+    <span class="sidebar-item-icon">
+    <img alt="" class="default" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/ActivityAll/top.png" />
+    <img alt="" class="active" src="/assets/images/sidebar/icon-set-top-active.png" />
+    </span>
+    <span class="sidebar-item-text"></span>
+    </a>
+    </li>
+</ul>
+</div>
+
+
+        <!-- 尾部引用 -->
+        <div id="footer" class="footer">
+    <footer class="bottom-mobile">
+        <div class="footer-container">
+            <div class="container-left">
+                <nav>
+                        <a href="http://zgh.com/overview/" target=_blank>吉利控股集团</a>
+                        <a href="https://www.geely.com/businesscooperation" target=_blank>合作邀请</a>
+                        <a href="https://www.geely.com/policy" target=_blank>隐私政策</a>
+                        <a href="https://www.geely.com/dealer" target=_blank>经销商查询</a>
+                        <a href="https://www.geely.com/servicestationamap" target=_blank>服务站查询</a>
+                        <a href="https://www.geely.com/powersearch" target=_blank>动力电池回收网点查询</a>
+                </nav>
+            </div>
+            <div class="container-right">
+                <ul class="web-icon">
+                        <li>
+                            <a href="javascript:;" >
+                                <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/tubiao1.png" alt="" />
+                                    <div class="code-img"><img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpaimk/erweima/xiaochengxu.png"><span>扫描二维码添加</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://weibo.com/u/1691328753" target=_blank>
+                                <img src="/-/media/Images/Geely/Footer/weibo-icon.png" alt="" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" >
+                                <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/tubiao2.png" alt="" />
+                                    <div class="code-img"><img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpaimk/erweima/douyin.png"><span>扫描二维码添加</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" >
+                                <img src="/-/media/Images/Geely/Footer/wechat-icon.png" alt="" />
+                                    <div class="code-img"><img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpaimk/erweima/gongzhonghao.png"><span>扫描二维码添加</span></div>
+                            </a>
+                        </li>
+                </ul>
+                <div class="customer-phone">
+                    
+                    400-886-9888
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-policy">
+            <div class="footer-policy">
+<p>&copy; 浙江吉利控股集团有限公司 版权所有<a rel="noopener noreferrer" rel="noopener noreferrer" href="https://beian.miit.gov.cn" target="_blank"> 浙ICP备11045738号</a></p>
+<p><a rel="noopener noreferrer" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802006317" target="_blank"> 浙公网安备 33010802006317号</a></p>
+<p><a rel="noopener noreferrer" rel="noopener noreferrer" href=" " target="_blank">中国互联网诚信示范单位</a></p>
+<p><a rel="noopener noreferrer" rel="noopener noreferrer" class="item" href="https://www.geely.com/recordnumber" target="_blank">吉利车载应用备案信息</a></p>
+</div>
+        </div>
+    </footer>
+
+    <footer class="bottom-pc">
+        <nav class="bottom-nav">
+                <a href="http://zgh.com/overview/" target=_blank>吉利控股集团</a>
+                <a href="https://www.geely.com/businesscooperation" target=_blank>合作邀请</a>
+                <a href="https://www.geely.com/policy" target=_blank>隐私政策</a>
+                <a href="https://www.geely.com/dealer" target=_blank>经销商查询</a>
+                <a href="https://www.geely.com/servicestationamap" target=_blank>服务站查询</a>
+                <a href="https://www.geely.com/powersearch" target=_blank>动力电池回收网点查询</a>
+        </nav>
+        <div class="footer-container">
+            <div class="container-left">
+                <p>更多选购方式：查看您附近的吉利汽车经销商或者致电 400-886-9888. </p>
+            </div>
+            <div class="container-right">
+                <ul class="web-icon">
+                        <li>
+                            <a href="javascript:;" >
+                                <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/tubiao1.png" alt="" />
+                                    <div class="code-img"><img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpaimk/erweima/xiaochengxu.png"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://weibo.com/u/1691328753" target=_blank>
+                                <img src="/-/media/Images/Geely/Footer/weibo-icon.png" alt="" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" >
+                                <img src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpai/tubiao2.png" alt="" />
+                                    <div class="code-img"><img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpaimk/erweima/douyin.png"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" >
+                                <img src="/-/media/Images/Geely/Footer/wechat-icon.png" alt="" />
+                                    <div class="code-img"><img alt="" src="https://dm30webimages.geely.com/GeelyPromotion/ANEW2/pinpaimk/erweima/gongzhonghao.png"></div>
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-policy-pc">
+            <p>&copy; 浙江吉利控股集团有限公司 版权所有 <a rel="noopener noreferrer" rel="noopener noreferrer" href="https://beian.miit.gov.cn" target="_blank">浙ICP备11045738号</a></p>
+<p>&nbsp;</p>
+<a rel="noopener noreferrer" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802006317" target="_blank"> 浙公网安备 33010802006317号</a>
+<p>&nbsp;</p>
+<p>中国互联网诚信示范单位</p>
+<p class="describe"><a rel="noopener noreferrer" rel="noopener noreferrer" class="item" href="https://www.geely.com/recordnumber" target="_blank">吉利车载应用备案信息</a></p>
+        </div>
+    </footer>
+</div>
+
+<div class="cookie-protocol hide">
+    <span class="cha icon iconfont icon-close"></span>
+    <div class="content">
+        我们使用 Cookie以使您获得最佳体验，提供网站流量分析功能和社交媒体功能。
+        我们的 Cookie 政策提供了有关我们如何使用 Cookie 的详细信息。
+        单击“同意”即表示您同意我们使用Cookie，并请参阅我们的<a href="https://www.geely.com/policy"
+                                         target="_blank">【隐私政策】</a>以获取更多信息
+    </div>
+    <div class="agree geely--global--button plane-black">同意</div>
+</div>
+
+
+
+    </div>
+    <!-- 通用脚本 -->
+    <!-- 公共脚本 -->
+<!-- 插件 -->
+<script src="/assets/plugins/swiper-4.5.3/js/swiper.min.js"></script>
+<script src="/assets/plugins/sprite-spin/spritespin.min.js"></script>
+<script src="/assets/plugins/jquery-cookie-1.4.1/jquery.cookie.js"></script>
+<!-- 高德地图 -->
+<script src="https://webapi.amap.com/loader.js"></script>
+
+<!-- 通用脚本 -->
+<script src="/assets/js/extend/jquery.extend.js"></script>
+<script src="/assets/js/utils/device.js"></script>
+<script src="/assets/js/api/api.js"></script>
+<script src="/assets/js/common/map.js"></script>
+<!-- <script src="../../js/common/baiduMap.js"></script> -->
+<script src="/assets/js/components/components.js"></script>
+<script src="/assets/js/pages/pageBase.js"></script>
+<script src="/assets/js/pages/components/header.js"></script>
+<script src="/assets/js/pages/components/footer.js"></script>
+<script src="/assets/js/common/modelMenu.js"></script>
+<script src="/assets/js/common/newCarMenu.js"></script>
+
+<!-- 移动端调试工具 -->
+<script src="/assets/plugins/vconsole/vconsole.min.js"></script>
+<script>
+    if (Utils.Device.isMobile() && window.IS_DEV) {
+        const vConsole = new window.VConsole();
+        console.log('vConsole', vConsole);
+    }
+</script>
+
+    <!-- 页面脚本 -->
+    <script>$("#sidebar .sidebar-item.test-drive").attr("href", "#newTestDrive")</script>
+
+</body>
+
+</html>
