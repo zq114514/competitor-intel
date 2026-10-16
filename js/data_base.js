@@ -1,0 +1,102 @@
+/* ============================================================
+ * 行业基准影子库（一期试点：中型SUV / 中大型SUV / 中大型轿车）
+ * 来源：汽车之家公开参数 getParamConf（2026-10 基准月，全系在售款型"官方最优值"口径）
+ * 用途：灰色背景板——参与评分锚点分位标定与同级座次分母；不进卡片轮播、不进对比篮、不展示于选择器。
+ * 归组：以AH官方级别为准（ahLevel），尺寸规则仅兜底；4款AH定级"中型车"车型未入本期三组。
+ * 口径限制：AH气囊为5类点位计数、智驾算力/激光雷达全系空白，故安全/智驾两轴基准车不参评（m中不含这些字段）。
+ * 价格（20261013 v8.7 增补）：中大型SUV组25款已补 m.price＝官方入门指导价（万元，全系在售最低价口径，
+ *   来源为车企官网/官网新闻或新华网/央广网上市稿，证据登记 evidence/202610/cars-evidence.md「三·补」节）；
+ *   蔚来ES7（b6700）国内官网无在售配置价，挂起不采。中型SUV/中大型轿车两组暂未补价（m.price缺省=null），
+ *   LACU价格带竞品圈对无价车自动排除。供LACU直接竞品圈（带宽max(5万,本车价15%)）与购置成本轴使用。
+ * 生成脚本：fetch_base.py + base_calc.py（data/raw/2026-10/）；样本80款（中型SUV30/中大型SUV26/中大型轿车24）。
+ * 复评周期：半年滚动重采。
+ * ============================================================ */
+window.BASE_META = {
+  month: '2026-10',
+  source: '汽车之家公开参数（全系在售款型最优值）；价格为车企官方渠道入门指导价',
+  groups: { '中型|suv': 30, '中大型|suv': 26, '中大型|sedan': 24 },
+  lowConf: [['中大型|suv', 'kwh100']],
+  priceCoverage: { '中大型|suv': { priced: 25, pending: ['b6700 蔚来ES7：国内官网无在售配置价，挂起'] } }
+};
+window.BASE_CARS = [
+  {id:'b5769', name:"特斯拉Model Y", level:"中型", body:"suv", energy:"ev", m:{accel:3.5, powerKw:467, rangeKm:821, kwh100:11.2, chargeKw:250, wheelbase:2890, length:4797, width:1920}},
+  {id:'b7793', name:"小米YU7", level:"中大型", body:"suv", energy:"ev", m:{price:23.35, accel:2.92, powerKw:738, rangeKm:835, kwh100:12.9, chargeKw:null, chargeEqMin:10.3,  clearance:172, wheelbase:3000, length:5015, width:2007}},
+  {id:'b7162', name:"小鹏G6", level:"中型", body:"suv", energy:"ev", m:{accel:6.4, powerKw:218, rangeKm:625, kwh100:12.5, chargeKw:382, wheelbase:2890, length:4771, width:1920}},
+  {id:'b8014', name:"小鹏G7", level:"中型", body:"suv", energy:"ev", m:{accel:6.5, powerKw:218, rangeKm:702, kwh100:12.9, chargeKw:null, wheelbase:2890, length:4918, width:1925}},
+  {id:'b6950', name:"理想L6", level:"中大型", body:"suv", energy:"x", m:{price:24.98, accel:5.4, powerKw:300, rangeKm:null, kwh100:null, chargeKw:null, chargeEqMin:12.0,  clearance:181, wheelbase:2920, length:4935, width:1960}},
+  {id:'b6388', name:"问界M5", level:"中型", body:"suv", energy:"ev", m:{accel:4.3, powerKw:365, rangeKm:602, kwh100:15.5, chargeKw:100, wheelbase:2880, length:4785, width:1930}},
+  {id:'b8205', name:"尚界H5", level:"中型", body:"suv", energy:"ev", m:{accel:7.3, powerKw:180, rangeKm:655, kwh100:13.4, chargeKw:null, wheelbase:2840, length:4780, width:1910}},
+  {id:'b7730', name:"智界R7", level:"中大型", body:"suv", energy:"ev", m:{price:23.98, accel:4.4, powerKw:377, rangeKm:855, kwh100:12.9, chargeKw:null, chargeEqMin:18.0,  clearance:161, wheelbase:2950, length:4982, width:1981}},
+  {id:'b7652', name:"阿维塔07", level:"中型", body:"suv", energy:"ev", m:{accel:6.3, powerKw:252, rangeKm:650, kwh100:14.5, chargeKw:420, wheelbase:2940, length:4825, width:1980}},
+  {id:'b7777', name:"极氪7X", level:"中型", body:"suv", energy:"ev", m:{accel:2.98, powerKw:585, rangeKm:802, kwh100:13.9, chargeKw:null, wheelbase:2925, length:4825, width:1930}},
+  {id:'b4881', name:"蔚来ES6", level:"中型", body:"suv", energy:"ev", m:{accel:4.5, powerKw:360, rangeKm:650, kwh100:16.1, chargeKw:180, wheelbase:2915, length:4854, width:1995}},
+  {id:'b5569', name:"蔚来EC6", level:"中型", body:"suv", energy:"ev", m:{accel:4.4, powerKw:360, rangeKm:655, kwh100:15.9, chargeKw:180, wheelbase:2915, length:4849, width:1995}},
+  {id:'b7687', name:"乐道L60", level:"中型", body:"suv", energy:"ev", m:{accel:4.6, powerKw:340, rangeKm:740, kwh100:11.9, chargeKw:null, wheelbase:2950, length:4828, width:1930}},
+  {id:'b5205', name:"零跑C11", level:"中型", body:"suv", energy:"ev", m:{accel:6.1, powerKw:220, rangeKm:640, kwh100:14.4, chargeKw:null, wheelbase:2930, length:4780, width:1905}},
+  {id:'b7382', name:"零跑C10", level:"中型", body:"suv", energy:"ev", m:{accel:6.02, powerKw:230, rangeKm:660, kwh100:13.8, chargeKw:null, wheelbase:2825, length:4749, width:1900}},
+  {id:'b6817', name:"深蓝S07", level:"中型", body:"suv", energy:"ev", m:{accel:6.8, powerKw:210, rangeKm:725, kwh100:12.6, chargeKw:null, wheelbase:2900, length:4750, width:1930}},
+  {id:'b7220', name:"宋L EV", level:"中型", body:"suv", energy:"ev", m:{accel:4.3, powerKw:380, rangeKm:662, kwh100:14.8, chargeKw:140, wheelbase:2930, length:4840, width:1950}},
+  {id:'b7815', name:"宋L DM-i", level:"中型", body:"suv", energy:"x", m:{accel:7.5, powerKw:160, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2782, length:4780, width:1898}},
+  {id:'b6851', name:"海狮07 EV", level:"中型", body:"suv", energy:"ev", m:{accel:4.2, powerKw:390, rangeKm:610, kwh100:15, chargeKw:240, wheelbase:2930, length:4830, width:1925}},
+  {id:'b7977', name:"海狮07 DM-i", level:"中大型", body:"suv", energy:"x", m:{price:16.98, accel:4.7, powerKw:350, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2820, length:4880, width:1920}},
+  {id:'b6898', name:"腾势N7", level:"中型", body:"suv", energy:"ev", m:{accel:3.9, powerKw:390, rangeKm:702, kwh100:14.9, chargeKw:230, wheelbase:2940, length:4860, width:1935}},
+  {id:'b7728', name:"岚图知音", level:"中型", body:"suv", energy:"ev", m:{accel:4.3, powerKw:405, rangeKm:901, kwh100:13.6, chargeKw:440, wheelbase:2925, length:4810, width:1900}},
+  {id:'b5048', name:"红旗HS5", level:"中型", body:"suv", energy:"ice", m:{accel:7.6, powerKw:185, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2870, length:4785, width:1905}},
+  {id:'b4744', name:"探岳", level:"中型", body:"suv", energy:"ice", m:{accel:7.4, powerKw:162, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2791, length:4695, width:1866}},
+  {id:'b3554', name:"昂科威Plus", level:"中型", body:"suv", energy:"ice", m:{accel:8, powerKw:174, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2833, length:4822, width:1883}},
+  {id:'b4102', name:"冠道", level:"中型", body:"suv", energy:"ice", m:{accel:8.8, powerKw:192, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2820, length:4858, width:1942}},
+  {id:'b4658', name:"宝马X3", level:"中型", body:"suv", energy:"ice", m:{accel:6.6, powerKw:190, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2975, length:4865, width:1920}},
+  {id:'b3862', name:"奔驰GLC", level:"中型", body:"suv", energy:"ice", m:{accel:6.5, powerKw:190, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2977, length:4826, width:1890}},
+  {id:'b4851', name:"奥迪Q5L", level:"中型", body:"suv", energy:"ice", m:{accel:5.8, powerKw:180, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2945, length:4842, width:1905}},
+  {id:'b3989', name:"凯迪拉克XT5", level:"中型", body:"suv", energy:"ice", m:{accel:8, powerKw:174, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2863, length:4888, width:1957}},
+  {id:'b6643', name:"问界M7", level:"中大型", body:"suv", energy:"ev", m:{price:27.98, accel:4.7, powerKw:392, rangeKm:710, kwh100:15.7, chargeKw:null, chargeEqMin:15.0,  wheelbase:3030, length:5080, width:1999}},
+  {id:'b6949', name:"理想L7", level:"中大型", body:"suv", energy:"x", m:{price:31.98, accel:5.3, powerKw:330, rangeKm:null, kwh100:null, chargeKw:null, chargeEqMin:25.2,  clearance:173, wheelbase:3005, length:5050, width:1995}},
+  {id:'b6910', name:"理想L8", level:"中大型", body:"suv", energy:"x", m:{price:36.98, accel:4.8, powerKw:420, rangeKm:null, kwh100:null, chargeKw:null, chargeEqMin:8.7,  wheelbase:3045, length:5135, width:2000}},
+  {id:'b6492', name:"小鹏G9", level:"中大型", body:"suv", energy:"ev", m:{price:24.88, accel:4.2, powerKw:423, rangeKm:725, kwh100:13.9, chargeKw:530, chargeEqMin:10.3,  wheelbase:2998, length:4891, width:1937}},
+  {id:'b7305', name:"智己LS6", level:"中大型", body:"suv", energy:"ev", m:{price:19.79, accel:3.48, powerKw:500, rangeKm:782, kwh100:12.7, chargeKw:396, chargeEqMin:13.9,  wheelbase:2960, length:4937, width:1988}},
+  {id:'b7243', name:"领克08 EM-P", level:"中型", body:"suv", energy:"x", m:{accel:null, powerKw:456, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2848, length:4825, width:1915}},
+  {id:'b6979', name:"魏牌蓝山", level:"中大型", body:"suv", energy:"x", m:{price:29.98, accel:4.9, powerKw:422, rangeKm:null, kwh100:null, chargeKw:null, chargeEqMin:31.0,  wheelbase:3050, length:5156, width:1980}},
+  {id:'b8171', name:"方程豹钛7", level:"中大型", body:"suv", energy:"ev", m:{price:17.98, accel:4.5, powerKw:515, rangeKm:755, kwh100:15.1, chargeKw:null, chargeEqMin:5.0,  wheelbase:2920, length:4999, width:1995}},
+  {id:'b8005', name:"唐L", level:"中大型", body:"suv", energy:"ev", m:{price:23.98, accel:3.9, powerKw:810, rangeKm:670, kwh100:17.4, chargeKw:1000, chargeEqMin:6.0,  wheelbase:2950, length:5040, width:1996}},
+  {id:'b771', name:"汉兰达", level:"中型", body:"suv", energy:"ice", m:{accel:null, powerKw:182, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2850, length:4965, width:1930}},
+  {id:'b3615', name:"锐界", level:"中型", body:"suv", energy:"ice", m:{accel:null, powerKw:185, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2950, length:5000, width:1961}},
+  {id:'b6700', name:"蔚来ES7", level:"中大型", body:"suv", energy:"ev", m:{accel:3.9, powerKw:480, rangeKm:620, kwh100:17.6, chargeKw:180, wheelbase:2960, length:4912, width:1987}},
+  {id:'b6653', name:"坦克500新能源", level:"中大型", body:"suv", energy:"x", m:{price:33.5, accel:4.3, powerKw:635, rangeKm:null, kwh100:null, chargeKw:null, chargeEqMin:18.0,  clearance:213, wheelbase:2850, length:5078, width:1934}},
+  {id:'b6548', name:"宝马X5", level:"中大型", body:"suv", energy:"ice", m:{price:59.8, accel:5.5, powerKw:280, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3105, length:5060, width:2004}},
+  {id:'b8479', name:"奔驰GLE", level:"中大型", body:"suv", energy:"ice", m:{price:59.98, accel:5.5, powerKw:280, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3115, length:5051, width:2018}},
+  {id:'b6526', name:"奥迪Q6", level:"中大型", body:"suv", energy:"ice", m:{price:46.76, accel:7.3, powerKw:220, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2980, length:5099, width:2014}},
+  {id:'b177', name:"沃尔沃XC90", level:"中大型", body:"suv", energy:"ice", m:{price:39.99, accel:6.7, powerKw:220, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2984, length:4953, width:1958}},
+  {id:'b5102', name:"凯迪拉克XT6", level:"中大型", body:"suv", energy:"ice", m:{price:39.27, accel:8.8, powerKw:174, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2863, length:5056, width:1964}},
+  {id:'b6738', name:"揽巡", level:"中大型", body:"suv", energy:"ice", m:{price:24.29, accel:7, powerKw:200, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2980, length:5007, width:2015}},
+  {id:'b6144', name:"领克09", level:"中大型", body:"suv", energy:"ice", m:{price:26.58, accel:8, powerKw:187, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2984, length:5042, width:1977}},
+  {id:'b4094', name:"传祺GS8", level:"中型", body:"suv", energy:"ice", m:{accel:null, powerKw:185, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2920, length:4980, width:1950}},
+  {id:'b5306', name:"星途揽月", level:"中大型", body:"suv", energy:"ice", m:{price:18.99, accel:null, powerKw:192, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2900, length:5010, width:1940}},
+  {id:'b4150', name:"红旗HS7", level:"中大型", body:"suv", energy:"ice", m:{price:29.08, accel:8.5, powerKw:185, rangeKm:null, kwh100:null, chargeKw:null, clearance:160, wheelbase:2920, length:4995, width:1960}},
+  {id:'b6354', name:"阿维塔11", level:"中大型", body:"suv", energy:"ev", m:{price:28.99, accel:3.9, powerKw:402, rangeKm:815, kwh100:15.8, chargeKw:240, chargeEqMin:18.0,  wheelbase:2975, length:4895, width:1970}},
+  {id:'b4232', name:"途昂", level:"中大型", body:"suv", energy:"ice", m:{price:25.99, accel:7.6, powerKw:200, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2980, length:5158, width:1991}},
+  {id:'b7513', name:"北京越野BJ60增程", level:"中大型", body:"suv", energy:"x", m:{price:27.98, accel:5.8, powerKw:403, rangeKm:null, kwh100:null, chargeKw:null, chargeEqMin:36.0,  clearance:215, wheelbase:2820, length:5040, width:1955}},
+  {id:'b6962', name:"小米SU7", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.08, powerKw:508, rangeKm:902, kwh100:11.7, chargeKw:null, wheelbase:3000, length:4997, width:1963}},
+  {id:'b6091', name:"极氪001", level:"中大型", body:"sedan", energy:"ev", m:{accel:2.83, powerKw:680, rangeKm:810, kwh100:13.9, chargeKw:null, wheelbase:3005, length:4977, width:1999}},
+  {id:'b7355', name:"智界S7", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.3, powerKw:365, rangeKm:855, kwh100:12.4, chargeKw:null, wheelbase:2950, length:4971, width:1963}},
+  {id:'b7630', name:"享界S9", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.92, powerKw:385, rangeKm:816, kwh100:13.2, chargeKw:null, wheelbase:3050, length:5160, width:2005}},
+  {id:'b7859', name:"汉L", level:"中大型", body:"sedan", energy:"ev", m:{accel:2.7, powerKw:810, rangeKm:701, kwh100:13.7, chargeKw:1000, wheelbase:2970, length:5050, width:1960}},
+  {id:'b7838', name:"腾势Z9", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.4, powerKw:710, rangeKm:630, kwh100:18.3, chargeKw:270, wheelbase:3125, length:5235, width:1990}},
+  {id:'b5264', name:"蔚来ET7", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.8, powerKw:480, rangeKm:675, kwh100:16, chargeKw:180, wheelbase:3060, length:5101, width:1987}},
+  {id:'b7554', name:"小鹏P7+", level:"中大型", body:"sedan", energy:"ev", m:{accel:5.9, powerKw:230, rangeKm:725, kwh100:10.9, chargeKw:null, wheelbase:3000, length:5071, width:1937}},
+  {id:'b7126', name:"阿维塔12", level:"中大型", body:"sedan", energy:"ev", m:{accel:2.9, powerKw:712, rangeKm:735, kwh100:14.2, chargeKw:480, wheelbase:3020, length:5020, width:1999}},
+  {id:'b18', name:"奥迪A6L", level:"中大型", body:"sedan", energy:"ice", m:{accel:4.6, powerKw:250, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3066, length:5142, width:1886}},
+  {id:'b65', name:"宝马5系", level:"中大型", body:"sedan", energy:"ice", m:{accel:6.5, powerKw:190, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3105, length:5175, width:1900}},
+  {id:'b197', name:"奔驰E级", level:"中大型", body:"sedan", energy:"ice", m:{accel:6.6, powerKw:190, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3094, length:5092, width:1880}},
+  {id:'b4206', name:"沃尔沃S90", level:"中大型", body:"sedan", energy:"ice", m:{accel:7.2, powerKw:184, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3061, length:5090, width:1879}},
+  {id:'b3802', name:"凯迪拉克CT6", level:"中大型", body:"sedan", energy:"ice", m:{accel:7.47, powerKw:174, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3109, length:5223, width:1890}},
+  {id:'b5566', name:"红旗H9", level:"中大型", body:"sedan", energy:"ice", m:{accel:6.5, powerKw:248, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3060, length:5137, width:1904}},
+  {id:'b5499', name:"比亚迪汉", level:"中大型", body:"sedan", energy:"ev", m:{accel:6.5, powerKw:240, rangeKm:705, kwh100:10.8, chargeKw:130, wheelbase:2920, length:4995, width:1910}},
+  {id:'b6915', name:"岚图追光", level:"中大型", body:"sedan", energy:"ev", m:{accel:6, powerKw:415, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:3000, length:5088, width:1970}},
+  {id:'b5845', name:"领克Z10", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.5, powerKw:580, rangeKm:702, kwh100:15.6, chargeKw:null, wheelbase:3005, length:5028, width:1966}},
+  {id:'b6012', name:"智己L7", level:"中大型", body:"sedan", energy:"ev", m:{accel:5.9, powerKw:250, rangeKm:708, kwh100:13.4, chargeKw:null, wheelbase:3100, length:5108, width:1960}},
+  {id:'b8105', name:"奥迪A6L e-tron", level:"中大型", body:"sedan", energy:"ev", m:{accel:4.3, powerKw:405, rangeKm:815, kwh100:13.8, chargeKw:270, wheelbase:3076, length:5073, width:1950}},
+  {id:'b6640', name:"奔驰EQE", level:"中大型", body:"sedan", energy:"ev", m:{accel:4.9, powerKw:300, rangeKm:681, kwh100:15.2, chargeKw:122, wheelbase:3120, length:4969, width:1906}},
+  {id:'b7935', name:"日产N7", level:"中大型", body:"sedan", energy:"ev", m:{accel:null, powerKw:210, rangeKm:635, kwh100:12, chargeKw:null, wheelbase:2915, length:4967, width:1895}},
+  {id:'b7398', name:"奕派eπ007", level:"中大型", body:"sedan", energy:"ev", m:{accel:3.7, powerKw:400, rangeKm:650, kwh100:11.9, chargeKw:245, wheelbase:2915, length:4890, width:1915}},
+  {id:'b882', name:"丰田皇冠", level:"中大型", body:"sedan", energy:"ice", m:{accel:null, powerKw:173, rangeKm:null, kwh100:null, chargeKw:null, wheelbase:2925, length:5020, width:1805}}
+];
