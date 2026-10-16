@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>竞品技术情报站 · 2026年9月</title>
-  <link rel="stylesheet" href="css/style.css?v=20260929i">
+  <link rel="stylesheet" href="css/style.css?v=20261015y">
 </head>
 <body>
   <!-- 顶部导航 -->
@@ -71,8 +71,16 @@
     <a class="fb-footer-link" href="https://acndoaymjsa1.feishu.cn/wiki/LSo6wXQpXiRmyBkDDZFcW4MdnYg" target="_blank" rel="noopener">📊 查看详细反馈统计 ↗</a>
   </div>
 
-  <script src="js/data.js?v=20260929i"></script>
-  <script src="js/app.js?v=20260929i"></script>
-  <script src="js/cmp.js?v=20260929i"></script>
+  <script>
+    // AI深度解读配置：proxyUrl指向本机 serve.py 的 /ai 中转（密钥只存服务端 ai_config.json）
+    // agentId 复用为模型ID；换模型改这里与 ai_config.json 即可
+    window.AI_LARK_CONFIG = { agentId: 'doubao-seed-2-1-lite-260915', proxyUrl: '/ai' };
+  </script>
+  <script src="js/data.js?v=20261015y"></script>
+  <script src="js/data_base.js?v=20261015y"></script>
+  <script src="js/data_dcd.js?v=20261015y"></script>
+  <script src="js/app.js?v=20261015y"></script>
+  <script src="js/cmp.js?v=20261015y"></script>
+  <script src="js/analysis.js?v=20261015y"></script>
 </body>
 </html>
