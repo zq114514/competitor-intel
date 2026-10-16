@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车辆图片管理（内部工具）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei", system-ui, sans-serif; background: #0b1020; color: #dfe7f5; padding: 22px 26px; }
+  h1 { font-size: 20px; margin-bottom: 6px; }
+  .sub { font-size: 13px; color: #8b9ab8; line-height: 1.7; margin-bottom: 16px; }
+  .bar { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  select { background: #141b2e; color: #dfe7f5; border: 1px solid #2a3550; border-radius: 8px; padding: 7px 10px; font-size: 14px; }
+  .tag { font-size: 12px; color: #7d8aa5; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .card { border: 1px solid #232c44; border-radius: 12px; padding: 10px; background: rgba(255,255,255,.02); transition: border-color .15s, box-shadow .15s; }
+  .card.drag { border-color: #2f7bff; box-shadow: 0 0 0 2px rgba(47,123,255,.35); background: rgba(47,123,255,.07); }
+  .pv { position: relative; width: 100%; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; background: #0c111d; border: 1px solid #1d253a; }
+  .pv img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+  .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #5a6a85; font-size: 13px; }
+  .meta { margin: 9px 2px 7px; }
+  .meta b { display: block; font-size: 14px; }
+  .meta span { font-size: 11px; color: #7d8aa5; }
+  .drop { border: 1.5px dashed #33405c; border-radius: 8px; padding: 10px; text-align: center; font-size: 12px; color: #8b9ab8; cursor: pointer; user-select: none; transition: .15s; }
+  .drop:hover { border-color: #2f7bff; color: #cfe0ff; background: rgba(47,123,255,.06); }
+  .st { font-size: 11px; margin-top: 6px; min-height: 15px; line-height: 15px; word-break: break-all; color: #8b9ab8; }
+  .st.ok { color: #37d67a; }
+  .st.err { color: #ff5a5a; }
+  .warn { background: rgba(255,180,60,.08); border: 1px solid rgba(255,180,60,.3); color: #ffce7a; border-radius: 8px; padding: 8px 12px; font-size: 12px; display: none; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+  <h1>车辆图片管理 <span class="tag">（内部工具，不在情报站导航中暴露）</span></h1>
+  <div class="sub">
+    把图片直接<b>拖到对应车型卡片</b>（或点击选择）即可替换，无需手动命名——自动按车型ID保存（如 <code>zj700.jpg</code>）并改写对应月份数据文件。<br>
+    支持 JPG / PNG / WebP / GIF，单张 ≤ 20MB；换格式时旧图自动清理。需通过 serve.py 启动后使用。
+  </div>
+  <div id="warn" class="warn"></div>
+  <div class="bar">
+    <label class="tag">月份：</label>
+    <select id="monthSel"></select>
+    <span class="tag" id="fileTag"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+
+<script>
+'use strict';
+let POOL = [], MONTH = '', DATA_FILE = '', CARS = [];
+
+async function evalFile(file, names) {
+  const res = await fetch(file + '?v=' + Date.now());
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const src = await res.text();
+  const ret = names.map(n => '(typeof ' + n + '!=="undefined"?' + n + ':null)').join(',');
+  return new Function(src + '\n;return [' + ret + '];')();
+}
+
+async function init() {
+  const warn = document.getElementById('warn');
+  try {
+    const [pool] = await evalFile('js/data.js', ['MONTHLY_POOL']);
+    POOL = pool || [];
+  } catch (e) {
+    showWarn('无法读取 js/data.js：' + e.message); return;
+  }
+  if (!POOL.length) { showWarn('MONTHLY_POOL 为空'); return; }
+  const sel = document.getElementById('monthSel');
+  sel.innerHTML = POOL.map(m => `<option value="${m.month}" ${m.isCurrent ? 'selected' : ''}>${m.label}</option>`).join('');
+  sel.onchange = () => loadMonth(sel.value);
+  loadMonth(sel.value);
+}
+
+function showWarn(msg) {
+  const w = document.getElementById('warn');
+  w.textContent = '⚠ ' + msg + '（如直接双击html打开会失败，请用桌面「车辆图片管理」快捷方式打开）';
+  w.style.display = 'block';
+}
+
+async function loadMonth(month) {
+  MONTH = month;
+  const m = POOL.find(x => x.month === month);
+  DATA_FILE = m.file;
+  document.getElementById('fileTag').textContent = '写入 ' + DATA_FILE;
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '<div class="tag">加载中…</div>';
+  try {
+    const v = await evalFile(DATA_FILE, ['REPORT_MONTH', 'CARS']);
+    // data.js 自身被 fetch 时其 CARS 即9月库，可正常用
+    CARS = v[1] || [];
+  } catch (e) {
+    grid.innerHTML = '';
+    showWarn('月份数据加载失败：' + e.message); return;
+  }
+  render();
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = CARS.map(c => `
+    <div class="card" data-cid="${c.id}">
+      <div class="pv">
+        <img alt="${c.name}" ${c.img ? `src="${c.img}?t=${Date.now()}"` : 'style="display:none"'}
+             onerror="this.style.display='none';this.parentNode.querySelector('.ph').style.display='flex'">
+        <div class="ph" ${c.img ? 'style="display:none"' : ''}>无图</div>
+      </div>
+      <div class="meta"><b>${c.name}</b><span>ID：${c.id} · ${c.price || '—'}</span></div>
+      <div class="drop">拖入图片 或 点击选择</div>
+      <div class="st"></div>
+      <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+    </div>`).join('');
+  grid.querySelectorAll('.card').forEach(bindCard);
+}
+
+function bindCard(card) {
+  const cid = card.dataset.cid;
+  const drop = card.querySelector('.drop');
+  const input = card.querySelector('input[type=file]');
+  const stEl = card.querySelector('.st');
+  const imgEl = card.querySelector('.pv img');
+  const phEl = card.querySelector('.ph');
+  const setSt = (t, cls) => { stEl.textContent = t || ''; stEl.className = 'st' + (cls ? ' ' + cls : ''); };
+
+  const upload = (file) => {
+    if (!file) return;
+    if (!/^image\/(jpeg|png|webp|gif)$/.test(file.type)) { setSt('✗ 仅支持 JPG/PNG/WebP/GIF', 'err'); return; }
+    if (file.size > 20 * 1024 * 1024) { setSt('✗ 超过20MB', 'err'); return; }
+    const blobUrl = URL.createObjectURL(file);
+    imgEl.style.display = ''; phEl.style.display = 'none'; imgEl.src = blobUrl;
+    setSt('上传中…（' + (file.size / 1024 / 1024).toFixed(1) + 'MB）');
+    const url = '/upload?cid=' + encodeURIComponent(cid) + '&file=' + encodeURIComponent(DATA_FILE);
+    fetch(url, { method: 'POST', body: file, headers: { 'Content-Type': file.type } })
+      .then(r => r.json().then(j => ({ ok: r.ok, j })))
+      .then(({ ok, j }) => {
+        if (!ok || !j.ok) throw new Error(j.error || '上传失败');
+        const t = CARS.find(x => x.id === cid); if (t) t.img = j.path;
+        imgEl.onload = () => URL.revokeObjectURL(blobUrl);
+        imgEl.src = j.path + '?t=' + Date.now();
+        setSt('✓ 已更新 → ' + j.path + '（已打开的主页刷新后生效）', 'ok');
+      })
+      .catch(err => { URL.revokeObjectURL(blobUrl); setSt('✗ ' + err.message, 'err'); });
+  };
+
+  drop.addEventListener('click', () => input.click());
+  input.addEventListener('change', () => { upload(input.files[0]); input.value = ''; });
+  card.addEventListener('dragover', e => { e.preventDefault(); card.classList.add('drag'); });
+  card.addEventListener('dragleave', e => {
+    if (e.target === card || !card.contains(e.relatedTarget)) card.classList.remove('drag');
+  });
+  card.addEventListener('drop', e => {
+    e.preventDefault(); card.classList.remove('drag'); upload(e.dataTransfer.files[0]);
+  });
+}
+
+init();
+</script>
+</body>
+</html>
