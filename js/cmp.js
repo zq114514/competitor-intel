@@ -450,7 +450,7 @@
         </td>
       </tr>`;
     };
-    return `<table class="cmp-pick-tbl"><thead><tr><th>层级</th><th>车型</th><th>指导价</th><th>级别</th><th>能源</th><th>操作</th></tr></thead>
+    return `<table class="cmp-pick-tbl"><thead><tr><th>层级</th><th>车型</th><th>售价</th><th>级别</th><th>能源</th><th>操作</th></tr></thead>
       <tbody>${upper.map(row).join('')}${same.map(row).join('')}</tbody></table>`;
   }
 
