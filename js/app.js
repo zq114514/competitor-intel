@@ -169,6 +169,32 @@ window.onCardClick = function(e, kind, id) {
   if (state.editMode) { e.stopPropagation(); return; }
   if (kind === 'tech') openTech(id); else openCar(id);
 };
+// 总览"当月新竞品"展开/折叠：默认只显示前8款（约两排），展开显示全部
+window.toggleNewCars = function() {
+  const grid = document.getElementById('ncGrid');
+  if (!grid) return;
+  const extras = grid.querySelectorAll('[data-ncextra]');
+  const arrow = document.getElementById('ncArrow');
+  const more = document.getElementById('ncMore');
+  const expand = extras.length && extras[0].style.display === 'none';
+  extras.forEach(el => { el.style.display = expand ? '' : 'none'; });
+  if (arrow) arrow.textContent = expand ? '▾' : '▸';
+  if (more) more.textContent = expand ? '收起 ▴' : '展开全部 ' + (extras.length + 8) + ' 款 ▾';
+  try { localStorage.setItem('ncExpanded', expand ? '1' : '0'); } catch (err) {}
+};
+// 总览"最新技术动态"展开/折叠：默认只显示前6条
+window.toggleTechBrief = function() {
+  const list = document.getElementById('tbList');
+  if (!list) return;
+  const extras = list.querySelectorAll('[data-tbextra]');
+  const arrow = document.getElementById('tbArrow');
+  const more = document.getElementById('tbMore');
+  const expand = extras.length && extras[0].style.display === 'none';
+  extras.forEach(el => { el.style.display = expand ? '' : 'none'; });
+  if (arrow) arrow.textContent = expand ? '▾' : '▸';
+  if (more) more.textContent = expand ? '收起 ▴' : '展开全部 ' + (extras.length + 6) + ' 条 ▾';
+  try { localStorage.setItem('tbExpanded', expand ? '1' : '0'); } catch (err) {}
+};
 // 编辑模式下显式打开详情弹窗（供"编辑详情"按钮使用）
 window.editDetail = function(e, kind, id) {
   e.stopPropagation();
@@ -454,6 +480,24 @@ function render() {
   else if (state.route === 'tech') renderTech();
   else renderCompare();
   bindCommon();
+  // 总览列表初始状态：新竞品默认前8、技术动态默认前6；用户展开过则记住
+  if (state.route === 'overview') {
+    const restore = (key, dataAttr, arrowId) => {
+      let exp = '0';
+      try { exp = localStorage.getItem(key) || '0'; } catch (err) {}
+      if (exp !== '1') {
+        document.querySelectorAll('[' + dataAttr + ']').forEach(el => { el.style.display = 'none'; });
+        const a = document.getElementById(arrowId); if (a) a.textContent = '▸';
+      }
+    };
+    restore('ncExpanded', 'data-ncextra', 'ncArrow');
+    restore('tbExpanded', 'data-tbextra', 'tbArrow');
+  }
+  // 板块级AI问答栏挂载（仅当 serve.py 代理已配置时出现）
+  if (window.AIAnalysis && AIAnalysis.AIAsk &&
+      (state.route === 'overview' || state.route === 'cars' || state.route === 'tech')) {
+    AIAnalysis.AIAsk.mount(state.route);
+  }
 }
 
 // ========== ① 总览页 ==========
@@ -468,21 +512,23 @@ function renderOverview() {
   $app.innerHTML = `
     <h1 class="page-title">${editable(REPORT_MONTH + ' 竞品技术情报总览', 'overview', 'title')}</h1>
     <p class="page-sub">${editable('本月新上市车型 / 零部件新技术 / 重点竞品一览 —— 数据口径详见页脚声明', 'overview', 'subtitle')}</p>
+    ${window.AIAnalysis ? AIAnalysis.AIAsk.html('overview') : ''}
 
     <div class="stats">
       <div class="stat"><div class="num">${OC.length}</div><div class="lbl">${editable('本月新上市/预售车型', 'overview', 'stat1_lbl')}</div></div>
       <div class="stat"><div class="num">${OT.length}</div><div class="lbl">${editable('零部件新技术动态', 'overview', 'stat2_lbl')}</div></div>
     </div>
 
-    <div class="section-title">当月新竞品</div>
-    <div class="newcar-grid">
-      ${OC.map(c => `
-        <div class="newcar-cell" onclick="onCardClick(event,'car','${c.id}')">
+    <div class="section-title nc-toggle" id="ncToggle" onclick="toggleNewCars()" title="点击展开/折叠全部"><span class="nc-arrow" id="ncArrow">▾</span> 当月新竞品（${OC.length}款，默认展示前8）</div>
+    <div class="newcar-grid" id="ncGrid">
+      ${OC.map((c, i) => `
+        <div class="newcar-cell"${i >= 8 ? ' style="display:none" data-ncextra' : ''} onclick="onCardClick(event,'car','${c.id}')">
           ${editDetailBtn('car', c.id)}
           <span class="nc-name">${editable(c.name, c.id, 'name')}</span>
           <span class="nc-meta">${cleanPrice(editable(c.price, c.id, 'price'))} · ${editable(c.power, c.id, 'power')}</span>
         </div>`).join('')}
     </div>
+    ${OC.length > 8 ? `<button class="nc-more" id="ncMore" onclick="toggleNewCars()">展开全部 ${OC.length} 款 ▾</button>` : ''}
 
     <div class="section-title">当月重点车型 · 流动展示</div>
     <div class="carousel" id="carousel">
@@ -509,15 +555,15 @@ function renderOverview() {
       <div class="dots" id="dots">${featured.map((_, i) => `<span class="dot${i === 0 ? ' on' : ''}" onclick="slideTo(${i})"></span>`).join('')}</div>
     </div>
 
-    <div class="section-title">最新技术动态</div>
-    <div class="tech-brief">
+    <div class="section-title nc-toggle" id="tbToggle" onclick="toggleTechBrief()" title="点击展开/折叠全部"><span class="nc-arrow" id="tbArrow">▾</span> 最新技术动态（${sortedTech.length}条，默认展示前6）</div>
+    <div class="tech-brief" id="tbList">
       ${sortedTech.map((t, i) => {
         const mm = parseInt(t.date.split('-')[0], 10);
         const dd = parseInt(t.date.split('-')[1], 10);
         const d = mm + '.' + dd;
         const rowClick = state.editMode ? '' : `onclick="onCardClick(event,'tech','${t.id}')"`;
         return `
-        <div class="tech-brief-row" ${rowClick}>
+        <div class="tech-brief-row" ${rowClick}${i >= 6 ? ' style="display:none" data-tbextra' : ''}>
           ${editDetailBtn('tech', t.id)}
           <span class="tb-idx">${i + 1}</span>
           <span class="tb-date">${editable(d, t.id, 'date')}</span>
@@ -526,6 +572,7 @@ function renderOverview() {
         </div>`;
       }).join('')}
     </div>
+    ${sortedTech.length > 6 ? `<button class="nc-more" id="tbMore" onclick="toggleTechBrief()">展开全部 ${sortedTech.length} 条 ▾</button>` : ''}
 
     <div class="section-title">本月技术趋势</div>
     ${(typeof TREND_LEAD !== 'undefined' && TREND_LEAD && TREND_LEAD.length) ? (Array.isArray(TREND_LEAD)
@@ -607,6 +654,7 @@ function renderCars() {
   $app.innerHTML = `
     <h1 class="page-title">本月新车型</h1>
     <p class="page-sub">${REPORT_MONTH}上市/预售新车 · 点击卡片查看完整配置与卖点 · 价格/参数以来源口径标注</p>
+    ${window.AIAnalysis ? AIAnalysis.AIAsk.html('cars') : ''}
     <div class="filters">
       <div class="filter-row">
         <span class="filter-label">动力架构</span>
@@ -710,6 +758,7 @@ function renderTech() {
   $app.innerHTML = `
     <h1 class="page-title">零部件新技术动态</h1>
     <p class="page-sub">${REPORT_MONTH} · 按26个功/性能维度归档（7大特性维度组）· 无标志性发布的维度未列示</p>
+    ${window.AIAnalysis ? AIAnalysis.AIAsk.html('tech') : ''}
     <div class="filters">
       <div class="filter-row">
         <span class="filter-label">特性维度</span>
@@ -841,7 +890,7 @@ function openCar(id) {
     body = c.dimPoints ? renderCarDimBody(c) : `
       <div class="body">
         <div class="spec-grid">
-          ${specBlock('指导价', c.price, c.id, 'price')}
+          ${specBlock('售价', c.price, c.id, 'price')}
           ${specBlock('续航/补能', c.range, c.id, 'range')}
           ${c.specs ? specBlock('快充时间', c.specs.fastCharge) : ''}
           ${specBlock('智驾方案', c.adas, c.id, 'adas')}
@@ -904,7 +953,7 @@ function renderCarDimBody(c) {
   return `
   <div class="body dim-body">
     <div class="key-specs">
-      ${ks('指导价', c.price)}
+      ${ks('售价', c.price)}
       ${ks('续航/补能', c.range)}
       ${ks('快充', c.specs ? c.specs.fastCharge : '')}
       ${ks('智驾方案', c.adas)}
@@ -990,6 +1039,12 @@ function openTech(id) {
         <p class="impact-note-full">${editable(t.impactNote, t.id, 'impactNote', true)}</p>
       </div>
 
+      ${(t.aiNote || '').trim() ? `
+      <div class="tech-block">
+        <div class="tech-block-title">📋 月报预分析（本地静态 · 生成于月报生产期，不耗AI）</div>
+        <p class="impact-note-full">${editable(t.aiNote, t.id, 'aiNote', true)}</p>
+      </div>` : ''}
+
       <div class="src-line">信息来源：<a href="${t.srcUrl}" target="_blank" rel="noopener">${editable(t.src, t.id, 'src')} ↗</a> ｜ ${CALIBER[t.caliber].label}</div>
     </div>`;
   document.getElementById('modalMask').classList.remove('hidden');
@@ -1054,8 +1109,10 @@ function initMonthPicker() {
 // 每个月报一个独立 js 文件（var 声明），用 new Function 在函数作用域求值，
 // 取出 {REPORT_MONTH,CARS,TECHS,TRENDS} 后替换全局可变绑定（var 挂在 window 上）
 const MONTH_CACHE = {};
-// 启动时缓存 9 月（当前 data.js）数据
-MONTH_CACHE[REPORT_MONTH_FILE()] = {
+// 启动时缓存 data.js 已加载的数据（data.js 作为 <script> 已注入全局变量）
+// 注意：key 必须用 data.js 实际对应的月份，而非 isCurrent 月份（当 isCurrent 指向其他月报文件时会错位）
+const _dataJsEntry = MONTHLY_POOL.find(m => m.file === 'js/data.js');
+MONTH_CACHE[_dataJsEntry ? _dataJsEntry.month : '2026-09'] = {
   REPORT_MONTH, CARS, TECHS, TRENDS,
   TREND_LEAD: (typeof TREND_LEAD !== 'undefined' ? TREND_LEAD : ''),
   SIGNALS: (typeof SIGNALS !== 'undefined' ? SIGNALS : [])
@@ -1112,6 +1169,24 @@ window.switchMonth = async function(month) {
 document.getElementById('monthBadge').textContent = `数据月份 · ${REPORT_MONTH}`;
 initMonthPicker();
 navigate();
+
+// 启动时若当前月报文件 != data.js，自动加载当前月数据
+(function autoLoadCurrentMonth() {
+  const cur = MONTHLY_POOL.find(m => m.isCurrent);
+  if (cur && cur.file !== 'js/data.js') {
+    loadMonthDataset(cur.month).then(ds => {
+      window.REPORT_MONTH = ds.REPORT_MONTH;
+      window.CARS = ds.CARS;
+      window.TECHS = ds.TECHS;
+      window.TRENDS = ds.TRENDS;
+      window.TREND_LEAD = ds.TREND_LEAD || '';
+      window.SIGNALS = ds.SIGNALS || [];
+      document.getElementById('monthBadge').textContent = `数据月份 · ${REPORT_MONTH}`;
+      initMonthPicker();
+      render();
+    }).catch(err => console.error('Auto-load current month failed:', err));
+  }
+})();
 
 // ============================================================
 // 悬浮反馈侧栏
