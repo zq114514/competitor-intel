@@ -1,0 +1,281 @@
+{
+  "source": "autohome getParamConf (B级)",
+  "fetched_at": "2026-10-14T10:07:12",
+  "formula": "eqMin=最快快充小时×60×60/(SOC结束%-SOC开始%)，等效20-80%分钟；clearance=全系最大最小离地间隙",
+  "records": [
+    {
+      "sid": "7793",
+      "name": "小米YU7",
+      "fastH_raw": "0.2h@10-80",
+      "socRaw_raw": "10-80",
+      "eqMin": 10.3,
+      "clearance": 172,
+      "clearRaw": "150/157/172",
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2026款 四驱GT"
+    },
+    {
+      "sid": "6950",
+      "name": "理想L6",
+      "fastH_raw": "0.2h@20-80",
+      "socRaw_raw": "20-80",
+      "eqMin": 12.0,
+      "clearance": 181,
+      "clearRaw": "181",
+      "note": "",
+      "bestTrim": "2026款 Ultra"
+    },
+    {
+      "sid": "7730",
+      "name": "智界R7",
+      "fastH_raw": "0.25h@30-80",
+      "socRaw_raw": "30-80",
+      "eqMin": 18.0,
+      "clearance": 161,
+      "clearRaw": "161/156/151/155",
+      "note": "",
+      "bestTrim": "2027款 纯电 Max"
+    },
+    {
+      "sid": "7977",
+      "name": "海狮07 DM-i",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "6643",
+      "name": "问界M7",
+      "fastH_raw": "0.25h@20-80",
+      "socRaw_raw": "20-80/30-80",
+      "eqMin": 15.0,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2026款 增程 Pro+四驱版 5座"
+    },
+    {
+      "sid": "6949",
+      "name": "理想L7",
+      "fastH_raw": "0.42h@20-80",
+      "socRaw_raw": "20-80",
+      "eqMin": 25.2,
+      "clearance": 173,
+      "clearRaw": "173",
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2025款 Pro 智能焕新版"
+    },
+    {
+      "sid": "6910",
+      "name": "理想L8",
+      "fastH_raw": "0.17h@10-80",
+      "socRaw_raw": "10-80",
+      "eqMin": 8.7,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "",
+      "bestTrim": "2026款 Ultra"
+    },
+    {
+      "sid": "6492",
+      "name": "小鹏G9",
+      "fastH_raw": "0.2h@10-80",
+      "socRaw_raw": "10-80",
+      "eqMin": 10.3,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "",
+      "bestTrim": "2026款 625 Max"
+    },
+    {
+      "sid": "7305",
+      "name": "智己LS6",
+      "fastH_raw": "0.27h@10-80",
+      "socRaw_raw": "10-80",
+      "eqMin": 13.9,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2026款 增程 66 Max"
+    },
+    {
+      "sid": "6979",
+      "name": "魏牌 蓝山",
+      "fastH_raw": "0.43h@30-80",
+      "socRaw_raw": "30-80",
+      "eqMin": 31.0,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "",
+      "bestTrim": "2026款 智能进阶版 四驱Max"
+    },
+    {
+      "sid": "8171",
+      "name": "钛7",
+      "fastH_raw": "0.15h@10-97",
+      "socRaw_raw": "30-80/10-97",
+      "eqMin": 6.2,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2026款 EV 675KM 后驱闪充版"
+    },
+    {
+      "sid": "8005",
+      "name": "唐L",
+      "fastH_raw": "0.1h@10-70",
+      "socRaw_raw": "10-70",
+      "eqMin": 6.0,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "",
+      "bestTrim": "2025款 EV 670KM激光雷达尊享型"
+    },
+    {
+      "sid": "6700",
+      "name": "蔚来ES7",
+      "fastH_raw": "0.5/0.6",
+      "socRaw_raw": "80",
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "快充有时间无SOC窗口，未归一"
+    },
+    {
+      "sid": "6653",
+      "name": "坦克500新能源",
+      "fastH_raw": "0.25h@30-80",
+      "socRaw_raw": "30-80",
+      "eqMin": 18.0,
+      "clearance": 213,
+      "clearRaw": "213/210",
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2026款 Hi4-Z 智享版"
+    },
+    {
+      "sid": "6548",
+      "name": "宝马X5",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "8479",
+      "name": "奔驰GLE",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "6526",
+      "name": "奥迪Q6",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "0177",
+      "name": "沃尔沃XC90",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "5102",
+      "name": "凯迪拉克XT6",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "6738",
+      "name": "揽巡",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "6144",
+      "name": "领克09",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "5306",
+      "name": "星途揽月",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "4150",
+      "name": "红旗HS7",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": 160,
+      "clearRaw": "160",
+      "note": ""
+    },
+    {
+      "sid": "6354",
+      "name": "阿维塔11",
+      "fastH_raw": "0.25h@30-80",
+      "socRaw_raw": "30-80",
+      "eqMin": 18.0,
+      "clearance": null,
+      "clearRaw": null,
+      "note": "多版型快充窗口不一，已按款型配对取最优",
+      "bestTrim": "2025款 改款 Max 增程版"
+    },
+    {
+      "sid": "4232",
+      "name": "途昂",
+      "fastH_raw": null,
+      "socRaw_raw": null,
+      "eqMin": null,
+      "clearance": null,
+      "clearRaw": null,
+      "note": ""
+    },
+    {
+      "sid": "7513",
+      "name": "北京越野BJ60增程",
+      "fastH_raw": "0.5h@30-80",
+      "socRaw_raw": "30-80",
+      "eqMin": 36.0,
+      "clearance": 215,
+      "clearRaw": "215",
+      "note": "",
+      "bestTrim": "2026款 增程行政版 5座"
+    }
+  ]
+}
