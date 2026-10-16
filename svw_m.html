@@ -1,0 +1,156 @@
+<!doctype html><html lang="en"><head><title>上汽大众-大众车辆配置器-车辆配置挑选</title><meta name="description" content="上汽大众车辆配置器，为您提供各种品牌车型，外观、内饰及选装均可随意搭配，更多车辆配置相关信息请关注上汽大众官网。"><meta name="keywords" content="大众,大众汽车,上汽大众,上海大众,大众车辆配置器,车辆配置器,上汽大众车辆配置器"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#000000"/><meta name="mobile-web-app-capable" content="yes"/><meta name="renderer" content="webkit"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="HandheldFriendly" content="true"/><meta name="MobileOptimized" content="320"/><meta name="screen-orientation" content="portrait"/><meta name="x5-orientation" content="portrait"/><meta name="full-screen" content="yes"/><meta name="x5-fullscreen" content="true"/><meta name="browsermode" content="application"/><meta name="x5-page-mode" content="app"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/><meta name="msapplication-tap-highlight" content="no"/><meta name="author" content="上汽大众"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><meta http-equiv="x-dns-prefetch-control" content="on"/><link rel="dns-prefetch" href="//ec-qa.oss-cn-shanghai.aliyuncs.com"/><link rel="dns-prefetch" href="//g.alicdn.com"/><link rel="preconnect" href="//g.alicdn.com"/><link rel="preconnect" href="//ec-qa.oss-cn-shanghai.aliyuncs.com"/><link rel="shortcut icon" href="/carconfig/favicon.ico"/><link rel="stylesheet" href="/carconfig/styles/base.css"><script src="/carconfig/js/inobounce.js"></script><script src="/carconfig/js/nip.min.v2.1.0edit.js"></script><script src="/carconfig/js/lottie.min.js"></script><script src="/carconfig/js/dygl-sdk.iife.js"></script><script>window.PointerEvent = void 0;</script><script>var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+      console.log('微信浏览器');
+      document.writeln(
+        '<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"><\/script>'
+      );
+    } else if (/swan\//.test(window.navigator.userAgent) || /^webswan-/.test(window.name)) {
+      document.writeln(
+        '<script type="text/javascript" src="https://b.bdstatic.com/searchbox/icms/searchbox/js/swan-2.0.30.js"><\/script>'
+      );
+    } else if (window.navigator.userAgent.indexOf('aweme') > -1 || window.navigator.userAgent.indexOf('douyin') > -1) {
+      document.writeln(
+        '<script type="text/javascript" src="https://lf3-cdn-tos.bytegoofy.com/obj/goofy/developer/jssdk/jssdk-1.2.1.js"><\/script>'
+      );
+    }</script><script>function downloadJSAtOnload(src) {
+      for (var i = 0; i < src.length; ++i) {
+        var element = document.createElement("script");
+        element.src = src[i];
+        document.body.appendChild(element);
+      }
+    }
+
+    function downloadCSSAtOnload(url) {
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = url;
+      document.getElementsByTagName("head")[0].appendChild(link);
+    }
+
+    (function () {
+      window.canWebp = localStorage.getItem("vw_carconfig_canWebp");
+      if (window.canWebp == null) {
+        try {
+          window.canWebp =
+            document
+              .createElement("canvas")
+              .toDataURL("image/webp")
+              .indexOf("data:image/webp") == 0;
+          localStorage.setItem("vw_carconfig_canWebp", window.canWebp);
+        } catch (err) {
+          window.canWebp = false;
+          localStorage.setItem("vw_carconfig_canWebp", false);
+        }
+      } else {
+        window.canWebp = window.canWebp === "true" ? true : false;
+      }
+
+      window.isApp = localStorage.getItem("vw_carconfig_isApp");
+      if (!window.myHistory) {
+        window.myHistory = window.location.href;
+      }
+      if (window.isApp == null) {
+        var ua = navigator.userAgent.toLowerCase();
+        window.isApp =
+          ua.match(/svw/i) != null &&
+          (ua.match(/android/i) != null || ua.match(/ios/i) != null);
+        localStorage.setItem("vw_carconfig_isApp", window.isApp);
+      } else {
+        window.isApp = window.isApp === "true" ? true : false;
+      }
+      // if (window.isApp) {
+      //   document.documentElement.className = "one-app";
+      //   window.webViewJavascriptBridge.init({ key: "SVW-MOS-SX" });
+      // }
+      // window.isApp = true;
+    })();
+
+    if (!window.Promise) {
+      document.writeln(
+        '<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' +
+        ">" +
+        "<" +
+        "/" +
+        "script>"
+      );
+    }
+    window.onload = function () {
+      // 阻止ios10以后safari可以手动放大的问题
+      document.addEventListener("touchstart", function (event) {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+        }
+      });
+      var lastTouchEnd = 0;
+      document.addEventListener(
+        "touchend",
+        function (event) {
+          var now = new Date().getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        },
+        false
+      );
+      document.addEventListener("gesturestart", function (event) {
+        event.preventDefault();
+      });
+
+      // const loading = document.getElementById('newLoading');
+      // if (loading) {
+      //   loading.style.display = 'none';
+      // }
+    };
+    if (window.location.href.indexOf("fromHRSCC") !== -1) {
+      window.fromHRSCC = 1;
+    }
+
+    (function () {
+      try {
+        isIOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (isIOS) {
+          // window.history.pushState({}, "title", "#");
+          document.addEventListener(
+            "WeixinJSBridgeReady",
+            function onBridgeReady() {
+              // WeixinJSBridge.call("hideToolbar"); // 隐藏底部状态栏
+              console.log("ios");
+              // WeixinJSBridge.call('showToolbar');        // 显示底部状态栏
+              // WeixinJSBridge.call('showOptionMenu');     // 显示右上角的三个点的选项
+            }
+          );
+        }
+      } catch (e) {
+        //TODO handle the exception
+      }
+    })();
+
+    // function isMobiless () {
+    //   let userAgentInfo = navigator.userAgent;
+    //   let Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPod'];
+    //   let flag = false;
+    //   for (let v = 0; v < Agents.length; v++) {
+    //     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+    //       flag = true;
+    //       break;
+    //     }
+    //   }
+    //   return flag;
+    // };
+    // // window.isApp = true
+    // let pathname = window.location.pathname == '/' ? true : false;
+    // if (isMobiless() && pathname) {
+    //   let loading = document.createElement('div');
+    //   loading.id = 'newLoading';
+    //   setTimeout(() => {
+    //     document.body.appendChild(loading);
+    //   }, 100)
+      
+    //   // 当Vue应用加载完成后，隐藏loading
+    //   window.onload = function() {
+    //     loading.style.display = 'none';
+    //   };
+    // }</script><script defer="defer" src="/carconfig/chunk-vendors.c78ae284e545af33.js"></script><script defer="defer" src="/carconfig/app.c78ae284e545af33.js"></script><link href="/carconfig/css/chunk-vendors.1b3bd7fb.css" rel="stylesheet"><link href="/carconfig/css/app.05dbcc6d.css" rel="stylesheet"></head><body><div id="app"></div><script>// const vConsole = new VConsole();
+    // console.log('vConsole')</script><script src="/carconfig/fontre/js/libs/svwmin.js"></script><script src="/carconfig/fontre/js/libs/decoder.v1.0.js"></script></body></html>
