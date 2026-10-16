@@ -654,7 +654,7 @@ var CARS = [
       '智驾芯片': '神玑NX9031',
       '激光雷达': '1颗'
     },
-    img: 'img/ec6.jpg'
+    img: 'img/ec6.webp'
   },
   {
     id: 'i60', name: '埃安 i60 2027款', brand: '广汽埃安', power: '增程+纯电', seg: '家用SUV', ahLevel: '紧凑', // 2026-10 AH官方级别=紧凑型SUV（车系8245），评审裁定跟随
@@ -710,7 +710,7 @@ var CARS = [
       '城市领航': '支持（高配）',
       '气囊数': '6'
     },
-    img: 'img/i60.jpg'
+    img: 'img/i60.webp'
   },
   {
     id: 'tt', name: '吉利银河 TT', brand: '吉利银河', power: '纯电', seg: '运动轿车',
@@ -1172,7 +1172,7 @@ var CARS = [
       '气囊数': '11',
       '安全认证': '高强钢铝及复合材料占比85.4%、2000MPa热成型钢、7纵13横车身；第二代刀片电池边充边针刺验证'
     },
-    img: 'img/fangchengs.jpg'
+    img: 'img/fangchengs.webp'
   },
  {
     id: 'tank300hk', name: '坦克300 虎克之路', brand: '坦克（长城汽车）', power: '燃油', seg: '硬派越野', ahLevel: '紧凑', // 2026-10 AH对300系列官方定级=紧凑型SUV（车系7210），评审裁定跟随
@@ -2867,7 +2867,7 @@ var CARS = [
       '可变悬架功能': '空气悬架（Ultra标配/Max+选装）',
       '气囊数': '7'
     },
-    img: 'img/zj-r7new.jpg'
+    img: 'img/zj-r7new.webp'
   },
  {
     id: 'ls6new', name: '智己 LS6（新一代）', brand: '智己', power: '纯电', seg: '中大型SUV',
